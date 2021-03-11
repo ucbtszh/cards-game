@@ -1,19 +1,19 @@
 <template>
   <div>
     <h2>Cards in this trial:</h2>
-    <!-- <Cards :n_red="3" :random_choice="randomPick()" :index="0" /> -->
 
     <div id="taskloop" v-for="(trial, index) in trials" :key="index">
-      <div v-show="index === trialIndex">
+    <Cards :n_red="trial.n_red" :random_choice="randomPick()" :index="index" />
+      <!-- <div v-show="index === trialIndex">
         <div id="stimuli">
           <div class="red-card" v-for="n in trial.n_red" :key="'r' + n"></div>
           <div class="blue-card" v-for="n in n_blue" :key="'b' + n"></div>
-        </div>
+        </div> -->
         <!-- <Report :outcome="trial.outcome" /> -->
         <!-- Outcome -->
         <!-- <button @click="next()">NEXT</button> -->
 
-         <div class="next-btn">
+         <!-- <div class="next-btn">
           <v-btn
             color="primary"
             elevation="3"
@@ -22,19 +22,19 @@
             >SUBMIT</v-btn
           >
           </div>
-      </div>
+      </div> -->
       </div>
   </div>
 </template>
 
 <script>
-// import Cards from '@/components/Cards.vue'
+import Cards from '@/components/Cards.vue'
 // import Report from '@/components/Report.vue'
 import trials from "@/assets/trials_40shuffled.json";
 
 export default {
   components: {
-    // Cards,
+    Cards,
     // Report
   },
   data() {

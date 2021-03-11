@@ -90,18 +90,10 @@ export default {
   },
   props: ["outcome", "index"],
   methods: {
-    // hide(elementId) {
-    //   document.getElementById(elementId).style.display = "none";
-    // },
-    // appear(elementId) {
-    //   document.getElementById(elementId).style.display = "inline-block";
-    // },
     reportRed: function() {
-    //   this.hide("reportBlue");
       this.reportedCard = -1;
     },
     reportBlue: function() {
-    //   this.hide("reportRed");
       this.reportedCard = 1;
     },
     timing: function() {

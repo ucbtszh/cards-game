@@ -18,12 +18,12 @@ export default {
       let container_div = document.getElementById("stimuli");
       let child_divs = container_div.getElementsByTagName("div");
       child_divs[this.random_choice].style.borderWidth = "10px";
-      child_divs[this.random_choice].style.borderColor = "green";
       child_divs[this.random_choice].style.padding = "10px";
+      child_divs[this.random_choice].style.borderColor = "green";
     },
   },
   mounted() {
-    this.time = setTimeout(this.highlightCard, 1200);
+    this.timer = setTimeout(this.highlightCard, 2000);
   },
   beforeDestroy() {
     clearTimeout(this.timer);
