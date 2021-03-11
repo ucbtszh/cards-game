@@ -40,14 +40,6 @@
         <ComprehensionCheck />
       </div>
     </swiper-slide>
-    <swiper-slide>
-      <div class="instruction">
-        Well done!<br><br>
-        Next, you will play three practice trials.<br>
-        After these, the actual game will start. <br><br>
-        <button @click="$router.push('task')">Continue</button>
-      </div>
-    </swiper-slide>
     <div class="swiper-pagination" slot="pagination"></div>
     <div class="swiper-button-prev" slot="button-prev"></div>
     <div class="swiper-button-next" slot="button-next"></div>
@@ -90,9 +82,7 @@ export default {
   margin-top: 5%;
   overflow: hidden;
 }
-
 .instruction {
   margin: 0px 60px 100px 60px;
-  line-height: 24pt;
 }
 </style>

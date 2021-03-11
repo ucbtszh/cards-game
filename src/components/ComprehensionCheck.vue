@@ -3,7 +3,7 @@
                 <div id="c1" v-show="showC1">
                 <v-form>
                         <v-radio-group label="In each trial, you and the other player will be presented with an identical set of five cards."
-                        rules="[v => (v) !!v || 'Please answer this question.']" v-model="c1">
+                        :rules="[(v) => !!v || 'Please answer this question.']" v-model="c1">
                                 <v-radio
                                 value="1"
                                 label="True"
@@ -23,7 +23,7 @@
                 <div id="c2" v-show="showC2">
                 <v-form>
                         <v-radio-group label="The computer picks one card for you and the other player at random. Which of the below statements is true?"
-                        rules="[v => (v) !!v || 'Please answer this question.']" v-model="c2">
+                        :rules="[(v) => !!v || 'Please answer this question.']" v-model="c2">
                                 <v-radio
                                 value="a"
                                 label="The computer picks the same card for you and the other player"
@@ -48,7 +48,7 @@
                 <div id="c3" v-show="showC3">
                 <v-form>
                         <v-radio-group label="Let’s say you reported the blue card and the other player reported red:"
-                        rules="[v => (v) !!v || 'Please answer this question.']" v-model="c3">
+                        :rules="[(v) => !!v || 'Please answer this question.']" v-model="c3">
                                 <v-radio
                                 value="a"
                                 label="You win 1 point. The other player wins nothing."
@@ -79,7 +79,7 @@
         Well done!<br><br>
         Next, you will play three practice trials.<br>
         After these, the actual game will start. <br><br>
-        <button @click="$router.push('trial')">Continue</button>
+        <v-btn color="primary" elevation="3" @click="$router.push('trial')">Continue</v-btn>
                 </div>
         </div>
 </template>
@@ -100,19 +100,20 @@ export default {
         },
         methods: {
                 validateC1: function() {
-                        if (this.c1 === 1) {
+                        if (this.c1 == 1) {
                                 this.showC1 = false
                                 this.showC2 = true
                         }
-                        alert("This answer is incorrect.")
+                        else alert("This answer is incorrect.")
                 },
                 validateC2: function() {
+                        console.log(this.c2)
                         if (this.c2 === 'c') {
                                 this.showC1 = false
                                 this.showC2 = false
                                 this.showC3 = true
                         }
-                        alert("This answer is incorrect. Please review the instructions (click on 'Previous') and try again.")
+                        else alert("This answer is incorrect. Please review the instructions (click on the arrow to go back) and try again.")
                 },
                 validateC3: function() {
                         if (this.c3 === 'c') {
@@ -121,7 +122,7 @@ export default {
                                 this.showC3 = false
                                 this.showC4 = true
                         }
-                        alert("This answer is incorrect. Please review the instructions (click on 'Previous') and try again.")
+                        else alert("This answer is incorrect. Please review the instructions (click on the arrow to go back) and try again.")
                 }
         }
 }
