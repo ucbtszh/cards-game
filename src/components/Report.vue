@@ -23,12 +23,12 @@
     </div>
 
     <div id="outcome" v-show="outcomeReport">
-      <h3>{{ outcomeWin() }}</h3>
-      <div id="reportedCard">
+      <h3 v-show="opponentReport">{{ outcomeWin() }}</h3>
+      <div id="reportedCard" class="trialresult">
         <h2>{{ reportText }}</h2>
         <div :class="outcomeCard(reportedCard)"></div>
       </div>
-      <div id="opponentReport" v-show="opponentReport">
+      <div id="opponentReport" v-show="opponentReport" class="trialresult">
         <h2>{{ outcomeText }}</h2>
         <div :class="outcomeCard(outcome)"></div>
       </div>
@@ -46,7 +46,6 @@
             step="1"
             ticks="always"
             tick-size="5"
-            required
           ></v-slider>
         </v-card-text>
 
@@ -54,7 +53,7 @@
           color="success"
           :disabled="!isValid"
           elevation="3"
-          @click="submit()"
+          @click="submit"
           >Submit</v-btn
         >
       </v-form>
@@ -74,7 +73,7 @@ export default {
       outcomeReport: false,
       opponentReport: false,
       ratingReport: false,
-      isValid: false,
+      isValid: true,
       honestyResponse: "",
       honestyLabels: [
           'Not honest at all',
@@ -96,16 +95,18 @@ export default {
     reportBlue: function() {
       this.reportedCard = 1;
     },
-    timing: function() {
-      return Math.floor(Math.random() * [700, 800, 900, 1000, 1100, 1200, 1300, 1400].length);
-    },
     toggleDisplay: function() {
       this.displayReport = false;
       this.outcomeReport = true;
-      setTimeout(this.opponentReport = true, this.timing);
-      setTimeout(this.ratingReport = true, 3000);
-      setTimeout(this.outcomeReport = false, 5000);
-      setTimeout(this.ratingReport = true, 5000);
+      setTimeout(this.showOutcome, 1000)
+    },
+    showOutcome: function() {
+      this.opponentReport = true;
+      setTimeout(this.showRating, 2000)
+    },
+    showRating: function() {
+        this.outcomeReport = false
+        this.ratingReport = true
     },
     outcomeCard(cardvalue) {
       if (cardvalue == -1) return "red-card";
@@ -117,8 +118,8 @@ export default {
       return "YOU LOSE";
     },
     submit: function() {
-      console.log(this.honestyResponse);
-      // logic: when submit, emit event to Task parent to proceed to next trial with index++
+      console.log("honesty rating:", this.honestyResponse); // TODO: need to send to DB
+      this.$emit('ratingdone')
     }
   },
 };

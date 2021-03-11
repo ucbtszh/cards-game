@@ -40,7 +40,7 @@
         <ComprehensionCheck />
       </div>
     </swiper-slide>
-    <div class="swiper-pagination" slot="pagination"></div>
+    <!-- <div class="swiper-pagination" slot="pagination"></div> -->
     <div class="swiper-button-prev" slot="button-prev"></div>
     <div class="swiper-button-next" slot="button-next"></div>
   </swiper>
@@ -80,7 +80,7 @@ export default {
 <style scoped>
 .swiper {
   margin-top: 5%;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 .instruction {
   margin: 0px 60px 100px 60px;

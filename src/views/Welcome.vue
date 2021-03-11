@@ -77,7 +77,8 @@ I would be happy for the data I provide to be archived at 26 Bedford Way, London
 I understand that other authenticated researchers at UCL will have access to my anonymised data. <br><br>
 
 If you would like your contact details to be retained so that you can be contacted in the future by UCL researchers who would like to invite you to participate in follow up studies to this project, or in future studies of a similar nature, please tick the appropriate box below.<br>
-<v-radio-group>
+<v-form v-model="valid">
+<v-radio-group :rules="[(v) => !!v || 'Please answer this question.']">
   <v-radio
   label="Yes, I would be happy to be contacted in this way"
   value="1"
@@ -89,7 +90,8 @@ If you would like your contact details to be retained so that you can be contact
   >
   </v-radio>
 </v-radio-group>
-    <v-btn color="primary" elevation="3" @click="$router.push('instruction')">Agree and continue</v-btn>
+    <v-btn color="primary" elevation="3" :disabled="!valid" @click="$router.push('instruction')">Agree and continue</v-btn>
+</v-form>
     </div>
   </div>
 </template>
@@ -100,6 +102,7 @@ export default {
     return {
       showInfo: true,
       showConsent: false,
+      valid: false,
     }
   },
   methods: {

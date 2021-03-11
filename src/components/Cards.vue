@@ -1,7 +1,8 @@
 <template>
-  <div id="stimuli">
-    <div class="red-card" v-for="n_red in n_red" :key="'r'+n_red"></div>
-    <div class="blue-card" v-for="n_blue in n_blue" :key="'b'+n_blue"></div>
+  <div :id="index">
+    <h3>{{ header }}</h3>
+    <div class="red-card" v-for="n_red in n_red" :key="'r' + n_red"></div>
+    <div class="blue-card" v-for="n_blue in n_blue" :key="'b' + n_blue"></div>
   </div>
 </template>
 
@@ -10,23 +11,29 @@ export default {
   data() {
     return {
       n_blue: 5 - this.n_red,
-    }
+      header: "Cards in this trial:",
+    };
   },
-  props: ["n_red", "random_choice", "index"],
+  props: ["n_red", "random_choice", "index", "report_duration"],
   methods: {
-    highlightCard() {
-      let container_div = document.getElementById("stimuli");
+    highlightCard: function() {
+      let container_div = document.getElementById(this.index);
       let child_divs = container_div.getElementsByTagName("div");
-      child_divs[this.random_choice].style.borderWidth = "10px";
-      child_divs[this.random_choice].style.padding = "10px";
+      this.header = "Computer’s random card pick:";
+      child_divs[this.random_choice].style.borderWidth = "8px";
       child_divs[this.random_choice].style.borderColor = "green";
     },
+    sayDone: function() {
+      this.$emit('done')
+    }
   },
   mounted() {
-    this.timer = setTimeout(this.highlightCard, 2000);
+    this.one = setTimeout(this.highlightCard, 2000)
+    this.two = setTimeout(this.sayDone, 4000)
   },
   beforeDestroy() {
-    clearTimeout(this.timer);
+    clearTimeout(this.one);
+    clearInterval(this.two);
   },
 };
 </script>
