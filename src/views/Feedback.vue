@@ -1,10 +1,10 @@
 <template>
   <div id="feedback">
     <v-form v-model="isValid">
-      To what extent did you feel you understood the task?<br />
       <v-card-text>
         <v-slider
           v-model="understoodTaskResponse"
+          label="To what extent did you feel you understood the task?"
           :tick-labels="understoodTask"
           :max="7"
           :rules="[(v) => !!v || 'Please answer this question']"
@@ -14,18 +14,20 @@
           required
         ></v-slider>
       </v-card-text>
+      <br>
       <v-text-field
         label="Please let us know any further feedback here."
         outlined
         v-model="feedback"
         style="width:500px;"
       ></v-text-field>
+      <br>
       <v-text-field
         label="What do you think was the purpose of this study?"
         outlined
         v-model="studyPurpose"
         style="width:500px;"
-        :rules="[(v) => v.length >= 5 || 'Please answer this question.']"
+        :rules="[(v) => v.length >= 10 || 'Please answer this question.']"
       ></v-text-field>
 
       <v-btn

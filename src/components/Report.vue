@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="report" v-show="displayReport">
+    <div :id="index" v-show="displayReport">
       <h3>{{ displayText }}</h3>
       <div
         class="red-card"
@@ -35,13 +35,13 @@
     </div>
 
     <div id="honesty-rating" v-show="ratingReport">
-      <h3>How honest do you think the other player is?</h3>
+      <h3>{{ honestyQ() }}</h3>
       <v-form v-model="isValid">
         <v-card-text>
           <v-slider
             v-model="honestyResponse"
             :tick-labels="honestyLabels"
-            :max="7"
+            :max="6"
             :rules="[(v) => !!v || 'Please answer this question.']"
             step="1"
             ticks="always"
@@ -82,7 +82,6 @@ export default {
           '',
           '',
           '',
-          '',
           'Completely honest'
       ]
     };
@@ -111,6 +110,12 @@ export default {
     outcomeCard(cardvalue) {
       if (cardvalue == -1) return "red-card";
       return "blue-card";
+    },
+    honestyQ: function() {
+      if (this.index && (this.index % 5 === 0)) {
+        return "Please select the middle bullet (4th circle)."
+      }
+      return "How honest do you think the other player is?"
     },
     outcomeWin: function() {
       if (this.reportedCard === this.outcome) return "IT'S A TIE";

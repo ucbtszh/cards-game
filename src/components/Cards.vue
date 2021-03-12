@@ -31,9 +31,18 @@ export default {
     this.one = setTimeout(this.highlightCard, 2000)
     this.two = setTimeout(this.sayDone, 4000)
   },
-  beforeDestroy() {
-    clearTimeout(this.one);
-    clearInterval(this.two);
-  },
+  // beforeDestroy() {
+  //   clearTimeout(this.one);
+  //   clearInterval(this.two);
+  // },
+  watch: {
+    report_duration: {
+      handler: function() {
+        console.log(this.report_duration)
+        setTimeout(this.highlightCard, 2000)
+        setTimeout(this.sayDone, 4000)
+      }
+    }
+  }
 };
 </script>
