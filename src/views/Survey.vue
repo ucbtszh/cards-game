@@ -145,9 +145,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-#demographics {
-  margin-top: 5%;
-}
-</style>

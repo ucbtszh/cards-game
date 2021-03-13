@@ -1,7 +1,7 @@
 <template>
         <div id="comprehension">
                 <div id="c1" v-show="showC1">
-                <v-form>
+                <v-form v-model="isvalid">
                         <v-radio-group label="In each trial, you and the other player will be presented with an identical set of five cards."
                         :rules="[(v) => !!v || 'Please answer this question.']" v-model="c1">
                                 <v-radio
@@ -15,13 +15,13 @@
                                 >
                                 </v-radio>
                         </v-radio-group>
-                        <v-btn @click="validateC1()">
+                        <v-btn color="success" elevation="3" :disabled="!isvalid" @click="validateC1()">
                                 Submit
                         </v-btn>
                 </v-form>
                 </div>
                 <div id="c2" v-show="showC2">
-                <v-form>
+                <v-form v-model="isvalid2">
                         <v-radio-group label="The computer picks one card for you and the other player at random. Which of the below statements is true?"
                         :rules="[(v) => !!v || 'Please answer this question.']" v-model="c2">
                                 <v-radio
@@ -40,13 +40,13 @@
                                 >
                                 </v-radio>
                         </v-radio-group>
-                        <v-btn @click="validateC2()">
+                        <v-btn color="success" elevation="3" :disabled="!isvalid2" @click="validateC2()">
                                 Submit
                         </v-btn>
                 </v-form>
                 </div>
                 <div id="c3" v-show="showC3">
-                <v-form>
+                <v-form v-model="isvalid3">
                         <v-radio-group label="Let’s say you reported the blue card and the other player reported red:"
                         :rules="[(v) => !!v || 'Please answer this question.']" v-model="c3">
                                 <v-radio
@@ -70,7 +70,7 @@
                                 >
                                 </v-radio>
                         </v-radio-group>
-                        <v-btn @click="validateC3()">
+                        <v-btn color="success" elevation="3" :disabled="!isvalid3" @click="validateC3()">
                                 Submit
                         </v-btn>
                 </v-form>
@@ -79,7 +79,7 @@
         Well done!<br><br>
         Next, you will play three practice trials.<br>
         After these, the actual game will start. <br><br>
-        <v-btn color="primary" elevation="3" @click="$router.push('trial')">Continue</v-btn>
+        <v-btn color="primary" elevation="3" @click="$router.push('testtrials')">Continue</v-btn>
                 </div>
         </div>
 </template>
@@ -96,6 +96,9 @@ export default {
                         showC2: false, 
                         showC3: false,
                         showC4: false,
+                        isvalid: false,
+                        isvalid2: false,
+                        isvalid3: false,
                 }
         },
         methods: {

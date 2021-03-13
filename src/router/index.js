@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Welcome from '../views/Welcome.vue'
 import Instruction from '../views/Instruction.vue'
 import Task from '../views/Task.vue'
+import Test from '../views/Trials.vue'
 import Feedback from '../views/Feedback.vue'
 import Survey from '../views/Survey.vue'
 import End from '../views/End.vue'
@@ -24,6 +25,11 @@ const routes = [
     path: '/task',
     name: 'Task',
     component: Task
+  },
+  {
+    path: '/testtrials',
+    name: 'Trials',
+    component: Test
   },
   {
     path: '/feedback',

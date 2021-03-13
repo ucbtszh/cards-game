@@ -113,10 +113,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-#welcome {
-  margin-top: 5%;
-  margin-bottom: 5%;
-}
-</style>

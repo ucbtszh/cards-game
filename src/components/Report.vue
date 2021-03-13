@@ -23,19 +23,21 @@
     </div>
 
     <div id="outcome" v-show="outcomeReport">
-      <h3 v-show="opponentReport">{{ outcomeWin() }}</h3>
+      <h2 v-show="opponentReport">{{ outcomeWin() }}</h2>
       <div id="reportedCard" class="trialresult">
         <h2>{{ reportText }}</h2>
-        <div :class="outcomeCard(reportedCard)"></div>
+        <div :class="outcomeCard(reportedCard)"></div><br>
+        <img :src="userIcon" v-show="opponentReport">
       </div>
       <div id="opponentReport" v-show="opponentReport" class="trialresult">
         <h2>{{ outcomeText }}</h2>
-        <div :class="outcomeCard(outcome)"></div>
+        <div :class="outcomeCard(outcome)"></div><br>
+        <img :src="otherIcon" v-show="opponentReport">
       </div>
     </div>
 
     <div id="honesty-rating" v-show="ratingReport">
-      <h3>{{ honestyQ() }}</h3>
+      <h2>{{ honestyQ() }}</h2>
       <v-form v-model="isValid">
         <v-card-text>
           <v-slider
@@ -72,6 +74,8 @@ export default {
       reportedCard: '',
       outcomeReport: false,
       opponentReport: false,
+      userIcon: '',
+      otherIcon: '',
       ratingReport: false,
       isValid: true,
       honestyResponse: "",
@@ -108,8 +112,8 @@ export default {
         this.ratingReport = true
     },
     outcomeCard(cardvalue) {
-      if (cardvalue == -1) return "red-card";
-      return "blue-card";
+      if (cardvalue == -1) return "red-card-report";
+      return "blue-card-report";
     },
     honestyQ: function() {
       if (this.index && (this.index % 5 === 0)) {
@@ -119,8 +123,16 @@ export default {
     },
     outcomeWin: function() {
       if (this.reportedCard === this.outcome) return "IT'S A TIE";
-      if ((this.reportedCard === 1) & (this.outcome === -1)) return "YOU WIN";
-      return "YOU LOSE";
+      if ((this.reportedCard === -1) & (this.outcome === 1)) {
+        this.userIcon = './x.png'
+        this.otherIcon = './coin.png'
+        return "YOU LOSE"
+      }
+      if ((this.reportedCard === 1) & (this.outcome === -1)) {
+        this.userIcon = "./coin.png"
+        this.otherIcon = './x.png'
+        return "YOU WIN"
+        }
     },
     submit: function() {
       console.log("honesty rating:", this.honestyResponse); // TODO: need to send to DB
