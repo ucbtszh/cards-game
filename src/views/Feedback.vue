@@ -64,5 +64,8 @@ export default {
       console.log(this.understoodTaskResponse);
     },
   },
+  mounted () {
+   window.scrollTo(0, 0)
+  }
 };
 </script>

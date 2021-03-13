@@ -109,6 +109,7 @@ export default {
     displayConsent: function() {
       this.showInfo = false
       this.showConsent = true
+      window.scrollTo(0, 0)
     }
   }
 }

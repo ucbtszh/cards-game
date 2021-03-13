@@ -6,17 +6,17 @@
         In each trial, you and the other player will be presented with an
         <b>identical</b> set of five cards. Each card is either red or blue. For
         example: <br /><br />
-        <div class="red-card-mini" v-for="index in 3" :key="'r' + index"></div>
-        <div class="blue-card-mini" v-for="index in 2" :key="'b' + index"></div>
+        <div class="red-card-mini" v-for="index in 3" :key="'r1' + index"></div>
+        <div class="blue-card-mini" v-for="index in 2" :key="'b1' + index"></div>
         <br />
         The computer then randomly picks a card for you. <b>Only you</b> can see
         this card.<br /><br />
-        <div class="red-card-mini" v-for="index in 2" :key="'r' + index"></div>
+        <div class="red-card-mini" v-for="index in 2" :key="'r2' + index"></div>
         <div
           class="red-card-mini"
           style="border:3px solid green;height:47px"
         ></div>
-        <div class="blue-card-mini" v-for="index in 2" :key="'b' + index"></div>
+        <div class="blue-card-mini" v-for="index in 2" :key="'b2' + index"></div>
         <br />
         Your task is to report the card that was picked for you by clicking on
         it.
@@ -90,6 +90,9 @@ export default {
       },
     };
   },
+  mounted () {
+    window.scrollTo(0, 0)
+  }
 };
 </script>
 
