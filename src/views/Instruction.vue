@@ -1,4 +1,5 @@
 <template>
+<div id="instruct">
   <swiper class="swiper" :options="swiperOption">
     <swiper-slide>
       <div class="instruction">
@@ -60,6 +61,7 @@
     <div class="swiper-button-prev" slot="button-prev"></div>
     <div class="swiper-button-next" slot="button-next"></div>
   </swiper>
+  </div>
 </template>
 
 <script>
