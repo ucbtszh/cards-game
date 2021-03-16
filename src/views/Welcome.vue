@@ -90,19 +90,26 @@ If you would like your contact details to be retained so that you can be contact
   >
   </v-radio>
 </v-radio-group>
-    <v-btn color="primary" elevation="3" :disabled="!valid" @click="$router.push('instruction')">Agree and continue</v-btn>
+<Recaptcha @verify="captchaSuccess = true" />
+    <v-btn v-show="captchaSuccess" color="primary" elevation="3" :disabled="!valid" @click="$router.push('instruction')">Agree and continue</v-btn>
 </v-form>
     </div>
   </div>
 </template>
 
 <script>
+import Recaptcha from "@/components/reCaptcha.vue"
+
 export default {
+  components: {
+    Recaptcha
+  },
   data() {
     return {
       showInfo: true,
       showConsent: false,
       valid: false,
+      captchaSuccess: false,
     }
   },
   methods: {
@@ -110,7 +117,7 @@ export default {
       this.showInfo = false
       this.showConsent = true
       window.scrollTo(0, 0)
-    }
+    },
   }
 }
 </script>
