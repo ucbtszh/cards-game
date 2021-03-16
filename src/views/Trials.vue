@@ -4,25 +4,39 @@
       <div v-show="index === trialIndex">
         <div id="cards" v-show="showCards">
           <Cards
-            :n_red="trial.n_red"
             :index="index"
-            :report_duration="duration"
+            :n_red="trial.n_red"
             :trial="true"
+            :timeTilPick=3000
+            :report_duration="duration"
             @done="toReport"
           />
         </div>
         <div id="report" v-show="showReport">
-          <Report :outcome="trial.outcome" :index="index" @ratingdone="next" />
+          <Report
+            :index="index"
+            :outcome="trial.outcome"
+            :timeTilOutcome=2000
+            @report="saveResponse"
+            @rt_report="saveRTreport"
+            @rt_honesty="saveRThonesty"
+            @ratingdone="next"
+          />
         </div>
       </div>
     </div>
-      <div v-show="this.trialIndex === trials.length">
-        These were the test trials. <br><br>
-        Click "Start" below to start the actual game.<br /><br />
-        <v-btn color="primary" elevation="3" @click="$router.push('task')"
-          ><b>Start</b></v-btn
-        >
-      </div>
+    <div v-show="this.trialIndex === trials.length">
+      These were the test trials. <br /><br />
+      Click "Start" below to start the actual game.<br /><br /><br />
+      <v-btn color="primary" elevation="3" @click="$router.push('task')"
+        ><b>Start</b></v-btn
+      >
+    </div>
+    <v-overlay :opacity="1" :value="overlay">
+      <v-progress-circular indeterminate size="64">
+        Loading...
+      </v-progress-circular>
+    </v-overlay>
   </div>
 </template>
 
@@ -39,19 +53,19 @@ export default {
     return {
       trials: [
         {
-          n_red: 4,
+          n_red: 1,
           outcome: -1,
-          random_choice: 4,
+          random_choice: 3, // win
         },
         {
           n_red: 2,
           outcome: 1,
-          random_choice: 4,
+          random_choice: 4, // tie
         },
         {
-          n_red: 3,
+          n_red: 4,
           outcome: 1,
-          random_choice: 1,
+          random_choice: 1, // lose
         },
       ],
       index: 0,
@@ -60,6 +74,10 @@ export default {
       showCards: true,
       showReport: false,
       start: 0,
+      overlay: true,
+      reportColour: [],
+      RThonesty: [],
+      RTreport: [],
     };
   },
   methods: {
@@ -68,6 +86,18 @@ export default {
       this.showReport = true;
       this.start = Date.now();
     },
+    saveResponse: function(v) {
+      this.reportColour.push(v)
+      // console.log("reported colour", this.reportColour)
+    },
+    saveRTreport: function(v) {
+      this.RTreport.push(v)
+      // console.log("PARENT - RT report", this.RThonesty)
+    },
+    saveRThonesty: function(v) {
+      this.RThonesty.push(v)
+      // console.log("PARENT - RT honesty", this.RThonesty)
+    },
     next: function() {
       this.duration = Date.now() - this.start;
       this.index++;
@@ -75,6 +105,9 @@ export default {
       this.showCards = true;
       this.showReport = false;
     },
+  },
+  mounted() {
+    this.overlay = false;
   },
 };
 </script>

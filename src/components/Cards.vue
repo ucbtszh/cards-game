@@ -16,7 +16,7 @@ export default {
       header: "Cards in this trial:",
     };
   },
-  props: ["n_red", "index", "report_duration", "trial"],
+  props: ["index", "n_red", "report_duration", "trial", "timeTilPick"],
   computed: {
     cardpick: function() {
       let pick = Math.floor(Math.random() * [0, 1, 2, 3, 4].length);
@@ -49,16 +49,16 @@ export default {
     // assumes that consecutive trials will not have identical durations
     report_duration: {
       handler: function() {
-        setTimeout(this.highlightCard, 1000)
-        setTimeout(this.unhighlightcard, 3000)
-        this.done = setTimeout(this.sayDone, 3000)
+        setTimeout(this.highlightCard, this.timeTilPick)
+        setTimeout(this.unhighlightcard, this.timeTilPick * 2)
+        setTimeout(this.sayDone, this.timeTilPick * 2)
       }
     }
   },
  mounted() {
-   this.highlight = setTimeout(this.highlightCard, 1000)
-   this.unhighlight = setTimeout(this.unhighlightcard, 3000)
-   this.done = setTimeout(this.sayDone, 3000)
+   this.highlight = setTimeout(this.highlightCard, this.timeTilPick)
+   this.unhighlight = setTimeout(this.unhighlightcard, this.timeTilPick * 2)
+   this.done = setTimeout(this.sayDone, this.timeTilPick * 2)
   },
   beforeDestroy() {
     clearTimeout(this.highlight);

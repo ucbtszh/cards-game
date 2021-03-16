@@ -6,7 +6,7 @@
         outlined
         v-model="age"
         style="width:200px;"
-        :rules="[(v) => (v >= 18 && v < 100) || 'You entered an invalid age.']"
+        :rules="[(v) => (v >= 10 && v < 100) || 'You entered an invalid age.']"
       ></v-text-field>
       <v-radio-group
         v-model="genderResponse"
