@@ -90,8 +90,8 @@ If you would like your contact details to be retained so that you can be contact
   >
   </v-radio>
 </v-radio-group>
-<Recaptcha @verify="captchaSuccess = true" />
-    <v-btn v-show="captchaSuccess" color="primary" elevation="3" :disabled="!valid" @click="$router.push('instruction')">Agree and continue</v-btn>
+<Recaptcha @verified="showButton = true" />
+    <v-btn v-show="showButton" color="primary" elevation="3" :disabled="!valid" @click="$router.push('instruction')">Agree and continue</v-btn>
 </v-form>
     </div>
   </div>
@@ -109,7 +109,7 @@ export default {
       showInfo: true,
       showConsent: false,
       valid: false,
-      captchaSuccess: false,
+      showButton: false,
     }
   },
   methods: {
