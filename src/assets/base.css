@@ -2,7 +2,7 @@
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-size: 14pt;
+    font-size: 18pt;
     width: 960px;
     margin-left: auto;
     margin-right: auto;
@@ -64,16 +64,20 @@
     margin-bottom: 25px;
 }
 
-h3 {
-    text-align: center;
-    font-size: 20pt;
-    margin-bottom: 50px;
-}
 
 h2 {
     text-align: center;
-    font-size: 20pt;
+    font-size: 24pt;
     margin-bottom: 20px;
+}
+h3 {
+    text-align: center;
+    font-size: 24pt;
+    margin-bottom: 50px;
+}
+h4 {
+    text-align: left;
+    font-size: 18pt;
 }
 
 .trialresult, .trialresult > img {
@@ -83,8 +87,15 @@ h2 {
 }
 
 .v-textarea label {
+    font-size: 1.5em;
+  }
+.v-radio label {
     font-size: 1em;
   }
-.v-radio {
-    font-size: 2em;
+.v-slider__thumb {
+    height: 26px;
+    width: 26px;
+}
+.v-slider--horizontal .v-slider__track-container {
+    height: 8px;
   }

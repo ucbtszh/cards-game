@@ -2,7 +2,8 @@
         <div id="comprehension">
                 <div id="c1" v-show="showC1">
                 <v-form v-model="isvalid">
-                        <v-radio-group label="In each trial, you and the other player will be presented with an identical set of five cards."
+                        In each trial, you and the other player will be presented with an identical set of five cards.<br>
+                        <v-radio-group
                         :rules="[(v) => !!v || 'Please answer this question.']" v-model="c1">
                                 <v-radio
                                 value="1"
@@ -22,7 +23,8 @@
                 </div>
                 <div id="c2" v-show="showC2">
                 <v-form v-model="isvalid2">
-                        <v-radio-group label="The computer picks one card for you and the other player at random. Which of the below statements is true?"
+                        The computer picks one card for you and the other player at random. Which of the below statements is true?<br>
+                        <v-radio-group
                         :rules="[(v) => !!v || 'Please answer this question.']" v-model="c2">
                                 <v-radio
                                 value="a"
@@ -47,7 +49,8 @@
                 </div>
                 <div id="c3" v-show="showC3">
                 <v-form v-model="isvalid3">
-                        <v-radio-group label="Let’s say you reported the blue card and the other player reported red:"
+                        Let’s say you reported the blue card and the other player reported red:<br>
+                        <v-radio-group
                         :rules="[(v) => !!v || 'Please answer this question.']" v-model="c3">
                                 <v-radio
                                 value="a"

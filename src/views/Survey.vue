@@ -8,10 +8,11 @@
         style="width:200px;"
         :rules="[(v) => (v >= 10 && v < 100) || 'You entered an invalid age.']"
       ></v-text-field>
+      What gender do you identify with?
       <v-radio-group
         v-model="genderResponse"
         :rules="[(v) => !!v || 'Gender is required']"
-        label="What gender do you identify with?"
+        row
       >
         <v-radio
           v-for="(g, index) in gender"
@@ -20,10 +21,11 @@
           :value="g.value"
         ></v-radio>
       </v-radio-group>
+      Are you a twin?
       <v-radio-group
         v-model="twinResponse"
         :rules="[(v) => !!v || 'Please answer this question.']"
-        label="Are you a twin?"
+        row
       >
         <v-radio
           v-for="(p, index) in twin"
@@ -32,11 +34,11 @@
           :value="p.value"
         ></v-radio>
       </v-radio-group>
+      What is the highest education level that you completed?
       <v-radio-group
         v-model="edLevResponse"
         persistent-hint
         hint="If you are currently studying, select your current level of studies."
-        label="What is the highest education level that you completed?"
         :rules="[(v) => !!v || 'Education level is required']"
       >
         <v-radio
@@ -140,7 +142,7 @@ export default {
   },
   methods: {
     submit: function() {
-      console.log(this.age);
+      // TODO: push to DB
     },
   },
   mounted () {

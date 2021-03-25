@@ -9,6 +9,7 @@
             :trial="true"
             :timeTilPick=3000
             :report_duration="duration"
+            :durationx=2
             @done="toReport"
           />
         </div>
@@ -25,9 +26,10 @@
         </div>
       </div>
     </div>
-    <div v-show="this.trialIndex === trials.length">
+    <div v-show="this.trialIndex === trials.length" style="text-align:left;">
       These were the test trials. <br /><br />
-      Click "Start" below to start the actual game.<br /><br /><br />
+      Click "Start" below to start the actual game.<br><br>
+      <b>Remember: from now on, any points you win will count toward your bonus payment.</b><br /><br /><br />
       <v-btn color="primary" elevation="3" @click="$router.push('task')"
         ><b>Start</b></v-btn
       >

@@ -16,7 +16,7 @@ export default {
       header: "Cards in this trial:",
     };
   },
-  props: ["index", "n_red", "report_duration", "trial", "timeTilPick"],
+  props: ["index", "n_red", "report_duration", "trial", "timeTilPick", "durationx"],
   computed: {
     cardpick: function() {
       let pick = Math.floor(Math.random() * [0, 1, 2, 3, 4].length);
@@ -30,7 +30,7 @@ export default {
       let container_div = document.getElementById(this.index);
       let child_divs = container_div.getElementsByTagName("div");
       child_divs[cardpick].style.borderWidth = "8px";
-      child_divs[cardpick].style.borderColor = "green";
+      child_divs[cardpick].style.borderColor = "yellow";
       this.header = "Computer’s random card pick:";
     },
     unhighlightcard: function() {
@@ -50,15 +50,15 @@ export default {
     report_duration: {
       handler: function() {
         setTimeout(this.highlightCard, this.timeTilPick)
-        setTimeout(this.unhighlightcard, this.timeTilPick * 2)
-        setTimeout(this.sayDone, this.timeTilPick * 2)
+        setTimeout(this.unhighlightcard, this.timeTilPick * this.durationx)
+        setTimeout(this.sayDone, this.timeTilPick * this.durationx)
       }
     }
   },
  mounted() {
    this.highlight = setTimeout(this.highlightCard, this.timeTilPick)
-   this.unhighlight = setTimeout(this.unhighlightcard, this.timeTilPick * 2)
-   this.done = setTimeout(this.sayDone, this.timeTilPick * 2)
+   this.unhighlight = setTimeout(this.unhighlightcard, this.timeTilPick * this.durationx)
+   this.done = setTimeout(this.sayDone, this.timeTilPick * this.durationx)
   },
   beforeDestroy() {
     clearTimeout(this.highlight);
