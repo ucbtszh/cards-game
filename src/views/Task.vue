@@ -1,5 +1,11 @@
 <template>
   <div id="task">
+    results: {{results}}<br>
+    wins: {{wins}}<br>
+    losses: {{losses}}<br>
+    points: {{points}}<br>
+    payment: {{bonus}}
+
     <div id="taskloop" v-for="(trial, index) in trials" :key="index">
       <div v-show="index === trialIndex">
         <div id="cards" v-show="showCards">
@@ -7,8 +13,9 @@
             :index="index"
             :n_red="trial.n_red"
             :trial="false"
-            :timeTilPick=1000
+            :timeTilPick="1000"
             :report_duration="duration"
+            :durationx="3"
             @done="toReport"
           />
         </div>
@@ -16,20 +23,32 @@
           <Report
             :index="index"
             :outcome="trial.outcome"
-            :timeTilOutcome=1000
+            :timeTilOutcome="1000"
             @report="saveResponse"
             @rt_report="saveRTreport"
+            @honesty_rating="saveHonestyRating"
             @rt_honesty="saveRThonesty"
+            @catch_rating="saveCatchRating"
             @rt_catch="saveRTcatch"
+            @result="saveResult"
             @ratingdone="next"
           />
         </div>
       </div>
     </div>
-    <div v-show="this.trialIndex === trials.length">
+    <div v-show="this.trialIndex === trials.length" style="text-align:left;">
       This is the end of the game. <br /><br />
+      You won {{ wins }} and lost {{ losses }} trials. Hence, your total score is {{ points }} points.<br>
+      This means your bonus payment will be £ {{ 0.05 * points }}.<br /><br />
+
       Click "Continue" below to proceed.<br /><br /><br />
-      <v-btn color="primary" elevation="3" @click="saveAll; $router.push('feedback')"
+      <v-btn
+        color="primary"
+        elevation="3"
+        @click="
+          saveAll;
+          $router.push('feedback');
+        "
         ><b>Continue</b></v-btn
       >
     </div>
@@ -54,6 +73,7 @@ export default {
   data() {
     return {
       trials: trials,
+      outcomes: trials.map(({outcome}) => (outcome)),
       index: 0,
       trialIndex: 0,
       duration: 2000,
@@ -62,10 +82,28 @@ export default {
       start: 0,
       overlay: true,
       reportColour: [],
-      RThonesty: [],
       RTreport: [],
+      honestyRating: [],
+      RThonesty: [],
+      catchRating: [],
       RTcatch: [],
+      results: [],
     };
+  },
+  computed: {
+    wins: function() {
+      return this.results.filter(i => i === "win").length
+    },
+    losses: function() {
+      return this.results.filter(i => i === "loss").length
+    },
+    points: function() {
+      return this.wins-this.losses
+    },
+    bonus: function() {
+      if (this.points <= 0) {return 0}
+      return (0.05 * this.points).toFixed(2)
+    }
   },
   methods: {
     toReport: function() {
@@ -81,13 +119,24 @@ export default {
       this.RTreport.push(v)
       // console.log("PARENT - RT report", this.RThonesty)
     },
+    saveHonestyRating: function(v) {
+      this.honestyRating.push(v)
+      console.log("PARENT - honesty rating", this.honestyRating)
+    },
     saveRThonesty: function(v) {
       this.RThonesty.push(v)
       // console.log("PARENT - RT honesty", this.RThonesty)
     },
+    saveCatchRating: function(v) {
+      this.catchRating.push(v)
+      console.log("PARENT - catch rating", this.catchRating)
+    },
     saveRTcatch: function(v) {
       this.RTcatch.push(v)
-      console.log("PARENT - RT catch", this.RTcatch)
+      // console.log("PARENT - RT catch", this.RTcatch)
+    },
+    saveResult: function(v) {
+      this.results.push(v)
     },
     saveAll: function() {
       // TODO: placeholder to send all responses to DB
@@ -98,11 +147,11 @@ export default {
       this.trialIndex++;
       this.showCards = true;
       this.showReport = false;
-    },
+    }
   },
   mounted() {
     this.overlay = false;
-  },
+  }
 };
 </script>
 
