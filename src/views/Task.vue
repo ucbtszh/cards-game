@@ -1,11 +1,5 @@
 <template>
   <div id="task">
-    results: {{results}}<br>
-    wins: {{wins}}<br>
-    losses: {{losses}}<br>
-    points: {{points}}<br>
-    payment: {{bonus}}
-
     <div id="taskloop" v-for="(trial, index) in trials" :key="index">
       <div v-show="index === trialIndex">
         <div id="cards" v-show="showCards">
@@ -39,7 +33,7 @@
     <div v-show="this.trialIndex === trials.length" style="text-align:left;">
       This is the end of the game. <br /><br />
       You won {{ wins }} and lost {{ losses }} trials. Hence, your total score is {{ points }} points.<br>
-      This means your bonus payment will be £ {{ 0.05 * points }}.<br /><br />
+      This means your bonus payment will be £ {{ bonus }}.<br /><br />
 
       Click "Continue" below to proceed.<br /><br /><br />
       <v-btn
@@ -121,7 +115,7 @@ export default {
     },
     saveHonestyRating: function(v) {
       this.honestyRating.push(v)
-      console.log("PARENT - honesty rating", this.honestyRating)
+      // console.log("PARENT - honesty rating", this.honestyRating)
     },
     saveRThonesty: function(v) {
       this.RThonesty.push(v)
@@ -129,7 +123,7 @@ export default {
     },
     saveCatchRating: function(v) {
       this.catchRating.push(v)
-      console.log("PARENT - catch rating", this.catchRating)
+      // console.log("PARENT - catch rating", this.catchRating)
     },
     saveRTcatch: function(v) {
       this.RTcatch.push(v)
@@ -140,6 +134,7 @@ export default {
     },
     saveAll: function() {
       // TODO: placeholder to send all responses to DB
+      // db.push(this.result)
     },
     next: function() {
       this.duration = Date.now() - this.start;

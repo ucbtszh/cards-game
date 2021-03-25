@@ -5,15 +5,22 @@
       <v-card-text>
         <v-slider
           v-model="understoodTaskResponse"
-          :tick-labels="understoodTask"
           :max="4"
-          :rules="[(v) => !!v || 'Please answer this question']"
+          @click="rated=true"
+          :rules="[rated==true || 'Please answer this question']"
           step="1"
           ticks="always"
-          tick-size="5"
+          tick-size="15"
           required
-        ></v-slider>
+        ><template v-slot:prepend>
+          <h4>Not at all</h4>
+        </template>
+        <template v-slot:append>
+          <h4>Completely understood</h4>
+        </template>
+        </v-slider>
       </v-card-text>
+
       <br>
       <v-textarea
         label="Please let us know any further feedback here."
@@ -46,6 +53,7 @@
 export default {
   data() {
     return {
+      rated: false,
       isValid: false,
       understoodTaskResponse: "",
       feedback: "",
@@ -61,7 +69,8 @@ export default {
   },
   methods: {
     submit: function() {
-      console.log(this.understoodTaskResponse);
+      // TODO: push responses to DB
+      // console.log(this.understoodTaskResponse);
     },
   },
   mounted () {
