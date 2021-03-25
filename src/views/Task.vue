@@ -10,6 +10,7 @@
             :timeTilPick="1000"
             :report_duration="duration"
             :durationx="3"
+            @card_pick="savePick"
             @done="toReport"
           />
         </div>
@@ -75,6 +76,7 @@ export default {
       showReport: false,
       start: 0,
       overlay: true,
+      randomPick: [],
       reportColour: [],
       RTreport: [],
       honestyRating: [],
@@ -104,6 +106,10 @@ export default {
       this.showCards = false;
       this.showReport = true;
       this.start = Date.now();
+    },
+    savePick: function(v) {
+      this.randomPick.push(v)
+      // console.log("reported colour", this.reportColour)
     },
     saveResponse: function(v) {
       this.reportColour.push(v)

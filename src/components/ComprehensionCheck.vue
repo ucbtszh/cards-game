@@ -113,7 +113,6 @@ export default {
                         else alert("This answer is incorrect.")
                 },
                 validateC2: function() {
-                        console.log(this.c2)
                         if (this.c2 === 'c') {
                                 this.showC1 = false
                                 this.showC2 = false

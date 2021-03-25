@@ -21,6 +21,7 @@ export default {
     cardpick: function() {
       let pick = Math.floor(Math.random() * [0, 1, 2, 3, 4].length);
       // console.log("from computed", this.index, pick)
+      this.$emit("card_pick", pick)
       return [this.index, pick]
     }
   },
