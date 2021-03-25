@@ -70,6 +70,7 @@
 import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 import "swiper/css/swiper.css";
 import ComprehensionCheck from "@/components/ComprehensionCheck.vue";
+import meta from "../mixin/meta";
 
 export default {
   title: "Instructions",
@@ -78,6 +79,7 @@ export default {
     SwiperSlide,
     ComprehensionCheck,
   },
+  mixins: [meta],
   data() {
     return {
       swiperOption: {
