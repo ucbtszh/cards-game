@@ -16,7 +16,7 @@
         <div class="red-card-mini" v-for="index in 2" :key="'r2' + index"></div>
         <div
           class="red-card-mini"
-          style="border:4px solid green;height:45px"
+          style="border:4px solid gold;height:45px"
         ></div>
         <div class="blue-card-mini" v-for="index in 2" :key="'b2' + index"></div>
         <br />

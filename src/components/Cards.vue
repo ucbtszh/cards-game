@@ -30,7 +30,7 @@ export default {
       let container_div = document.getElementById(this.index);
       let child_divs = container_div.getElementsByTagName("div");
       child_divs[cardpick].style.borderWidth = "8px";
-      child_divs[cardpick].style.borderColor = "yellow";
+      child_divs[cardpick].style.borderColor = "gold";
       this.header = "Computer’s random card pick:";
     },
     unhighlightcard: function() {
