@@ -56,7 +56,7 @@
     </swiper-slide>
     <swiper-slide>
       <div class="instruction">
-        <ComprehensionCheck />
+        <ComprehensionCheck @clicked="trackAttempts" />
       </div>
     </swiper-slide>
     <div class="swiper-pagination" slot="pagination"></div>
@@ -94,7 +94,14 @@ export default {
           prevEl: ".swiper-button-prev",
         },
       },
+      attempts: [],
     };
+  },
+  methods: {
+      trackAttempts: function(v) {
+          this.attempts.push(v)
+          console.log(this.attempts)
+    }
   },
   mounted () {
     window.scrollTo(0, 0)

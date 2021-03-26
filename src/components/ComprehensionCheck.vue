@@ -8,11 +8,13 @@
                                 <v-radio
                                 value="1"
                                 label="True"
+                                @click="$emit('clicked', [Date.now(), 'c1', 1])"
                                 >
                                 </v-radio>
                                 <v-radio
                                 value="0"
                                 label="False"
+                                @click="$emit('clicked', [Date.now(), 'c1', 0])"
                                 >
                                 </v-radio>
                         </v-radio-group>
@@ -29,16 +31,19 @@
                                 <v-radio
                                 value="a"
                                 label="The computer picks the same card for you and the other player"
+                                @click="$emit('clicked', [Date.now(), 'c2', 'a'])"
                                 >
                                 </v-radio>
                                 <v-radio
                                 value="b"
                                 label="The computer picks a different card for you and the other player."
+                                @click="$emit('clicked', [Date.now(), 'c2', 'b'])"
                                 >
                                 </v-radio>
                                 <v-radio
                                 value="c"
                                 label="The computer makes two random picks: one for you and one for the other player. This card can be the same or a different card."
+                                @click="$emit('clicked', [Date.now(), 'c2', 'c'])"
                                 >
                                 </v-radio>
                         </v-radio-group>
@@ -55,21 +60,25 @@
                                 <v-radio
                                 value="a"
                                 label="You win 1 point. The other player wins nothing."
+                                @click="$emit('clicked', [Date.now(), 'c3', 'a'])"
                                 >
                                 </v-radio>
                                 <v-radio
                                 value="b"
                                 label="The other player wins 1 point.  You win nothing."
+                                @click="$emit('clicked', [Date.now(), 'c3', 'b'])"
                                 >
                                 </v-radio>
                                 <v-radio
                                 value="c"
                                 label="You win 1 point. The other player loses 1 point."
+                                @click="$emit('clicked', [Date.now(), 'c3', 'c'])"
                                 >
                                 </v-radio>
                                 <v-radio
                                 value="d"
                                 label="The other player wins 1 point.  You lose 1 point."
+                                @click="$emit('clicked', [Date.now(), 'c3', 'd'])"
                                 >
                                 </v-radio>
                         </v-radio-group>
@@ -102,6 +111,7 @@ export default {
                         isvalid: false,
                         isvalid2: false,
                         isvalid3: false,
+                        attempts: [],
                 }
         },
         methods: {
@@ -128,7 +138,7 @@ export default {
                                 this.showC4 = true
                         }
                         else alert("This answer is incorrect. Please review the instructions (click on the arrow to go back) and try again.")
-                }
+                },
         }
 }
 </script>
