@@ -58,19 +58,14 @@ export default {
       understoodTaskResponse: "",
       feedback: "",
       studyPurpose: "",
-      understoodTask: [
-        "Little understanding",
-        "",
-        "",
-        "",
-        "Completely understood",
-      ],
     };
   },
   methods: {
     submit: function() {
       // TODO: push responses to DB
-      // console.log(this.understoodTaskResponse);
+      // this.understoodTaskResponse
+      // this.feedback
+      // this.studyPurpose
     },
   },
   mounted () {

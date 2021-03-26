@@ -100,11 +100,12 @@ export default {
   methods: {
       trackAttempts: function(v) {
           this.attempts.push(v)
-          console.log(this.attempts)
+          // console.log(this.attempts)
     }
   },
   mounted () {
     window.scrollTo(0, 0)
+    this.startTime = Date.now()
   }
 };
 </script>

@@ -9,8 +9,11 @@
 
 <script>
 export default {
-    mounted () {
+    mounted() {
         window.scrollTo(0, 0)
-        }
+        },
+    beforeDestroy() {
+        this.finishTime = Date.now()
+    }
 }
 </script>

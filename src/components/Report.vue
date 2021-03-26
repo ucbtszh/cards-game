@@ -193,10 +193,8 @@ export default {
       }
     },
     submit: function() {
-      // console.log("honesty rating:", this.honestyResponse); // TODO: need to send to DB
       this.$emit("result", this.result)
       let rt = performance.now() - this.startRating - 3 * this.timeTilOutcome;
-      // console.log("honesty RT:", rt);
       this.$emit("rt_honesty", rt);
       this.$emit("honesty_rating", this.honestyResponse);
       if (this.index && this.index % 5 === 0) {
