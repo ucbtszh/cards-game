@@ -21,13 +21,23 @@ export default {
     cardpick: function() {
       let pick = Math.floor(Math.random() * [0, 1, 2, 3, 4].length);
       // console.log("from computed", this.index, pick)
-      this.$emit("card_pick", pick)
       return [this.index, pick]
+    },
+    cardpickColour: function() {
+      if(this.cardpick[1] <= this.n_red - 1) {
+        var colour = "red"
+        }
+      else if (this.cardpick[1] > this.n_red - 1) {
+        colour = "blue"
+        }
+      return [this.index, colour]
     }
   },
   methods: {
     highlightCard: function() {
       let cardpick = this.cardpick[1]
+      this.$emit("card_pick", cardpick)
+      this.$emit("card_pick_colour", this.cardpickColour[1])
       let container_div = document.getElementById(this.index);
       let child_divs = container_div.getElementsByTagName("div");
       child_divs[cardpick].style.borderWidth = "8px";

@@ -11,6 +11,7 @@
             :report_duration="duration"
             :durationx="3"
             @card_pick="savePick"
+            @card_pick_colour="savePickColour"
             @done="toReport"
           />
         </div>
@@ -68,6 +69,7 @@ export default {
   data() {
     return {
       trials: trials,
+      n_red: trials.map(({n_red}) => (n_red)),
       outcomes: trials.map(({outcome}) => (outcome)),
       index: 0,
       trialIndex: 0,
@@ -77,6 +79,7 @@ export default {
       start: 0,
       overlay: true,
       randomPick: [],
+      randomPickColour: [],
       reportColour: [],
       RTreport: [],
       honestyRating: [],
@@ -99,7 +102,8 @@ export default {
     bonus: function() {
       if (this.points <= 0) {return 0}
       return (0.05 * this.points).toFixed(2)
-    }
+    },
+    
   },
   methods: {
     toReport: function() {
@@ -109,7 +113,11 @@ export default {
     },
     savePick: function(v) {
       this.randomPick.push(v)
-      // console.log("reported colour", this.reportColour)
+      // console.log("random card pick:", this.randomPick.slice(0,trials.length))
+    },
+    savePickColour: function(v) {
+      this.randomPickColour.push(v)
+      // console.log("random pick colour:", this.randomPickColour.slice(0,trials.length))
     },
     saveResponse: function(v) {
       this.reportColour.push(v)
@@ -159,5 +167,6 @@ export default {
 <style scoped>
 #task {
   text-align: center;
+  overflow: hidden;
 }
 </style>
