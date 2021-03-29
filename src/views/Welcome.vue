@@ -278,7 +278,7 @@
           </v-radio>
           <v-radio label="No, I would not like to be contacted" value="0">
           </v-radio>
-        </v-radio-group><br /><br />
+        </v-radio-group><br />
 
         <vue-recaptcha
           ref="recaptcha"
@@ -304,6 +304,7 @@
 </template>
 
 <script>
+import Vue from 'vue'
 import VueRecaptcha from "vue-recaptcha";
 
 export default {
@@ -324,7 +325,11 @@ export default {
     },
     logId() {
       // TODO: placeholder function to get user ID from Prolific URL
+      // db.collection('subjects').doc($subject)
     },
   },
+  mounted() {
+    Vue.prototype.$subject = "test"
+  }
 };
 </script>

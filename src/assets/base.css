@@ -3,7 +3,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 18pt;
-    width: 960px;
+    width: 1050px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 6%;
@@ -91,13 +91,18 @@ h4 {
 .v-textarea label {
     font-size: 1.5em;
   }
+.v-radio input {
+    margin-bottom:50px;
+  }
 .v-radio label {
     font-size: 1.5em;
   }
-.v-slider__thumb {
-    height: 26px;
-    width: 26px;
-}
 .v-slider--horizontal .v-slider__track-container {
     height: 8px;
-  }
+}
+.v-slider__tick-label {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 11pt;
+    width: 5px;
+}

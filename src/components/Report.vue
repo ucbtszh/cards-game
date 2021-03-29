@@ -44,36 +44,33 @@
 
     <div id="honesty-rating" v-show="showRatingReport">
       <h2>How honest do you think the other player is?</h2>
-        <v-card-text>
-      <v-form v-model="isValid">
+      <v-card-text>
+      <v-form>
+        <b>
         <v-slider
-          v-model="honestyResponse"
+          v-model="catchResponse"
           :min="0"
           :max="6"
           step="1"
           @click="rated=true"
           :rules="[rated==true || 'Please answer this question']"
           ticks="always"
+          :tick-labels="tickLabels"
           tick-size="15"
           track-color="darkgray"
           track-fill-color="primary"
           thumb-color="primary"
           always-dirty
+          thumb-size="18px"
         >
-        <template v-slot:prepend>
-          <h4>Not honest at all</h4>
-        </template>
-
-        <template v-slot:append>
-          <h4>Completely honest</h4>
-        </template>
         </v-slider>
-
-        <v-btn
+      </b>
+          <v-btn
           color="primary"
-          :disabled="!isValid"
+          :disabled="!rated"
           elevation="3"
           @click="submit"
+          style="margin-top:100px"
           >Submit</v-btn
         >
       </v-form>
@@ -97,13 +94,6 @@
           thumb-color="primary"
           always-dirty
         >
-        <template v-slot:prepend>
-          <h4>Not honest at all</h4>
-        </template>
-
-        <template v-slot:append>
-          <h4>Completely honest</h4>
-        </template>
         </v-slider>
 
         <v-btn
@@ -126,6 +116,15 @@ export default {
       displayText: "Please report the colour of the computer’s pick",
       reportText: "You report:",
       outcomeText: "The other player reports:",
+      tickLabels: [
+         'completely dishonest', 
+         'dishonest', 
+         'somewhat dishonest', 
+         'neutral', 
+         'somewhat honest', 
+         'honest', 
+         'completely honest'
+      ],
       displayReport: true,
       reportedCard: "",
       showOutcomeReport: false,
