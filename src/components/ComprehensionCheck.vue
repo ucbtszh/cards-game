@@ -8,13 +8,13 @@
                                 <v-radio
                                 value="1"
                                 label="True"
-                                @click="$emit('clicked', [Date.now(), 'c1', 1])"
+                                @click="c1clicks++"
                                 >
                                 </v-radio>
                                 <v-radio
                                 value="0"
                                 label="False"
-                                @click="$emit('clicked', [Date.now(), 'c1', 0])"
+                                @click="c1clicks++"
                                 >
                                 </v-radio>
                         </v-radio-group>
@@ -31,19 +31,19 @@
                                 <v-radio
                                 value="a"
                                 label="The computer picks the same card for you and the other player"
-                                @click="$emit('clicked', [Date.now(), 'c2', 'a'])"
+                                @click="c2clicks++"
                                 >
                                 </v-radio>
                                 <v-radio
                                 value="b"
                                 label="The computer picks a different card for you and the other player."
-                                @click="$emit('clicked', [Date.now(), 'c2', 'b'])"
+                                @click="c2clicks++"
                                 >
                                 </v-radio>
                                 <v-radio
                                 value="c"
                                 label="The computer makes two random picks: one for you and one for the other player. This card can be the same or a different card."
-                                @click="$emit('clicked', [Date.now(), 'c2', 'c'])"
+                                @click="c2clicks++"
                                 >
                                 </v-radio>
                         </v-radio-group>
@@ -60,25 +60,25 @@
                                 <v-radio
                                 value="a"
                                 label="You win 1 point. The other player wins nothing."
-                                @click="$emit('clicked', [Date.now(), 'c3', 'a'])"
+                                @click="c3clicks++"
                                 >
                                 </v-radio>
                                 <v-radio
                                 value="b"
                                 label="The other player wins 1 point.  You win nothing."
-                                @click="$emit('clicked', [Date.now(), 'c3', 'b'])"
+                                @click="c3clicks++"
                                 >
                                 </v-radio>
                                 <v-radio
                                 value="c"
                                 label="You win 1 point. The other player loses 1 point."
-                                @click="$emit('clicked', [Date.now(), 'c3', 'c'])"
+                                @click="c3clicks++"
                                 >
                                 </v-radio>
                                 <v-radio
                                 value="d"
                                 label="The other player wins 1 point.  You lose 1 point."
-                                @click="$emit('clicked', [Date.now(), 'c3', 'd'])"
+                                @click="c3clicks++"
                                 >
                                 </v-radio>
                         </v-radio-group>
@@ -91,19 +91,23 @@
         Well done!<br><br>
         Next, you will play three practice trials.<br>
         After these, the actual game will start. <br><br>
-        <v-btn color="primary" elevation="3" @click="$router.push('testtrials')">Continue</v-btn>
+        <v-btn color="primary" elevation="3" @click="$router.push('testtrials'); saveAttempts">Continue</v-btn>
                 </div>
         </div>
 </template>
         
 <script>
+import { writeResponseData } from "../firebaseConfig"
+
 export default {
         data() {
                 return {
                         c1: '',
                         c2: '',
                         c3: '',
-                        c4: '',
+                        c1clicks: 0,
+                        c2clicks: 0,
+                        c3clicks: 0,
                         showC1: true, 
                         showC2: false, 
                         showC3: false,
@@ -111,7 +115,6 @@ export default {
                         isvalid: false,
                         isvalid2: false,
                         isvalid3: false,
-                        attempts: [],
                 }
         },
         methods: {
@@ -139,6 +142,17 @@ export default {
                         }
                         else alert("This answer is incorrect. Please review the instructions (click on the arrow to go back) and try again.")
                 },
+                saveAttempts: function() {
+                        let data = {
+                                c1attempts: this.c1clicks,
+                                c2attempts: this.c2clicks,
+                                c3attempts: this.c3clicks,
+                                c1: this.c1,
+                                c2: this.c2,
+                                c3: this.c3,
+                        }
+                        writeResponseData(this.$uuid, 'comprehension', data)
+                }
         }
 }
 </script>
