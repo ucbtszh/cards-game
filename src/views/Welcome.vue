@@ -165,7 +165,7 @@
         what will be expected of me. I have also had the opportunity to ask
         questions (email: sarah.zheng.16@ucl.ac.uk), which have been answered to
         my satisfaction.
-        <v-radio-group :rules="[(v) => !!v || 'Please answer this question.']">
+        <v-radio-group :rules="[(v) => !!v || 'Please answer this question.']" v-model="form.cons1">
           <v-radio label="Yes" value="1"> </v-radio>
           <v-radio label="No" value="0"> </v-radio>
         </v-radio-group><br />
@@ -174,103 +174,103 @@
         information will be used for the purposes explained in the information
         sheet. I understand that according to data protection legislation,
         ‘public task’ will be the lawful basis for processing.
-        <v-radio-group :rules="[(v) => !!v || 'Please answer this question.']">
+        <v-radio-group :rules="[(v) => !!v || 'Please answer this question.']" v-model="form.cons2">
           <v-radio label="Yes" value="1"> </v-radio>
           <v-radio label="No" value="0"> </v-radio>
         </v-radio-group><br />
 
         I understand that all personal information will remain confidential and that all efforts will be made to ensure I cannot be identified. I understand that my data gathered in this study will be stored pseudonymously and securely. It will not be possible to identify me in any publications.
-        <v-radio-group :rules="[(v) => !!v || 'Please answer this question.']">
+        <v-radio-group :rules="[(v) => !!v || 'Please answer this question.']" v-model="form.cons3">
           <v-radio label="Yes" value="1"> </v-radio>
           <v-radio label="No" value="0"> </v-radio>
         </v-radio-group><br />
 
 
         *I understand that my information may be subject to review by responsible individuals from the University or monitoring and audit purposes.
-        <v-radio-group :rules="[(v) => !!v || 'Please answer this question.']">
+        <v-radio-group :rules="[(v) => !!v || 'Please answer this question.']" v-model="form.cons4">
           <v-radio label="Yes" value="1"> </v-radio>
           <v-radio label="No" value="0"> </v-radio>
         </v-radio-group><br />
 
 
         I understand the potential risks of participating and the support that will be available to me should I become distressed during the course of the research.
-        <v-radio-group :rules="[(v) => !!v || 'Please answer this question.']">
+        <v-radio-group :rules="[(v) => !!v || 'Please answer this question.']" v-model="form.cons5">
           <v-radio label="Yes" value="1"> </v-radio>
           <v-radio label="No" value="0"> </v-radio>
         </v-radio-group><br />
 
 
         No promise or guarantee of benefits have been made to encourage you to participate.
-        <v-radio-group :rules="[(v) => !!v || 'Please answer this question.']">
+        <v-radio-group :rules="[(v) => !!v || 'Please answer this question.']" v-model="form.cons6">
           <v-radio label="Yes" value="1"> </v-radio>
           <v-radio label="No" value="0"> </v-radio>
         </v-radio-group><br />
 
 
         I understand that the data will not be made available to any commercial organisations but is solely the responsibility of the researcher(s) undertaking this study.
-        <v-radio-group :rules="[(v) => !!v || 'Please answer this question.']">
+        <v-radio-group :rules="[(v) => !!v || 'Please answer this question.']" v-model="form.cons7">
           <v-radio label="Yes" value="1"> </v-radio>
           <v-radio label="No" value="0"> </v-radio>
         </v-radio-group><br />
 
 
         I understand that I will not benefit financially from this study or from any possible outcome it may result in in the future.
-        <v-radio-group :rules="[(v) => !!v || 'Please answer this question.']">
+        <v-radio-group :rules="[(v) => !!v || 'Please answer this question.']" v-model="form.cons8">
           <v-radio label="Yes" value="1"> </v-radio>
           <v-radio label="No" value="0"> </v-radio>
         </v-radio-group><br />
 
 
         I understand that I will be compensated for the portion of time spent in the study.
-        <v-radio-group :rules="[(v) => !!v || 'Please answer this question.']">
+        <v-radio-group :rules="[(v) => !!v || 'Please answer this question.']" v-model="form.cons9">
           <v-radio label="Yes" value="1"> </v-radio>
           <v-radio label="No" value="0"> </v-radio>
         </v-radio-group><br />
 
 
         I agree that my pseudonymised research data may be used by others for future research. (No one will be able to identify you when this data is shared.)
-        <v-radio-group :rules="[(v) => !!v || 'Please answer this question.']">
+        <v-radio-group :rules="[(v) => !!v || 'Please answer this question.']" v-model="form.cons10">
           <v-radio label="Yes" value="1"> </v-radio>
           <v-radio label="No" value="0"> </v-radio>
         </v-radio-group><br />
 
 
         I understand that the information I have submitted will be published as a report and I wish to receive a copy of it. 
-        <v-radio-group :rules="[(v) => !!v || 'Please answer this question.']">
+        <v-radio-group :rules="[(v) => !!v || 'Please answer this question.']" v-model="form.cons11">
           <v-radio label="Yes" value="1"> </v-radio>
           <v-radio label="No" value="0"> </v-radio>
         </v-radio-group><br />
 
 
         I hereby confirm that I understand the inclusion criteria as detailed in the Information Sheet.
-        <v-radio-group :rules="[(v) => !!v || 'Please answer this question.']">
+        <v-radio-group :rules="[(v) => !!v || 'Please answer this question.']" v-model="form.cons12">
           <v-radio label="Yes" value="1"> </v-radio>
           <v-radio label="No" value="0"> </v-radio>
         </v-radio-group><br />
 
 
         I hereby confirm that: (a) I understand the exclusion criteria as detailed in the Information Sheet and explained to me by the researcher; and (b) I do not fall under the exclusion criteria.
-        <v-radio-group :rules="[(v) => !!v || 'Please answer this question.']">
+        <v-radio-group :rules="[(v) => !!v || 'Please answer this question.']" v-model="form.cons13">
           <v-radio label="Yes" value="1"> </v-radio>
           <v-radio label="No" value="0"> </v-radio>
         </v-radio-group><br />
 
 
         I am aware of whom I should contact if I wish to lodge a complaint.
-        <v-radio-group :rules="[(v) => !!v || 'Please answer this question.']">
+        <v-radio-group :rules="[(v) => !!v || 'Please answer this question.']" v-model="form.cons14">
           <v-radio label="Yes" value="1"> </v-radio>
           <v-radio label="No" value="0"> </v-radio>
         </v-radio-group><br />
 
 
         Use of information for this project and beyond I would be happy for the data I provide to be archived at 26 Bedford Way, London, WC1H 0AP. I understand that other authenticated researchers at UCL will have access to my pseudonymised data.
-        <v-radio-group :rules="[(v) => !!v || 'Please answer this question.']">
+        <v-radio-group :rules="[(v) => !!v || 'Please answer this question.']" v-model="form.cons15">
           <v-radio label="Yes" value="1"> </v-radio>
           <v-radio label="No" value="0"> </v-radio>
         </v-radio-group><br />
 
         <b>If you would like your contact details to be retained so that you can be contacted in the future by UCL researchers who would like to invite you to participate in follow up studies to this project, or in future studies of a similar nature, please tick the appropriate box below.</b>
-        <v-radio-group :rules="[(v) => !!v || 'Please answer this question.']">
+        <v-radio-group :rules="[(v) => !!v || 'Please answer this question.']" v-model="form.cons16">
           <v-radio
             label="Yes, I would be happy to be contacted in this way"
             value="1"
@@ -295,6 +295,7 @@
           @click="
             $router.push('instruction');
             logId();
+            saveConsentResponse()
           "
           >Agree and continue</v-btn
         >
@@ -317,6 +318,24 @@ export default {
       showConsent: false,
       valid: false,
       showButton: false,
+      form: {
+        cons1: '',
+        cons2: '',
+        cons3: '',
+        cons4: '',
+        cons5: '',
+        cons6: '',
+        cons7: '',
+        cons8: '',
+        cons9: '',
+        cons10: '',
+        cons11: '',
+        cons12: '',
+        cons13: '',
+        cons14: '',
+        cons15: '',
+        cons16: '',
+      }
     };
   },
   methods: {
@@ -327,7 +346,8 @@ export default {
     },
     logId() {
       let queryString = window.location.search
-      if (queryString.has("PROLIFIC_PID")) {
+      let urlParams = new URLSearchParams(queryString);
+      if (urlParams.has("PROLIFIC_PID")) {
         let uuid = queryString.get('PROLIFIC_PID')
         Vue.prototype.$uuid = uuid
       } else {
@@ -336,7 +356,7 @@ export default {
       }
     },
     saveConsentResponse() {
-      writeResponseData()
+      writeResponseData(this.$uuid, 'consent', this.form)
     }
   },
 };
