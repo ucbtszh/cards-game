@@ -44,67 +44,132 @@
 
     <div id="honesty-rating" v-show="showRatingReport">
       <h2>How honest do you think the other player is?</h2>
-      <v-card-text>
-      <v-form>
-        <b>
-        <v-slider
-          v-model="catchResponse"
-          :min="0"
-          :max="6"
-          step="1"
-          @click="rated=true"
-          :rules="[rated==true || 'Please answer this question']"
-          ticks="always"
-          :tick-labels="tickLabels"
-          tick-size="15"
-          track-color="darkgray"
-          track-fill-color="primary"
-          thumb-color="primary"
-          always-dirty
-          thumb-size="18px"
+      <v-form v-model="rated">
+        <v-radio-group
+          class="honestyform"
+          v-model="honestyResponse"
+          :rules="[(v) => !!v || 'Please answer this question']"
         >
-        </v-slider>
-      </b>
-          <v-btn
+          <v-layout row wrap>
+            <v-flex column>
+              <v-radio key="0" value="0"> </v-radio>
+              <p>
+                Completely <br />
+                dishonest
+              </p>
+            </v-flex>
+            <v-flex column>
+              <v-radio key="1" value="1"> </v-radio>
+              <p>Dishonest</p>
+            </v-flex>
+            <v-flex column>
+              <v-radio key="2" value="2"> </v-radio>
+              <p>
+                Somewhat <br />
+                dishonest
+              </p>
+            </v-flex>
+            <v-flex column>
+              <v-radio key="3" value="3"> </v-radio>
+              <p>
+                Possibly honest or <br />
+                dishonest
+              </p>
+            </v-flex>
+            <v-flex column>
+              <v-radio key="4" value="4"> </v-radio>
+              <p>
+                Somewhat <br />
+                honest
+              </p>
+            </v-flex>
+            <v-flex column>
+              <v-radio key="5" value="5"> </v-radio>
+              <p>Honest</p>
+            </v-flex>
+            <v-flex column>
+              <v-radio key="6" value="6"> </v-radio>
+              <p>
+                Completely <br />
+                honest
+              </p>
+            </v-flex>
+          </v-layout>
+        </v-radio-group>
+        <v-btn
           color="primary"
           :disabled="!rated"
           elevation="3"
           @click="submit"
-          style="margin-top:100px"
+          style="margin-top:50px"
           >Submit</v-btn
         >
       </v-form>
-        </v-card-text>
     </div>
 
     <div id="honesty-catch" v-show="showCatchReport">
       <h2>Please select the second option from the left.</h2>
-           <v-card-text>
       <v-form v-model="isValid">
-        <v-slider
+        <v-radio-group
+          class="honestyform"
           v-model="catchResponse"
-          :min="0"
-          :max="6"
-          step="1"
           :rules="[(v) => !!v || 'Please answer this question']"
-          ticks="always"
-          tick-size="15"
-          track-color="darkgray"
-          track-fill-color="primary"
-          thumb-color="primary"
-          always-dirty
         >
-        </v-slider>
-
+          <v-layout row wrap>
+            <v-flex column>
+              <v-radio key="0" value="0"> </v-radio>
+              <p>
+                Completely <br />
+                dishonest
+              </p>
+            </v-flex>
+            <v-flex column>
+              <v-radio key="1" value="1"> </v-radio>
+              <p>Dishonest</p>
+            </v-flex>
+            <v-flex column>
+              <v-radio key="2" value="2"> </v-radio>
+              <p>
+                Somewhat <br />
+                dishonest
+              </p>
+            </v-flex>
+            <v-flex column>
+              <v-radio key="3" value="3"> </v-radio>
+              <p>
+                Possibly honest or <br />
+                dishonest
+              </p>
+            </v-flex>
+            <v-flex column>
+              <v-radio key="4" value="4"> </v-radio>
+              <p>
+                Somewhat <br />
+                honest
+              </p>
+            </v-flex>
+            <v-flex column>
+              <v-radio key="5" value="5"> </v-radio>
+              <p>Honest</p>
+            </v-flex>
+            <v-flex column>
+              <v-radio key="6" value="6"> </v-radio>
+              <p>
+                Completely <br />
+                honest
+              </p>
+            </v-flex>
+          </v-layout>
+        </v-radio-group>
         <v-btn
           color="primary"
           :disabled="!isValid"
           elevation="3"
           @click="submitCatch"
+          style="margin-top:50px"
           >Submit</v-btn
         >
       </v-form>
-        </v-card-text>
     </div>
   </div>
 </template>
@@ -116,15 +181,6 @@ export default {
       displayText: "Please report the colour of the computer’s pick",
       reportText: "You report:",
       outcomeText: "The other player reports:",
-      tickLabels: [
-         'completely dishonest', 
-         'dishonest', 
-         'somewhat dishonest', 
-         'neutral', 
-         'somewhat honest', 
-         'honest', 
-         'completely honest'
-      ],
       displayReport: true,
       reportedCard: "",
       showOutcomeReport: false,
@@ -134,7 +190,7 @@ export default {
       showRatingReport: false,
       rated: false,
       isValid: true,
-      honestyResponse: 0,
+      honestyResponse: "",
       showCatchReport: false,
       catchResponse: "",
       result: "",
@@ -177,22 +233,22 @@ export default {
     },
     outcomeWin: function() {
       if (this.reportedCard === this.outcome) {
-        this.result = "tie"
-        return "IT'S A TIE"}
-      else if ((this.reportedCard === -1) & (this.outcome === 1)) {
+        this.result = "tie";
+        return "IT'S A TIE";
+      } else if ((this.reportedCard === -1) & (this.outcome === 1)) {
         this.userIcon = "./x.png";
         this.otherIcon = "./coin.png";
-        this.result = "loss"
+        this.result = "loss";
         return "YOU LOSE";
       } else if ((this.reportedCard === 1) & (this.outcome === -1)) {
         this.userIcon = "./coin.png";
         this.otherIcon = "./x.png";
-        this.result = "win"
+        this.result = "win";
         return "YOU WIN";
       }
     },
     submit: function() {
-      this.$emit("result", this.result)
+      this.$emit("result", this.result);
       let rt = performance.now() - this.startRating - 3 * this.timeTilOutcome;
       this.$emit("rt_honesty", rt);
       this.$emit("honesty_rating", this.honestyResponse);
@@ -203,12 +259,12 @@ export default {
       }
       this.$emit("ratingdone");
       this.start = performance.now();
-      this.rated = false
+      this.rated = false;
     },
     submitCatch: function() {
       let rt = performance.now() - this.startRating - this.timeTilOutcome;
       this.$emit("rt_catch", rt);
-      this.$emit("catch_rating", this.catchResponse)
+      this.$emit("catch_rating", this.catchResponse);
       this.$emit("ratingdone");
       this.start = performance.now();
     },
