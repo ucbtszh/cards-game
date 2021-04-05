@@ -91,7 +91,7 @@
         Well done!<br><br>
         Next, you will play three practice trials.<br>
         After these, the actual game will start. <br><br>
-        <v-btn color="primary" elevation="3" @click="$router.push('testtrials'); saveAttempts">Continue</v-btn>
+        <v-btn color="primary" elevation="3" @click=" saveAttempts(); $router.push('testtrials');">Continue</v-btn>
                 </div>
         </div>
 </template>
