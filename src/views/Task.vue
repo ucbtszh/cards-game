@@ -33,7 +33,7 @@
       </div>
     </div>
     <div v-show="this.trialIndex === trials.length" style="text-align:left;">
-      This is the end of the game. <br /><br />
+      You reached the end of the game. <br /><br />
       You won {{ wins }} and lost {{ losses }} trials. Hence, your total score is {{ points }} points.<br>
       This means your bonus payment will be £ {{ bonus }}.<br /><br />
 
@@ -57,9 +57,11 @@
 </template>
 
 <script>
+import trials from "@/assets/trials_40shuffled.json"
+
 import Cards from "@/components/Cards.vue";
 import Report from "@/components/Report.vue";
-import trials from "@/assets/trials_40shuffled.json"
+
 import { writeResponseData } from "../firebaseConfig"
 
 export default {
