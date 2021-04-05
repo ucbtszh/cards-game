@@ -60,6 +60,7 @@
 import Cards from "@/components/Cards.vue";
 import Report from "@/components/Report.vue";
 import trials from "@/assets/trials_40shuffled.json"
+import { writeResponseData } from "../firebaseConfig"
 
 export default {
   components: {
@@ -147,8 +148,18 @@ export default {
       this.results.push(v)
     },
     saveAll: function() {
-      // TODO: placeholder to send all responses to DB
-      // db.push(this.result)
+      let responses = {
+        randomPick: this.randomPick,
+        randomPickColour: this.randomPickColour,
+        reportColour: this.reportColour,
+        RTreport: this.RTreport,
+        honestyRating: this.honestyRating,
+        RThonesty: this.RThonesty,
+        catchRating: this.catchRating,
+        RTcatch: this.RTcatch,
+        results: this.results,
+      }
+      writeResponseData(this.$uuid, 'cards_game', responses)
     },
     next: function() {
       this.duration = Date.now() - this.start;
