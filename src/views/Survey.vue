@@ -64,6 +64,8 @@
 </template>
 
 <script>
+import { writeResponseData } from "../firebaseConfig"
+
 export default {
   data() {
     return {
@@ -142,7 +144,13 @@ export default {
   },
   methods: {
     submit: function() {
-      // TODO: push to DB
+      let response = {
+        age: this.age,
+        gender: this.genderResponse,
+        edlev: this.edLevResponse,
+        twin: this.twinResponse
+      }
+      writeResponseData(this.$uuid, 'demographics', response)
     },
   },
   mounted () {

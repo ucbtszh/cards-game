@@ -1,5 +1,5 @@
 import platform from 'platform'
-import store from './firestore_utils'
+import { writeMetaUser } from "../firebaseConfig"
 
 export default {
     mounted() {
@@ -40,6 +40,6 @@ export default {
             min_to_utc: n,
             language: lang
         }
-        store.methods.writeMetaSubject(this.$uuid, metaInfo)
+        writeMetaUser(this.$uuid, metaInfo)
     }
 }

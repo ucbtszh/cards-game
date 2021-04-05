@@ -50,6 +50,8 @@
 </template>
 
 <script>
+import { writeResponseData } from "../firebaseConfig"
+
 export default {
   data() {
     return {
@@ -62,10 +64,12 @@ export default {
   },
   methods: {
     submit: function() {
-      // TODO: push responses to DB
-      // this.understoodTaskResponse
-      // this.feedback
-      // this.studyPurpose
+      let response = {
+        understoodTask: this.understoodTaskResponse,
+        feedback: this.feedback,
+        studyPurpose: this.studyPurpose
+      }
+      writeResponseData(this.$uuid, 'feedback', response)
     },
   },
   mounted () {
