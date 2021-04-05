@@ -18,7 +18,7 @@ export default {
         var OSArch = platform.os.architecture
         
         // browser
-        var UA = navigator.subjectAgent;
+        var UA = navigator.userAgent;
         
         // timezone
         var d = new Date();
