@@ -147,6 +147,13 @@ export default {
     saveResult: function(v) {
       this.results.push(v)
     },
+    next: function() {
+      this.duration = Date.now() - this.start;
+      this.index++;
+      this.trialIndex++;
+      this.showCards = true;
+      this.showReport = false;
+    },
     saveAll: function() {
       let responses = {
         randomPick: this.randomPick,
@@ -158,16 +165,10 @@ export default {
         catchRating: this.catchRating,
         RTcatch: this.RTcatch,
         results: this.results,
+        bonusAmountGBP: this.bonus
       }
-      writeResponseData(this.$uuid, 'cards_game', responses)
+      writeResponseData(this.$uuid, 'main_responses', responses)
     },
-    next: function() {
-      this.duration = Date.now() - this.start;
-      this.index++;
-      this.trialIndex++;
-      this.showCards = true;
-      this.showReport = false;
-    }
   },
   mounted() {
     this.overlay = false;
