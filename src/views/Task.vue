@@ -158,8 +158,8 @@ export default {
     },
     saveAll: function() {
       let responses = {
-        randomPick: this.randomPick,
-        randomPickColour: this.randomPickColour,
+        randomPick: this.randomPick.slice(0, this.trials.length),
+        randomPickColour: this.randomPickColour.slice(0, this.trials.length),
         reportColour: this.reportColour,
         RTreport: this.RTreport,
         honestyRating: this.honestyRating,

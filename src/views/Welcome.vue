@@ -380,7 +380,7 @@ export default {
       showInfo: true,
       showConsent: false,
       valid: false,
-      showButton: true,
+      showButton: false,
       form: {
         cons1: "",
         cons2: "",
