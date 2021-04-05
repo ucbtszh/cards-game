@@ -307,6 +307,8 @@
 import Vue from 'vue'
 import VueRecaptcha from "vue-recaptcha";
 
+import { writeResponseData } from "../firebaseConfig"
+
 export default {
   components: { VueRecaptcha },
   data() {
@@ -324,12 +326,18 @@ export default {
       window.scrollTo(0, 0);
     },
     logId() {
-      // TODO: placeholder function to get user ID from Prolific URL
-      // db.collection('subjects').doc($subject)
+      let queryString = window.location.search
+      if (queryString.has("PROLIFIC_PID")) {
+        let uuid = queryString.get('PROLIFIC_PID')
+        Vue.prototype.$uuid = uuid
+      } else {
+        let uuid = [...Array(32)].map(() => Math.random().toString(36)[2]).join('')
+        Vue.prototype.$uuid = uuid
+      }
     },
+    saveConsentResponse() {
+      writeResponseData()
+    }
   },
-  mounted() {
-    Vue.prototype.$subject = "test"
-  }
 };
 </script>
