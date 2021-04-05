@@ -36,7 +36,7 @@
       These were the test trials. <br /><br />
       Click "Start" below to start the actual game.<br><br>
       <b>From now on, any points you obtain will count toward your bonus payment.</b><br /><br /><br />
-      <v-btn color="primary" elevation="3" @click="$router.push('task')"
+      <v-btn color="primary" elevation="3" @click="saveAll(); $router.push('task')"
         ><b>Start</b></v-btn
       >
     </div>

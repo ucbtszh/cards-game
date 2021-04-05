@@ -42,7 +42,7 @@
         color="primary"
         elevation="3"
         @click="
-          saveAll;
+          saveAll();
           $router.push('feedback');
         "
         ><b>Continue</b></v-btn
