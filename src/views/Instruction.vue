@@ -56,7 +56,7 @@
     </swiper-slide>
     <swiper-slide>
       <div class="instruction">
-        <ComprehensionCheck @clicked="trackAttempts" />
+        <ComprehensionCheck />
       </div>
     </swiper-slide>
     <div class="swiper-pagination" slot="pagination"></div>
@@ -68,8 +68,10 @@
 
 <script>
 import { Swiper, SwiperSlide } from "vue-awesome-swiper";
-import "swiper/css/swiper.css";
 import ComprehensionCheck from "@/components/ComprehensionCheck.vue";
+
+import "swiper/css/swiper.css";
+
 import meta from "../mixin/meta";
 
 export default {
@@ -94,14 +96,7 @@ export default {
           prevEl: ".swiper-button-prev",
         },
       },
-      attempts: [],
     };
-  },
-  methods: {
-      trackAttempts: function(v) {
-          this.attempts.push(v)
-          // console.log(this.attempts)
-    }
   },
   mounted () {
     window.scrollTo(0, 0)
