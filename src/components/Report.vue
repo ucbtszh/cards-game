@@ -201,27 +201,27 @@ export default {
     reportRed: function() {
       this.reportedCard = -1;
       this.$emit("report", this.reportedCard);
-      let rt = performance.now() - this.start;
+      let rt = performance.now() - this.start; // cumulative over trials --> in analyses subtract Cards display * index=1!
       // console.log("report RT:", rt);
       this.$emit("rt_report", rt);
-      this.startRating = performance.now();
+      this.start = performance.now();
     },
     reportBlue: function() {
       this.reportedCard = 1;
       this.$emit("report", this.reportedCard);
-      let rt = performance.now() - this.start;
+      let rt = performance.now() - this.start; // cumulative over trials --> in analyses subtract Cards display * index=1!
       // console.log("report RT:", rt);
       this.$emit("rt_report", rt);
-      this.startRating = performance.now();
+      this.start = performance.now();
     },
     toggleDisplay: function() {
       this.displayReport = false;
       this.showOutcomeReport = true;
-      setTimeout(this.showOutcome, this.timeTilOutcome);
+      setTimeout(this.showOutcome, this.timeTilOutcome * 1); // durationx = 1
     },
     showOutcome: function() {
       this.showOpponentReport = true;
-      setTimeout(this.showRating, this.timeTilOutcome * 2);
+      setTimeout(this.showRating, this.timeTilOutcome * 2); // durationx = 1 + 2 = 3
     },
     showRating: function() {
       this.showOutcomeReport = false;
@@ -249,7 +249,7 @@ export default {
     },
     submit: function() {
       this.$emit("result", this.result);
-      let rt = performance.now() - this.startRating - 3 * this.timeTilOutcome;
+      let rt = performance.now() - this.start - this.timeTilOutcome * 3; // durationx = 3
       this.$emit("rt_honesty", rt);
       this.$emit("honesty_rating", this.honestyResponse);
       if (this.index && this.index % 5 === 0) {
@@ -262,7 +262,7 @@ export default {
       this.rated = false;
     },
     submitCatch: function() {
-      let rt = performance.now() - this.startRating - this.timeTilOutcome;
+      let rt = performance.now() - this.start; // after start time has been reset in submit()
       this.$emit("rt_catch", rt);
       this.$emit("catch_rating", this.catchResponse);
       this.$emit("ratingdone");
