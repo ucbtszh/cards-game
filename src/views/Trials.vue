@@ -24,8 +24,6 @@
             @rt_report="saveRTreport"
             @honesty_rating="saveHonestyRating"
             @rt_honesty="saveRThonesty"
-            @catch_rating="saveCatchRating"
-            @rt_catch="saveRTcatch"
             @result="saveResult"
             @ratingdone="next"
           />
@@ -99,8 +97,6 @@ export default {
       RTreport: [],
       honestyRating: [],
       RThonesty: [],
-      catchRating: [],
-      RTcatch: [],
       results: [],
     };
   },
@@ -134,14 +130,6 @@ export default {
       this.RThonesty.push(v);
       // console.log("PARENT - RT honesty", this.RThonesty)
     },
-    saveCatchRating: function(v) {
-      this.catchRating.push(v);
-      // console.log("PARENT - catch rating", this.catchRating)
-    },
-    saveRTcatch: function(v) {
-      this.RTcatch.push(v);
-      // console.log("PARENT - RT catch", this.RTcatch)
-    },
     saveResult: function(v) {
       this.results.push(v);
     },
@@ -160,8 +148,6 @@ export default {
         RTreport: this.RTreport,
         honestyRating: this.honestyRating,
         RThonesty: this.RThonesty,
-        catchRating: this.catchRating,
-        RTcatch: this.RTcatch,
         results: this.results,
       };
       writeResponseData(this.$uuid, "trial_responses", responses);
