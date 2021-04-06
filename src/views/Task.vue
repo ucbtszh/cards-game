@@ -1,7 +1,7 @@
 <template>
   <div id="task">
      <v-progress-linear
-      :value="trialIndex"
+      :value="rounds"
       color="amber"
       height="25px"
       style="margin-top:0; margin-bottom:50px; display:inline-block;"
@@ -94,6 +94,9 @@ export default {
     };
   },
   computed: {
+    rounds: function() {
+      return (this.trialIndex + 1) * 100 / this.trials.length
+    },
     wins: function() {
       return this.results.filter(i => i === "win").length
     },

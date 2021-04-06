@@ -72,7 +72,7 @@
             <v-flex column>
               <v-radio key="3" value="3"> </v-radio>
               <p>
-                Possibly honest or <br />
+                Potentially honest or <br />
                 dishonest
               </p>
             </v-flex>
@@ -137,7 +137,7 @@
             <v-flex column>
               <v-radio key="3" value="3"> </v-radio>
               <p>
-                Possibly honest or <br />
+                Potentially honest or <br />
                 dishonest
               </p>
             </v-flex>

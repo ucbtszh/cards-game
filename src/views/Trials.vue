@@ -44,10 +44,12 @@
         elevation="3"
         @click="
           saveAll();
-          $router.push('task')
+          findPlayer=true;
+          proceed();
         "
         ><b>Start</b></v-btn
       >
+      <AwaitPlayer v-show="findPlayer" />
     </div>
   </div>
 </template>
@@ -55,6 +57,7 @@
 <script>
 import Cards from "@/components/Cards.vue";
 import Report from "@/components/Report.vue";
+import AwaitPlayer from "@/components/AwaitPlayer.vue";
 
 import { writeResponseData } from "../firebaseConfig";
 
@@ -62,6 +65,7 @@ export default {
   components: {
     Cards,
     Report,
+    AwaitPlayer
   },
   data() {
     return {
@@ -88,7 +92,7 @@ export default {
       showCards: true,
       showReport: false,
       start: 0,
-      overlay: false,
+      findPlayer: false,
       randomPick: [],
       randomPickColour: [],
       reportColour: [],
@@ -162,6 +166,12 @@ export default {
       };
       writeResponseData(this.$uuid, "trial_responses", responses);
     },
+    proceed() {
+      this.timer = setTimeout(() => this.$router.push('task'), 4000)
+    }
+  },
+  beforeDestroy() {
+    clearTimeout(this.timer)
   }
 };
 </script>
