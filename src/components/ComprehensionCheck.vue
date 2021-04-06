@@ -89,7 +89,7 @@
                 </div>
                 <div id="c4" v-show="showC4">
         Well done!<br><br>
-        Next, you will play three practice trials.<br>
+        Next, you will play three <b>practice trials</b>.<br>
         After these, the actual game will start. <br><br>
         <v-btn color="primary" elevation="3" @click=" saveAttempts(); $router.push('testtrials');">Continue</v-btn>
                 </div>

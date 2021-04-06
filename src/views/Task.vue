@@ -1,5 +1,12 @@
 <template>
   <div id="task">
+     <v-progress-linear
+      :value="trialIndex"
+      color="amber"
+      height="25px"
+      style="margin-top:0; margin-bottom:50px; display:inline-block;"
+    >Round {{ trialIndex+1 }} of {{ trials.length }}</v-progress-linear>
+
     <div id="taskloop" v-for="(trial, index) in trials" :key="index">
       <div v-show="index === trialIndex">
         <div id="cards" v-show="showCards">
@@ -48,11 +55,6 @@
         ><b>Continue</b></v-btn
       >
     </div>
-    <v-overlay :opacity="1" :value="overlay">
-      <v-progress-circular indeterminate size="64">
-        Loading...
-      </v-progress-circular>
-    </v-overlay>
   </div>
 </template>
 
@@ -80,7 +82,6 @@ export default {
       showCards: true,
       showReport: false,
       start: 0,
-      overlay: true,
       randomPick: [],
       randomPickColour: [],
       reportColour: [],
@@ -106,7 +107,6 @@ export default {
       if (this.points <= 0) {return 0}
       return (0.05 * this.points).toFixed(2)
     },
-    
   },
   methods: {
     toReport: function() {
@@ -172,9 +172,6 @@ export default {
       writeResponseData(this.$uuid, 'main_responses', responses)
     },
   },
-  mounted() {
-    this.overlay = false;
-  }
 };
 </script>
 
