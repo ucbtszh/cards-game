@@ -108,7 +108,7 @@
     </div>
 
     <div id="honesty-catch" v-show="showCatchReport">
-      <h2>Please select the second option from the left.</h2>
+      <h2>Please select the {{ catchOption }} option from the left.</h2>
       <v-form v-model="isValid">
         <v-radio-group
           class="honestyform"
@@ -195,6 +195,12 @@ export default {
       catchResponse: "",
       result: "",
     };
+  },
+  computed: {
+    catchOption: function() {
+        let option = ['second', 'fourth', 'sixth', 'fifth', 'third', 'first', 'fourth', 'first', 'second']
+        return option[this.index / 5]
+    }
   },
   props: ["index", "outcome", "timeTilOutcome", "trial"],
   methods: {
