@@ -273,9 +273,9 @@ export default {
       this.$emit("catch_rating", this.catchResponse);
       this.$emit("ratingdone");
       this.start = performance.now();
-      if (this.index === 10 && this.catchResponse !== 5) {
-        window.location.replace('https://app.prolific.co/submissions/complete?cc=2FACC063')
-      }
+      // if (this.index === 10 && this.catchResponse !== 5) {
+      //   window.location.replace('https://app.prolific.co/submissions/complete?cc=2FACC063')
+      // }
     },
   },
   mounted() {
