@@ -411,7 +411,7 @@ export default {
       let queryString = window.location.search;
       let urlParams = new URLSearchParams(queryString);
       if (urlParams.has('PROLIFIC_PID')) {
-        let uuid = queryString.get('PROLIFIC_PID');
+        let uuid = urlParams.get('PROLIFIC_PID');
         Vue.prototype.$uuid = uuid;
       } else {
         let uuid = [...Array(32)]
