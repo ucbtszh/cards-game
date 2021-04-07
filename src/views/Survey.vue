@@ -21,6 +21,18 @@
           :value="g.value"
         ></v-radio>
       </v-radio-group>
+       Please select the third item from the below options:
+      <v-radio-group
+        v-model="catchResponse"
+        :rules="[(v) => !!v || 'Please answer this question.']"
+      >
+        <v-radio
+          v-for="(c, index) in catchq"
+          :key="index"
+          :label="c.label"
+          :value="c.value"
+        ></v-radio>
+      </v-radio-group>
       Are you a twin?
       <v-radio-group
         v-model="twinResponse"
@@ -140,6 +152,29 @@ export default {
           value: 9,
         },
       ],
+      catchResponse: '',
+      catchq: [
+          {
+          label: "Completely disagree",
+          value: 0,
+        },
+        {
+          label: "Disagree",
+          value: 1,
+        },
+        {
+          label: "Neither agree or disagree",
+          value: 2,
+        },
+        {
+          label: "Agree",
+          value: 3,
+        },
+        {
+          label: "Completely agree",
+          value: 4,
+        },
+      ]
     };
   },
   methods: {
@@ -148,7 +183,8 @@ export default {
         age: this.age,
         gender: this.genderResponse,
         edlev: this.edLevResponse,
-        twin: this.twinResponse
+        twin: this.twinResponse,
+        catch: this.catchResponse
       }
       writeResponseData(this.$uuid, 'demographics', response)
     },
