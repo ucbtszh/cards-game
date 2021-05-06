@@ -198,16 +198,26 @@ export default {
   },
   computed: {
     catchOption: function() {
-        let option = ['second', 'fourth', 'sixth', 'fifth', 'third', 'first', 'fourth', 'first', 'second']
-        return option[this.index / 5]
-    }
+      let option = [
+        "second",
+        "fourth",
+        "sixth",
+        "fifth",
+        "third",
+        "first",
+        "fourth",
+        "first",
+        "second",
+      ];
+      return option[this.index / 5];
+    },
   },
   props: ["index", "outcome", "timeTilOutcome", "trial"],
   methods: {
     reportRed: function() {
       this.reportedCard = -1;
       this.$emit("report", this.reportedCard);
-      let rt = performance.now() - this.start; // cumulative over trials --> in analyses subtract Cards display * index=1!
+      let rt = performance.now() - this.start - 3000 * this.index; // cumulative over trials, because this.start is on Task mount (only once)
       // console.log("report RT:", rt);
       this.$emit("rt_report", rt);
       this.start = performance.now();
@@ -215,7 +225,7 @@ export default {
     reportBlue: function() {
       this.reportedCard = 1;
       this.$emit("report", this.reportedCard);
-      let rt = performance.now() - this.start; // cumulative over trials --> in analyses subtract Cards display * index=1!
+      let rt = performance.now() - this.start - 3000 * this.index; // cumulative over trials, because this.start is on Task mount (only once)
       // console.log("report RT:", rt);
       this.$emit("rt_report", rt);
       this.start = performance.now();
