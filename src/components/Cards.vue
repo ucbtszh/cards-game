@@ -12,14 +12,14 @@
 export default {
   data() {
     return {
-      n_blue: 5 - this.n_red,
+      n_blue: 7 - this.n_red, // first number should equal total amount of cards
       header: "Cards in this trial:",
     };
   },
   props: ["index", "n_red", "report_duration", "trial", "timeTilPick", "durationx"],
   computed: {
     cardpick: function() {
-      let pick = Math.floor(Math.random() * [0, 1, 2, 3, 4].length);
+      let pick = Math.floor(Math.random() * [0, 1, 2, 3, 4, 5, 6].length);
       // console.log("from computed", this.index, pick)
       return [this.index, pick]
     },
