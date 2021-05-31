@@ -74,9 +74,9 @@ export default {
           random_choice: 3, // win
         },
         {
-          n_red: 2,
-          outcome: 1,
-          random_choice: 4, // tie
+          n_red: 6,
+          outcome: -1,
+          random_choice: 5, // tie
         },
         {
           n_red: 4,
