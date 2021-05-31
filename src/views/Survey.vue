@@ -1,84 +1,97 @@
 <template>
-  <div id="demographics">
-    <v-form v-model="isValid">
-      <v-text-field
-        label="What is your age?"
-        outlined
-        v-model="age"
-        style="width:200px;"
-        :rules="[(v) => (v >= 10 && v < 100) || 'You entered an invalid age.']"
-      ></v-text-field>
-      What gender do you identify with?
-      <v-radio-group
-        v-model="genderResponse"
-        :rules="[(v) => !!v || 'Gender is required']"
-        row
-      >
-        <v-radio
-          v-for="(g, index) in gender"
-          :key="index"
-          :label="g.label"
-          :value="g.value"
-        ></v-radio>
-      </v-radio-group>
-       Please select the third item from the below options:
-      <v-radio-group
-        v-model="catchResponse"
-        :rules="[(v) => !!v || 'Please answer this question.']"
-      >
-        <v-radio
-          v-for="(c, index) in catchq"
-          :key="index"
-          :label="c.label"
-          :value="c.value"
-        ></v-radio>
-      </v-radio-group>
-      Are you a twin?
-      <v-radio-group
-        v-model="twinResponse"
-        :rules="[(v) => !!v || 'Please answer this question.']"
-        row
-      >
-        <v-radio
-          v-for="(p, index) in twin"
-          :key="index"
-          :label="p.label"
-          :value="p.value"
-        ></v-radio>
-      </v-radio-group>
-      What is the highest education level that you completed?
-      <v-radio-group
-        v-model="edLevResponse"
-        persistent-hint
-        hint="If you are currently studying, select your current level of studies."
-        :rules="[(v) => !!v || 'Education level is required']"
-      >
-        <v-radio
-          v-for="(e, index) in edLev"
-          :key="index"
-          :label="e.label"
-          :value="e.value"
-        ></v-radio>
-      </v-radio-group>
-      <br />
-      <v-btn
-        color="primary"
-        :disabled="!isValid"
-        @click="
-          submit();
-          $router.push('end');
-        "
-      >
-        NEXT
-      </v-btn>
-    </v-form>
+  <div>
+    <div id="EQ" v-show="EQshow">
+      <EQ @EQ_done="showDemos" />
+    </div>
+
+    <div id="demographics" v-show="demosShow">
+      <v-form v-model="isValid">
+        <v-text-field
+          label="What is your age?"
+          outlined
+          v-model="age"
+          style="width:200px;"
+          :rules="[
+            (v) => (v >= 10 && v < 100) || 'You entered an invalid age.',
+          ]"
+        ></v-text-field>
+        What gender do you identify with?
+        <v-radio-group
+          v-model="genderResponse"
+          :rules="[(v) => !!v || 'Gender is required']"
+          row
+        >
+          <v-radio
+            v-for="(g, index) in gender"
+            :key="index"
+            :label="g.label"
+            :value="g.value"
+          ></v-radio>
+        </v-radio-group>
+        Please select the third item from the below options:
+        <v-radio-group
+          v-model="catchResponse"
+          :rules="[(v) => !!v || 'Please answer this question.']"
+        >
+          <v-radio
+            v-for="(c, index) in catchq"
+            :key="index"
+            :label="c.label"
+            :value="c.value"
+          ></v-radio>
+        </v-radio-group>
+        Are you a twin?
+        <v-radio-group
+          v-model="twinResponse"
+          :rules="[(v) => !!v || 'Please answer this question.']"
+          row
+        >
+          <v-radio
+            v-for="(p, index) in twin"
+            :key="index"
+            :label="p.label"
+            :value="p.value"
+          ></v-radio>
+        </v-radio-group>
+        What is the highest education level that you completed?
+        <v-radio-group
+          v-model="edLevResponse"
+          persistent-hint
+          hint="If you are currently studying, select your current level of studies."
+          :rules="[(v) => !!v || 'Education level is required']"
+        >
+          <v-radio
+            v-for="(e, index) in edLev"
+            :key="index"
+            :label="e.label"
+            :value="e.value"
+          ></v-radio>
+        </v-radio-group>
+        <br />
+        <v-btn
+          color="primary"
+          :disabled="!isValid"
+          @click="
+            submit();
+            $router.push('end');
+          "
+        >
+          NEXT
+        </v-btn>
+      </v-form>
+    </div>
   </div>
 </template>
 
 <script>
-import { writeResponseData } from "../firebaseConfig"
+import EQ from "../components/EQ";
+
+import { writeResponseData } from "../firebaseConfig";
 
 export default {
+  components: {
+    EQ,
+  },
   data() {
     return {
       isValid: false,
@@ -152,9 +165,9 @@ export default {
           value: 9,
         },
       ],
-      catchResponse: '',
+      catchResponse: "",
       catchq: [
-          {
+        {
           label: "Completely disagree",
           value: 0,
         },
@@ -174,23 +187,30 @@ export default {
           label: "Completely agree",
           value: 4,
         },
-      ]
+      ],
+      EQshow: true,
+      demosShow: false,
     };
   },
   methods: {
+    showDemos: function() {
+      this.EQshow = false;
+      this.demosShow = true;
+      window.scrollTo(0, 0)
+    },
     submit: function() {
       let response = {
         age: this.age,
         gender: this.genderResponse,
         edlev: this.edLevResponse,
         twin: this.twinResponse,
-        catch: this.catchResponse
-      }
-      writeResponseData(this.$uuid, 'demographics', response)
+        catch: this.catchResponse,
+      };
+      writeResponseData(this.$uuid, "demographics", response);
     },
   },
-  mounted () {
-    window.scrollTo(0, 0)
-  }
+  mounted() {
+    window.scrollTo(0, 0);
+  },
 };
 </script>
