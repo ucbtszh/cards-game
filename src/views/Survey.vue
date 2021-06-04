@@ -73,7 +73,7 @@
           :disabled="!isValid"
           @click="
             submit();
-            $router.push('end');
+            $router.push('feedback');
           "
         >
           NEXT

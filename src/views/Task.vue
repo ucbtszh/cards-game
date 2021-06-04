@@ -15,7 +15,7 @@
             :index="index"
             :n_red="trial.n_red"
             :trial="false"
-            :timeTilPick="1000"
+            :timeTilPick="1100"
             :report_duration="duration"
             :durationx="3"
             @card_pick="savePick"
@@ -46,13 +46,14 @@
       is {{ points }} points.<br />
       This means your bonus payment will be £ {{ bonus }}.<br /><br />
 
-      Click "Continue" below to proceed.<br /><br /><br />
+      In the last part of this study, you will be asked questions about yourself.<br />
+      Please click "Continue" below to proceed.<br /><br /><br />
       <v-btn
         color="primary"
         elevation="3"
         @click="
           saveAll();
-          $router.push('feedback');
+          $router.push('survey');
         "
         ><b>Continue</b></v-btn
       >
@@ -61,7 +62,7 @@
 </template>
 
 <script>
-import trials from "@/assets/trials_40shuffled.json";
+import trials from "@/assets/trials_pilot2_ROI.json";
 
 import Cards from "@/components/Cards.vue";
 import Report from "@/components/Report.vue";

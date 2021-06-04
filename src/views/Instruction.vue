@@ -9,7 +9,7 @@
           Each card is either red or blue. For example: <br /><br />
           <div
             class="red-card-mini"
-            v-for="index in 3"
+            v-for="index in 5"
             :key="'r1' + index"
           ></div>
           <div
@@ -22,7 +22,7 @@
           see this card.<br /><br />
           <div
             class="red-card-mini"
-            v-for="index in 2"
+            v-for="index in 4"
             :key="'r2' + index"
           ></div>
           <div

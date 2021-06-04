@@ -40,7 +40,7 @@
         :disabled="!isValid"
         @click="
           submit();
-          $router.push('survey');
+          $router.push('end');
         "
       >
         NEXT
