@@ -1,12 +1,15 @@
 [
     {
-        "item": "I can easily tell if someone else wants to enter a conversation."
+        "item": "I can easily tell if someone else wants to enter a conversation"
     },
     {
         "item": "I really enjoy caring for other people"
     },
     {
         "item": "I find it hard to know what to do in a social situation"
+    },
+    {
+        "item": "Please select the first answer option"
     },
     {
         "item": "I often find it difficult to judge if something is rude or polite"
@@ -30,6 +33,9 @@
         "item": "I am quick to spot when someone in a group is feeling awkward or uncomfortable"
     },
     {
+        "item": "Please select the middle answer option"
+    },
+    {
         "item": "I can’t always see why someone should have felt offended by a remark"
     },
     {
@@ -42,7 +48,7 @@
         "item": "I can easily tell if someone else is interested or bored with what I am saying"
     },
     {
-        "item": "Friends usually talk to me about their problems as they say that I am very understanding."
+        "item": "Friends usually talk to me about their problems as they say that I am very understanding"
     },
     {
         "item": "I can sense if I am intruding even if the other person doesn’t tell me"
@@ -52,6 +58,9 @@
     },
     {
         "item": "I can tune into how someone else feels rapidly and intuitively"
+    },
+    {
+        "item": "Please select the last answer option"
     },
     {
         "item": "I can easily work out what another person might want to talk about"
@@ -93,6 +102,9 @@
         "item": "I find it difficult to read and understand maps"
     },
     {
+        "item": "Please select the middle answer option"
+    },
+    {
         "item": "When I look at a piece of furniture I do not notice the details of how it was constructed"
     },
     {
@@ -130,6 +142,9 @@
     },
     {
         "item": "I can easily visualize how the motorways in my region link up"
+    },
+    {
+        "item": "Please select the first answer option"
     },
     {
         "item": "When I’m in a plane I do not think about the aerodynamics"

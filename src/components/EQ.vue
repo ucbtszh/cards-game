@@ -1,5 +1,6 @@
 <template>
   <div id="EQ">
+    
     Please indicate how much you agree with each of the below statements.<br />
     <v-form v-model="isValid">
       <Likert
@@ -43,7 +44,7 @@ export default {
       this.EQResponse[response[0]] = response[2]
     },
     saveResponses: function() {
-        // console.log("EQ WRITE DATA TO DB")
+        // console.log("EQ WRITE DATA TO DB", this.EQResponse)
       writeResponseData('testuser', 'EQ', this.EQResponse) // this.$user
     }
   },
