@@ -208,6 +208,13 @@ export default {
         "fourth",
         "first",
         "second",
+        "first",
+        "fourth",
+        "fifth",
+        "second",
+        "third",
+        "second",
+        "fifth"
       ];
       return option[this.index / 5];
     },
