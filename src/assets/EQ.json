@@ -9,9 +9,6 @@
         "item": "I find it hard to know what to do in a social situation"
     },
     {
-        "item": "Please select the first answer option"
-    },
-    {
         "item": "I often find it difficult to judge if something is rude or polite"
     },
     {
@@ -19,6 +16,9 @@
     },
     {
         "item": "I can pick up quickly if someone says one thing but means another"
+    },
+    {
+        "item": "Please select the first answer option"
     },
     {
         "item": "It is hard for me to see why some things upset people so much"
@@ -54,13 +54,13 @@
         "item": "I can sense if I am intruding even if the other person doesn’t tell me"
     },
     {
+        "item": "Please select the last answer option"
+    },
+    {
         "item": "Other people often say that I am insensitive though I don’t always see why"
     },
     {
         "item": "I can tune into how someone else feels rapidly and intuitively"
-    },
-    {
-        "item": "Please select the last answer option"
     },
     {
         "item": "I can easily work out what another person might want to talk about"
@@ -93,6 +93,9 @@
         "item": "In math I am intrigued by the rules and patterns governing numbers"
     },
     {
+        "item": "Please select the middle answer option"
+    },
+    {
         "item": "I find it difficult to understand instruction manuals for putting appliances together"
     },
     {
@@ -100,9 +103,6 @@
     },
     {
         "item": "I find it difficult to read and understand maps"
-    },
-    {
-        "item": "Please select the middle answer option"
     },
     {
         "item": "When I look at a piece of furniture I do not notice the details of how it was constructed"
@@ -121,6 +121,9 @@
     },
     {
         "item": "I am not very meticulous when I carry out D.I.Y"
+    },
+    {
+        "item": "Please select the first answer option"
     },
     {
         "item": "When I look at a building I am curious about the precise way it was constructed"
@@ -142,9 +145,6 @@
     },
     {
         "item": "I can easily visualize how the motorways in my region link up"
-    },
-    {
-        "item": "Please select the first answer option"
     },
     {
         "item": "When I’m in a plane I do not think about the aerodynamics"

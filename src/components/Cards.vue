@@ -1,7 +1,7 @@
 <template>
   <div :id="index">
     <h3>{{ header }}</h3>
-    <p v-show="trial" style="display:inline-block">Remember that the other player is handed exactly the same cards.</p>
+    <p v-show="trial" style="display:inline-block">Remember that the other player is handed exactly the same cards and that their random card pick is not necessarily the same as yours.</p>
     <br>
     <div class="red-card" v-for="n_red in n_red" :key="'r' + n_red"></div>
     <div class="blue-card" v-for="n_blue in n_blue" :key="'b' + n_blue"></div>

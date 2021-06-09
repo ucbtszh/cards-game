@@ -45,7 +45,7 @@ export default {
     },
     saveResponses: function() {
         // console.log("EQ WRITE DATA TO DB", this.EQResponse)
-      writeResponseData('testuser', 'EQ', this.EQResponse) // this.$user
+      writeResponseData(this.$uuid, 'EQ', this.EQResponse)
     }
   },
   mounted() {
