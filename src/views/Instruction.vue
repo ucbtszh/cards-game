@@ -3,9 +3,9 @@
     <swiper class="swiper" :options="swiperOption">
       <swiper-slide>
         <div class="instruction">
-          You will play a card game with another particpant.<br />
-          In each trial, you and the other player will be presented with an
-          <b>identical</b> set of five cards. <br />
+          You are going to play a card game with another participant.<br />
+          In each round, you and the other player will be presented with an
+          <b>identical</b> set of seven cards. <br />
           Each card is either red or blue. For example: <br /><br />
           <div
             class="red-card-mini"
@@ -48,14 +48,39 @@
           You <b>cannot see</b> what card is picked for the other player.<br /><br />
 
           The other player also reports the card colour that was picked for
-          them.<br />
-          The blue card is the winning card, the red card is the losing card.<br />
-          For example, if you report the blue card and the other player reports
-          the red card:<br /><br />
+          them.<br /><br />
+
+          When you and the other player happen to report different card colours,
+          blue <b>wins</b> 1 point and red <b>loses</b> 1 point.<br />
+          When you and the other player happen to report the same colour,
+          <b>no one wins or loses a point</b>.<br /><br />
+        </div>
+      </swiper-slide>
+      <swiper-slide>
+        <div class="instruction">
+          For example, when you report a blue card and the other player reports
+          red:<br /><br />
           <img src="sswin.png" height="150px" /><br /><br />
           This means you <b>win</b> 1 point and the other player <b>loses</b> 1
           point.<br /><br />
-          If both cards have the same colour, no one wins or loses a point.<br />
+
+          Vice versa, when you report a red card and the other player reports
+          blue:<br /><br />
+          <img src="sslose.png" height="150px" /><br /><br />
+          This means you <b>lose</b> 1 point and the other player <b>wins</b> 1
+          point.
+        </div>
+      </swiper-slide>
+      <swiper-slide>
+        <div class="instruction">
+          When you and the other player both report red:<br /><br />
+          <img src="sstie.png" height="150px" /><br /><br />
+          This means <b>neither</b> you or the other player wins or loses
+          points.<br /><br />
+
+          When you and the other player both report blue:<br /><br />
+          <img src="sstieb.png" height="150px" /><br /><br />
+          Again, <b>neither</b> you or the other player wins or loses points.
         </div>
       </swiper-slide>
       <swiper-slide>
@@ -64,7 +89,7 @@
           For each point you lose, you lose £ 0.05.<br /><br />
           Your total bonus payment will <b>not</b> be lower than £ 0.<br /><br />
 
-          After each trial, you will be asked to rate how honest you think the
+          After each round, you will be asked to rate how honest you think the
           other player is.<br />
           Note: The other player also rates your honesty.<br /><br />
           Next, you are asked to answer a few questions to make sure that you
