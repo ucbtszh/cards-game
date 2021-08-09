@@ -43,7 +43,7 @@
         @click="
           saveAll();
           findPlayer = true;
-          proceed();
+          $router.push('round1');
         "
         ><b>Start</b></v-btn
       >
@@ -148,10 +148,7 @@ export default {
         results: this.results,
       };
       writeResponseData(this.$uuid, "trial_responses", responses);
-    },
-    proceed() {
-      this.timer = setTimeout(() => this.$router.push("task"), 4000);
-    },
+    }
   },
   beforeDestroy() {
     clearTimeout(this.timer);

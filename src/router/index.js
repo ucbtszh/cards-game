@@ -3,7 +3,9 @@ import VueRouter from 'vue-router'
 import Welcome from '../views/Welcome.vue'
 import Instruction_d from '../views/Instruction_diff.vue'
 import Instruction_s from '../views/Instruction_same.vue'
-import Task from '../views/Task.vue'
+import Round1 from '../views/Round1.vue'
+import Round2 from '../views/Round2.vue'
+import Round3 from '../views/Round3.vue'
 import Test from '../views/Trials.vue'
 import Feedback from '../views/Feedback.vue'
 import Survey from '../views/Survey.vue'
@@ -28,9 +30,19 @@ const routes = [
     component: Instruction_s
   },
   {
-    path: '/task',
-    name: 'Task',
-    component: Task
+    path: '/round1',
+    name: 'Round_1',
+    component: Round1
+  },
+  {
+    path: '/round2',
+    name: 'Round_2',
+    component: Round2
+  },
+  {
+    path: '/round3',
+    name: 'Round_3',
+    component: Round3
   },
   {
     path: '/testtrials',
