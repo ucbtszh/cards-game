@@ -32,7 +32,7 @@
     </div>
     <div v-show="this.trialIndex === trials.length" style="text-align:left;">
       These were the test trials. <br /><br />
-      Click "Start" below to start the actual game.<br /><br />
+      Click "Start" below to start the first actual game.<br /><br />
       <b
         >From now on, any points you obtain will count toward your bonus
         payment.</b
@@ -42,12 +42,11 @@
         elevation="3"
         @click="
           saveAll();
-          findPlayer=true;
+          findPlayer = true;
           proceed();
         "
         ><b>Start</b></v-btn
       >
-      <AwaitPlayer v-show="findPlayer" />
     </div>
   </div>
 </template>
@@ -55,7 +54,6 @@
 <script>
 import Cards from "@/components/Cards.vue";
 import Report from "@/components/Report.vue";
-import AwaitPlayer from "@/components/AwaitPlayer.vue";
 
 import { writeResponseData } from "../firebaseConfig";
 
@@ -63,7 +61,6 @@ export default {
   components: {
     Cards,
     Report,
-    AwaitPlayer
   },
   data() {
     return {
@@ -153,12 +150,12 @@ export default {
       writeResponseData(this.$uuid, "trial_responses", responses);
     },
     proceed() {
-      this.timer = setTimeout(() => this.$router.push('task'), 4000)
-    }
+      this.timer = setTimeout(() => this.$router.push("task"), 4000);
+    },
   },
   beforeDestroy() {
-    clearTimeout(this.timer)
-  }
+    clearTimeout(this.timer);
+  },
 };
 </script>
 
