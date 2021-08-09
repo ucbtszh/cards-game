@@ -47,7 +47,7 @@
           </v-radio>
           <v-radio
             value="c"
-            label="The computer's random pick can result in the same or a different card for you and the other player."
+            label="The computer randomly picked for the other player and randomly picks a card for you. Your card pick is not necessarily the same as the other player's."
           >
           </v-radio>
         </v-radio-group>

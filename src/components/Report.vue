@@ -43,7 +43,7 @@
     </div>
 
     <div id="honesty-rating" v-show="showRatingReport">
-      <h2>How honest do you think the other player is?</h2>
+      <h2>How honest do you think the other player was?</h2>
       <v-form v-model="rated">
         <v-radio-group
           class="honestyform"
@@ -180,7 +180,7 @@ export default {
     return {
       displayText: "Please report the colour of the computer’s pick",
       reportText: "You report:",
-      outcomeText: "The other player reports:",
+      outcomeText: "The other player reported:",
       displayReport: true,
       reportedCard: "",
       showOutcomeReport: false,
