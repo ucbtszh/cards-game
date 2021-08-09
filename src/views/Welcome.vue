@@ -410,9 +410,13 @@ export default {
     logId() {
       let queryString = window.location.search;
       let urlParams = new URLSearchParams(queryString);
-      if (urlParams.has('PROLIFIC_PID')) {
-        let uuid = urlParams.get('PROLIFIC_PID');
+      if (urlParams.has("PROLIFIC_PID")) {
+        let uuid = urlParams.get("PROLIFIC_PID");
         Vue.prototype.$uuid = uuid;
+      }
+      if (urlParams.has("cond")) {
+        let cond = urlParams.get("cond");
+        Vue.prototype.$condition = cond;
       } else {
         let uuid = [...Array(32)]
           .map(() => Math.random().toString(36)[2])
