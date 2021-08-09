@@ -5,7 +5,7 @@
       color="amber"
       height="25px"
       style="margin-top:0; margin-bottom:50px; display:inline-block;"
-      >Round {{ trialIndex + 1 }} of {{ trials.length }}</v-progress-linear
+      >Trial {{ trialIndex + 1 }} of {{ trials.length }}</v-progress-linear
     >
 
     <div id="taskloop" v-for="(trial, index) in trials" :key="index">
@@ -62,7 +62,7 @@
 </template>
 
 <script>
-import trials from "@/assets/trials_pilot2_ROI.json";
+import trials from "@/assets/trials_pilot2_ROI_pseudorand1.json";
 
 import Cards from "@/components/Cards.vue";
 import Report from "@/components/Report.vue";

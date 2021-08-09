@@ -5,9 +5,9 @@
         <div class="instruction">
           In this study, you will play a card game for two players.<br />
           A large number of participants played this game before. We collected all their responses. <br />
-          In this version, you will play with a <b>different</b> participant from previous studies on <b>every</b> round.<br /><br />
+          On each trial, you will play with a <b>different</b> participant from a previous study.<br /><br />
 
-          In each round, you will be presented with a set of seven cards. <br />
+          On each trial you will be presented with a set of seven cards. <br />
           This is the <b>same</b> set of seven cards that the past participant has seen.<br />
           Each card is either red or blue. For example: <br /><br />
           <div
@@ -92,7 +92,7 @@
           For each point you lose, you lose £ 0.05.<br /><br />
           Your total bonus payment will <b>not</b> be lower than £ 0.<br /><br />
 
-          After each round, you will be asked to rate how honest you think the
+          After each trial, you will be asked to rate how honest you think the
           other player was.<br /><br />
           Next, you are asked to answer a few questions to make sure that you
           understand the game.

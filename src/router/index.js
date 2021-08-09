@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Welcome from '../views/Welcome.vue'
-import Instruction from '../views/Instruction.vue'
+import Instruction_d from '../views/Instruction_diff.vue'
+import Instruction_s from '../views/Instruction_same.vue'
 import Task from '../views/Task.vue'
 import Test from '../views/Trials.vue'
 import Feedback from '../views/Feedback.vue'
@@ -17,9 +18,14 @@ const routes = [
     component: Welcome
   },
   {
-    path: '/instruction',
-    name: 'Instruction',
-    component: Instruction
+    path: '/instruction_d',
+    name: 'Instruction_d',
+    component: Instruction_d
+  },
+  {
+    path: '/instruction_s',
+    name: 'Instruction_s',
+    component: Instruction_s
   },
   {
     path: '/task',

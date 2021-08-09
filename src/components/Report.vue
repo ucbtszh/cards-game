@@ -224,16 +224,15 @@ export default {
     reportRed: function() {
       this.reportedCard = -1;
       this.$emit("report", this.reportedCard);
-      let rt = performance.now() - this.start - 3000 * this.index; // cumulative over trials, because this.start is on Task mount (only once)
-      // console.log("report RT:", rt);
+      let rt = performance.now() - this.start - this.index * 3300; // cumulative over trials, because this.start is on Task mount (only once)
       this.$emit("rt_report", rt);
       this.start = performance.now();
     },
     reportBlue: function() {
       this.reportedCard = 1;
       this.$emit("report", this.reportedCard);
-      let rt = performance.now() - this.start - 3000 * this.index; // cumulative over trials, because this.start is on Task mount (only once)
-      // console.log("report RT:", rt);
+      let rt = performance.now() - this.start - this.index * 3300; // cumulative over trials, because this.start is on Task mount (only once)
+      console.log("report RT:", rt);
       this.$emit("rt_report", rt);
       this.start = performance.now();
     },
