@@ -356,9 +356,9 @@
           :disabled="!valid"
           elevation="3"
           @click="
+            logCondition();
             logId();
-            saveConsentResponse();
-            $router.push('instruction');
+            saveConsentResponse()
           "
           >Agree and continue</v-btn
         >
@@ -407,16 +407,32 @@ export default {
       this.showConsent = true;
       window.scrollTo(0, 0);
     },
-    logId() {
+    logCondition() {
       let queryString = window.location.search;
       let urlParams = new URLSearchParams(queryString);
-      if (urlParams.has("PROLIFIC_PID")) {
-        let uuid = urlParams.get("PROLIFIC_PID");
-        Vue.prototype.$uuid = uuid;
-      }
+      
       if (urlParams.has("cond")) {
         let cond = urlParams.get("cond");
         Vue.prototype.$condition = cond;
+
+        if (cond > 0) {
+          this.$router.push('instruction_s')
+        }
+        else {
+          this.$router.push('instruction_d')
+        }
+      } else {
+        Vue.prototype.$condition = 0;
+        this.$router.push('instruction_d')
+      }
+    },
+    logId() {
+      let queryString = window.location.search;
+      let urlParams = new URLSearchParams(queryString);
+      
+      if (urlParams.has("PROLIFIC_PID")) {
+        let uuid = urlParams.get("PROLIFIC_PID");
+        Vue.prototype.$uuid = uuid;
       } else {
         let uuid = [...Array(32)]
           .map(() => Math.random().toString(36)[2])
