@@ -1,8 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Welcome from '../views/Welcome.vue'
-import Instruction_d from '../views/Instruction_diff.vue'
-import Instruction_s from '../views/Instruction_same.vue'
+import Instruction from '../views/Instruction.vue'
 import Round1 from '../views/Round1.vue'
 import Round2 from '../views/Round2.vue'
 import Round3 from '../views/Round3.vue'
@@ -20,14 +19,9 @@ const routes = [
     component: Welcome
   },
   {
-    path: '/instruction_d',
-    name: 'Instruction_d',
-    component: Instruction_d
-  },
-  {
-    path: '/instruction_s',
-    name: 'Instruction_s',
-    component: Instruction_s
+    path: '/instruction',
+    name: 'Instructions',
+    component: Instruction
   },
   {
     path: '/round1',

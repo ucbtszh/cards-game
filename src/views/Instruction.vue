@@ -4,11 +4,21 @@
       <swiper-slide>
         <div class="instruction">
           In this study, you will play a card game for two players.<br />
-          A large number of participants played this game before. We collected all their responses. <br />
-          On each trial, you will play with a <b>different</b> participant from a previous study.<br /><br />
+          A large number of participants played this game before. We collected
+          all their game responses. <br />
+          <p v-if="this.$condition > 0">
+            You will play the game three times, with a
+            <b>different</b> participant from a previous study in
+            <b>each game</b>.
+          </p>
+          <p v-if="this.$condition <= 0">
+            On <b>each trial</b> you will play with a
+            <b>different</b> participant from a previous study.
+          </p>
 
           On each trial you will be presented with a set of seven cards. <br />
-          This is the <b>same</b> set of seven cards that the past participant has seen.<br />
+          This is the <b>same</b> set of seven cards that the past participant
+          has seen.<br />
           Each card is either red or blue. For example: <br /><br />
           <div
             class="red-card-mini"
@@ -53,8 +63,8 @@
           The other player also reported the card colour that was picked for
           them.<br /><br />
 
-          When you and the other player report different card colours,
-          blue <b>wins</b> 1 point and red <b>loses</b> 1 point.<br />
+          When you and the other player report different card colours, blue
+          <b>wins</b> 1 point and red <b>loses</b> 1 point.<br />
           When you and the other player report the same colour,
           <b>no one wins or loses a point</b>.<br /><br />
         </div>

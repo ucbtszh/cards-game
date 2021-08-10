@@ -358,7 +358,8 @@
           @click="
             logCondition();
             logId();
-            saveConsentResponse()
+            saveConsentResponse();
+            $router.push('instruction')
           "
           >Agree and continue</v-btn
         >
@@ -415,15 +416,14 @@ export default {
         let cond = urlParams.get("cond");
         Vue.prototype.$condition = cond;
 
-        if (cond > 0) {
-          this.$router.push('instruction_s')
-        }
-        else {
-          this.$router.push('instruction_d')
-        }
+        // if (cond > 0) {
+        //   this.$router.push('instruction_s')
+        // }
+        // else {
+        //   this.$router.push('instruction_d')
+        // }
       } else {
         Vue.prototype.$condition = 0;
-        this.$router.push('instruction_d')
       }
     },
     logId() {
