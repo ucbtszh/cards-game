@@ -38,7 +38,8 @@ export default {
             os_arch: OSArch,
             browser: UA,
             min_to_utc: n,
-            language: lang
+            language: lang,
+            condition: this.$condition
         }
         writeMetaUser(this.$uuid, metaInfo)
     }
