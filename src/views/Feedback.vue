@@ -60,7 +60,7 @@
 
 
       <v-textarea
-        label="What do you think the other participants’ goals were in playing the game?"
+        label="What do you think the other players' goals were in playing the game?"
         outlined
         v-model="othersGoal"
         :rules="[(v) => v.length >= 10 || 'Please answer this question.']"

@@ -169,23 +169,23 @@ export default {
       catchq: [
         {
           label: "Completely disagree",
-          value: 0,
-        },
-        {
-          label: "Disagree",
           value: 1,
         },
         {
-          label: "Neither agree or disagree",
+          label: "Disagree",
           value: 2,
         },
         {
-          label: "Agree",
+          label: "Neither agree or disagree",
           value: 3,
         },
         {
-          label: "Completely agree",
+          label: "Agree",
           value: 4,
+        },
+        {
+          label: "Completely agree",
+          value: 5,
         },
       ],
       EQshow: true,
