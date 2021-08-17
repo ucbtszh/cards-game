@@ -3,22 +3,9 @@
     <swiper class="swiper" :options="swiperOption">
       <swiper-slide>
         <div class="instruction">
-          In this study, you will play a card game for two players.<br />
-          A large number of participants played this game before. We collected
-          all their game responses. <br />
-          <p v-if="this.$condition > 0">
-            You will play the game three times, with a
-            <b>different</b> participant from a previous study in
-            <b>each game</b>.
-          </p>
-          <p v-if="this.$condition <= 0">
-            On <b>each trial</b> you will play with a
-            <b>different</b> participant from a previous study.
-          </p>
-
-          On each trial you will be presented with a set of seven cards. <br />
-          This is the <b>same</b> set of seven cards that the past participant
-          has seen.<br />
+          You are going to play a card game with another participant.<br />
+          In each round, you and the other player will be presented with an
+          <b>identical</b> set of seven cards. <br />
           Each card is either red or blue. For example: <br /><br />
           <div
             class="red-card-mini"
@@ -54,30 +41,30 @@
       </swiper-slide>
       <swiper-slide>
         <div class="instruction">
-          The computer also randomly picked a card for the other player.
+          The computer also randomly picks a card for the other player.
           <br />
-          This card <b>could have been the same or different</b> than yours.<br /><br />
+          This card <b>can be the same or different</b> than yours.<br /><br />
 
-          You <b>cannot see</b> what card was picked for the other player.<br /><br />
+          You <b>cannot see</b> what card is picked for the other player.<br /><br />
 
-          The other player also reported the card colour that was picked for
+          The other player also reports the card colour that was picked for
           them.<br /><br />
 
-          When you and the other player report different card colours, blue
-          <b>wins</b> 1 point and red <b>loses</b> 1 point.<br />
+          When you and the other player report different card colours,
+          blue <b>wins</b> 1 point and red <b>loses</b> 1 point.<br />
           When you and the other player report the same colour,
           <b>no one wins or loses a point</b>.<br /><br />
         </div>
       </swiper-slide>
       <swiper-slide>
         <div class="instruction">
-          For example, when you report a blue card and the other player reported
+          For example, when you report a blue card and the other player reports
           red:<br /><br />
           <img src="sswin.png" height="150px" /><br /><br />
           This means you <b>win</b> 1 point and the other player <b>loses</b> 1
           point.<br /><br />
 
-          Vice versa, when you report a red card and the other player reported
+          Vice versa, when you report a red card and the other player reports
           blue:<br /><br />
           <img src="sslose.png" height="150px" /><br /><br />
           This means you <b>lose</b> 1 point and the other player <b>wins</b> 1
@@ -102,8 +89,9 @@
           For each point you lose, you lose £ 0.05.<br /><br />
           Your total bonus payment will <b>not</b> be lower than £ 0.<br /><br />
 
-          After each trial, you will be asked to rate how honest you think the
-          other player was.<br /><br />
+          After each round, you will be asked to rate how honest you think the
+          other player is.<br />
+          Note: The other player also rates your honesty.<br /><br />
           Next, you are asked to answer a few questions to make sure that you
           understand the game.
         </div>

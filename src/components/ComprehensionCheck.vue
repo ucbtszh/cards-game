@@ -2,7 +2,7 @@
   <div id="comprehension">
     <div id="c1" v-show="showC1">
       <v-form v-model="isvalid">
-        In each trial, you and the other player are presented with an
+        In each trial, you and the other player will be presented with an
         identical set of seven cards.<br />
         <v-radio-group
           :rules="[(v) => !!v || 'Please answer this question.']"
@@ -47,7 +47,7 @@
           </v-radio>
           <v-radio
             value="c"
-            label="The computer randomly picked for the other player and randomly picks a card for you. Your card pick is not necessarily the same as the other player's."
+            label="The computer makes two random picks: one for you and one for the other player. This card can be the same or a different card."
           >
           </v-radio>
         </v-radio-group>
@@ -198,7 +198,7 @@
     </div>
     <div id="c6" v-show="showC6">
       <v-form v-model="isvalid6">
-        Let’s say you and the past participant both reported a red card. What happens?<br />
+        Let’s say you and the other player both reported a red card. What happens?<br />
         <v-radio-group
           :rules="[(v) => !!v || 'Please answer this question.']"
           v-model="c6"

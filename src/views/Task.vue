@@ -1,15 +1,23 @@
 <template>
   <div id="task">
+    <v-progress-linear
+      :value="rounds"
+      color="amber"
+      height="25px"
+      style="margin-top:0; margin-bottom:50px; display:inline-block;"
+      >Round {{ trialIndex + 1 }} of {{ trials.length }}</v-progress-linear
+    >
+
     <div id="taskloop" v-for="(trial, index) in trials" :key="index">
       <div v-show="index === trialIndex">
         <div id="cards" v-show="showCards">
           <Cards
             :index="index"
             :n_red="trial.n_red"
-            :trial="true"
-            :timeTilPick="3000"
+            :trial="false"
+            :timeTilPick="1100"
             :report_duration="duration"
-            :durationx="2"
+            :durationx="3"
             @card_pick="savePick"
             @card_pick_colour="savePickColour"
             @done="toReport"
@@ -19,11 +27,13 @@
           <Report
             :index="index"
             :outcome="trial.outcome"
-            :timeTilOutcome="2000"
+            :timeTilOutcome="1000"
             @report="saveResponse"
             @rt_report="saveRTreport"
             @honesty_rating="saveHonestyRating"
             @rt_honesty="saveRThonesty"
+            @catch_rating="saveCatchRating"
+            @rt_catch="saveRTcatch"
             @result="saveResult"
             @ratingdone="next"
           />
@@ -31,31 +41,31 @@
       </div>
     </div>
     <div v-show="this.trialIndex === trials.length" style="text-align:left;">
-      These were the test trials. <br /><br />
-      Click "Start" below to start the actual game.<br /><br />
-      <b
-        >From now on, any points you obtain will count toward your bonus
-        payment.</b
-      ><br /><br /><br />
+      You reached the end of the game. <br /><br />
+      You won {{ wins }} and lost {{ losses }} trials. Hence, your total score
+      is {{ points }} points.<br />
+      This means your bonus payment will be £ {{ bonus }}.<br /><br />
+
+      In the last part of this study, you will be asked questions about yourself.<br />
+      Please click "Continue" below to proceed.<br /><br /><br />
       <v-btn
         color="primary"
         elevation="3"
         @click="
           saveAll();
-          findPlayer=true;
-          proceed();
+          $router.push('survey');
         "
-        ><b>Start</b></v-btn
+        ><b>Continue</b></v-btn
       >
-      <AwaitPlayer v-show="findPlayer" />
     </div>
   </div>
 </template>
 
 <script>
+import trials from "@/assets/trials_pilot2_ROI_pseudorand2.json";
+
 import Cards from "@/components/Cards.vue";
 import Report from "@/components/Report.vue";
-import AwaitPlayer from "@/components/AwaitPlayer.vue";
 
 import { writeResponseData } from "../firebaseConfig";
 
@@ -63,42 +73,48 @@ export default {
   components: {
     Cards,
     Report,
-    AwaitPlayer
   },
   data() {
     return {
-      trials: [
-        {
-          n_red: 1,
-          outcome: -1,
-          random_choice: 3, // win
-        },
-        {
-          n_red: 6,
-          outcome: -1,
-          random_choice: 5, // tie
-        },
-        {
-          n_red: 4,
-          outcome: 1,
-          random_choice: 1, // lose
-        },
-      ],
+      trials: trials,
+      n_red: trials.map(({ n_red }) => n_red),
+      outcomes: trials.map(({ outcome }) => outcome),
       index: 0,
       trialIndex: 0,
       duration: 2000,
       showCards: true,
       showReport: false,
       start: 0,
-      findPlayer: false,
       randomPick: [],
       randomPickColour: [],
       reportColour: [],
       RTreport: [],
       honestyRating: [],
       RThonesty: [],
+      catchRating: [],
+      RTcatch: [],
       results: [],
     };
+  },
+  computed: {
+    rounds: function() {
+      return ((this.trialIndex + 1) * 100) / this.trials.length;
+    },
+    wins: function() {
+      return this.results.filter((i) => i === "win").length;
+    },
+    losses: function() {
+      return this.results.filter((i) => i === "loss").length;
+    },
+    points: function() {
+      return this.wins - this.losses;
+    },
+    bonus: function() {
+      if (this.points <= 0) {
+        return 0;
+      }
+      return (0.05 * this.points).toFixed(2);
+    },
   },
   methods: {
     toReport: function() {
@@ -130,6 +146,14 @@ export default {
       this.RThonesty.push(v);
       // console.log("PARENT - RT honesty", this.RThonesty)
     },
+    saveCatchRating: function(v) {
+      this.catchRating.push(v);
+      // console.log("PARENT - catch rating", this.catchRating)
+    },
+    saveRTcatch: function(v) {
+      this.RTcatch.push(v);
+      // console.log("PARENT - RT catch", this.RTcatch)
+    },
     saveResult: function(v) {
       this.results.push(v);
     },
@@ -148,22 +172,20 @@ export default {
         RTreport: this.RTreport,
         honestyRating: this.honestyRating,
         RThonesty: this.RThonesty,
+        catchRating: this.catchRating,
+        RTcatch: this.RTcatch,
         results: this.results,
+        bonusAmountGBP: this.bonus,
       };
-      writeResponseData(this.$uuid, "trial_responses", responses);
+      writeResponseData(this.$uuid, "main_responses", responses);
     },
-    proceed() {
-      this.timer = setTimeout(() => this.$router.push('task'), 4000)
-    }
   },
-  beforeDestroy() {
-    clearTimeout(this.timer)
-  }
 };
 </script>
 
 <style scoped>
 #task {
   text-align: center;
+  overflow: hidden;
 }
 </style>

@@ -356,10 +356,9 @@
           :disabled="!valid"
           elevation="3"
           @click="
-            logCondition();
             logId();
             saveConsentResponse();
-            $router.push('instruction')
+            $router.push('instruction');
           "
           >Agree and continue</v-btn
         >
@@ -408,30 +407,11 @@ export default {
       this.showConsent = true;
       window.scrollTo(0, 0);
     },
-    logCondition() {
-      let queryString = window.location.search;
-      let urlParams = new URLSearchParams(queryString);
-      
-      if (urlParams.has("cond")) {
-        let cond = urlParams.get("cond");
-        Vue.prototype.$condition = cond;
-
-        // if (cond > 0) {
-        //   this.$router.push('instruction_s')
-        // }
-        // else {
-        //   this.$router.push('instruction_d')
-        // }
-      } else {
-        Vue.prototype.$condition = 0;
-      }
-    },
     logId() {
       let queryString = window.location.search;
       let urlParams = new URLSearchParams(queryString);
-      
-      if (urlParams.has("PROLIFIC_PID")) {
-        let uuid = urlParams.get("PROLIFIC_PID");
+      if (urlParams.has('PROLIFIC_PID')) {
+        let uuid = urlParams.get('PROLIFIC_PID');
         Vue.prototype.$uuid = uuid;
       } else {
         let uuid = [...Array(32)]

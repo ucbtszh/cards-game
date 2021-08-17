@@ -43,7 +43,7 @@
     </div>
 
     <div id="honesty-rating" v-show="showRatingReport">
-      <h2>How honest do you think the other player was?</h2>
+      <h2>How honest do you think the other player is?</h2>
       <v-form v-model="rated">
         <v-radio-group
           class="honestyform"
@@ -180,7 +180,7 @@ export default {
     return {
       displayText: "Please report the colour of the computer’s pick",
       reportText: "You report:",
-      outcomeText: "The other player reported:",
+      outcomeText: "The other player reports:",
       displayReport: true,
       reportedCard: "",
       showOutcomeReport: false,
@@ -216,7 +216,7 @@ export default {
         "second",
         "fifth"
       ];
-      return option[this.index / 3];
+      return option[this.index / 5];
     },
   },
   props: ["index", "outcome", "timeTilOutcome", "trial"],
@@ -224,14 +224,15 @@ export default {
     reportRed: function() {
       this.reportedCard = -1;
       this.$emit("report", this.reportedCard);
-      let rt = performance.now() - this.start - this.index * 3300; // cumulative over trials, because this.start is on Task mount (only once)
+      let rt = performance.now() - this.start - 3000 * this.index; // cumulative over trials, because this.start is on Task mount (only once)
+      // console.log("report RT:", rt);
       this.$emit("rt_report", rt);
       this.start = performance.now();
     },
     reportBlue: function() {
       this.reportedCard = 1;
       this.$emit("report", this.reportedCard);
-      let rt = performance.now() - this.start - this.index * 3300; // cumulative over trials, because this.start is on Task mount (only once)
+      let rt = performance.now() - this.start - 3000 * this.index; // cumulative over trials, because this.start is on Task mount (only once)
       // console.log("report RT:", rt);
       this.$emit("rt_report", rt);
       this.start = performance.now();
@@ -274,7 +275,7 @@ export default {
       let rt = performance.now() - this.start - this.timeTilOutcome * 3; // durationx = 3
       this.$emit("rt_honesty", rt);
       this.$emit("honesty_rating", this.honestyResponse);
-      if (this.index && this.index % 9 === 0) {
+      if (this.index && this.index % 5 === 0) {
         this.showRatingReport = false;
         this.showCatchReport = true;
         return;
