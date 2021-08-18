@@ -18,7 +18,7 @@
       ><br />
       Sarah ZHENG (Experimental Psychology, 26 Bedford Way, email:
       sarah.zheng.16@ucl.ac.uk)<br />
-      Tali SHAROT (Experimental Psychology, 26 Bedford Way, Room 508),
+      Tali SHAROT (Experimental Psychology, 26 Bedford Way),
       telephone: 020 76797511, email: t.sharot@ucl.ac.uk)<br /><br />
 
       <b><u>Subject Cost/Payment for Participation</u></b
@@ -415,13 +415,6 @@ export default {
       if (urlParams.has("cond")) {
         let cond = urlParams.get("cond");
         Vue.prototype.$condition = cond;
-
-        // if (cond > 0) {
-        //   this.$router.push('instruction_s')
-        // }
-        // else {
-        //   this.$router.push('instruction_d')
-        // }
       } else {
         Vue.prototype.$condition = 0;
       }

@@ -43,7 +43,7 @@
     </div>
 
     <div id="honesty-rating" v-show="showRatingReport">
-      <h2>How honest do you think the other player was?</h2>
+      <h2>How honest do you think {{ honestyQtext }} player was?</h2>
       <v-form v-model="rated">
         <v-radio-group
           class="honestyform"
@@ -218,6 +218,14 @@ export default {
       ];
       return option[this.index / 3];
     },
+    honestyQtext: function(){
+      if (this.$condition > 0){
+        return "the other"
+      }
+      else {
+        return "this"
+      }
+    }
   },
   props: ["index", "outcome", "timeTilOutcome", "trial"],
   methods: {
