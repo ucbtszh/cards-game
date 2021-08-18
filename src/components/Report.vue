@@ -216,7 +216,7 @@ export default {
         "second",
         "fifth"
       ];
-      return option[this.index / 5];
+      return option[this.index / 8];
     },
   },
   props: ["index", "outcome", "timeTilOutcome", "trial"],
@@ -275,7 +275,7 @@ export default {
       let rt = performance.now() - this.start - this.timeTilOutcome * 3; // durationx = 3
       this.$emit("rt_honesty", rt);
       this.$emit("honesty_rating", this.honestyResponse);
-      if (this.index && this.index % 5 === 0) {
+      if (this.index && this.index % 8 === 0) {
         this.showRatingReport = false;
         this.showCatchReport = true;
         return;

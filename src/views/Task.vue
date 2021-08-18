@@ -62,7 +62,7 @@
 </template>
 
 <script>
-import trials from "@/assets/trials_pilot2_ROI_pseudorand2.json";
+import trials from "@/assets/trials_pilot2_ROI_pseudorand6.json";
 
 import Cards from "@/components/Cards.vue";
 import Report from "@/components/Report.vue";
