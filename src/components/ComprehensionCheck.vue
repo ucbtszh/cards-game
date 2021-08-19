@@ -47,7 +47,7 @@
           </v-radio>
           <v-radio
             value="c"
-            label="The computer randomly picked a card for the other player and randomly picks a card for you. Your card pick is not necessarily the same as the other player's."
+            label="The computer randomly picked a card for the other participant and randomly picks a card for you. Your card pick is therefore not necessarily the same as the other player's."
           >
           </v-radio>
         </v-radio-group>
@@ -69,7 +69,7 @@
     </div>
     <div id="c3" v-show="showC3">
       <v-form v-model="isvalid3">
-        Let’s say you reported a blue card and the other player reported
+        Let’s say you reported a blue card and the other participant reported
         red:<br />
         <v-radio-group
           :rules="[(v) => !!v || 'Please answer this question.']"
@@ -114,7 +114,7 @@
     </div>
     <div id="c4" v-show="showC4">
       <v-form v-model="isvalid4">
-        Let’s say you and the other player both reported a blue card. What happens?<br />
+        Let’s say you and the other participant both reported a blue card. What happens?<br />
         <v-radio-group
           :rules="[(v) => !!v || 'Please answer this question.']"
           v-model="c4"
@@ -153,7 +153,7 @@
     </div>
     <div id="c5" v-show="showC5">
       <v-form v-model="isvalid5">
-        Let’s say you reported a red card and the other player reported
+        Let’s say you reported a red card and the other participant reported
         blue:<br />
         <v-radio-group
           :rules="[(v) => !!v || 'Please answer this question.']"
