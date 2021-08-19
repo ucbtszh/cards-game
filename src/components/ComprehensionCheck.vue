@@ -138,7 +138,7 @@
         <v-btn
           color="success"
           elevation="3"
-          :disabled="!isvalid3"
+          :disabled="!isvalid4"
           @click="
             c4clicks++;
             validateC4();
@@ -183,7 +183,7 @@
         <v-btn
           color="success"
           elevation="3"
-          :disabled="!isvalid3"
+          :disabled="!isvalid5"
           @click="
             c5clicks++;
             validateC5();
@@ -222,7 +222,7 @@
         <v-btn
           color="success"
           elevation="3"
-          :disabled="!isvalid3"
+          :disabled="!isvalid6"
           @click="
             c6clicks++;
             validateC6();
@@ -236,6 +236,34 @@
       </v-form>
     </div>
     <div id="c7" v-show="showC7">
+      <v-form v-model="isvalid7">
+        Each {{trialOrGame}}, you will see another participant's report from a previous study.
+        <br />
+        <v-radio-group
+          :rules="[(v) => !!v || 'Please answer this question.']"
+          v-model="c7"
+        >
+          <v-radio value="1" label="True"></v-radio>
+          <v-radio value="0" label="False"></v-radio>
+        </v-radio-group>
+        <v-btn
+          color="success"
+          elevation="3"
+          :disabled="!isvalid7"
+          @click="
+            c7clicks++;
+            validateC7();
+          "
+        >
+          Submit
+        </v-btn>
+        <div v-show="c7clicks == 1" style="color:red">
+          {{ warning }}
+        </div>
+      </v-form>
+    </div>
+
+    <div id="c8" v-show="showC8">
       Well done!<br /><br />
       Next, you will play three <b>practice trials</b>.<br />
       After these, the actual game will start. <br /><br />
@@ -264,12 +292,14 @@ export default {
       c4: "",
       c5: "",
       c6: "",
+      c7: "",
       c1clicks: 0,
       c2clicks: 0,
       c3clicks: 0,
       c4clicks: 0,
       c5clicks: 0,
       c6clicks: 0,
+      c7clicks: 0,
       showC1: true,
       showC2: false,
       showC3: false,
@@ -277,16 +307,28 @@ export default {
       showC5: false,
       showC6: false,
       showC7: false,
+      showC8: false,
       isvalid: false,
       isvalid2: false,
       isvalid3: false,
       isvalid4: false,
       isvalid5: false,
       isvalid6: false,
+      isvalid7: false,
       completion_url: 'https://app.prolific.co/submissions/complete?cc=7BF55447',
       warning:
         "This answer is incorrect. You have one attempt left. Please review the instructions before your next attempt. When you use the blue arrows on the side to go back through the instructions and come back here, you will be directed to this question again.",
     };
+  },
+  computed: {
+    trialOrGame: function() {
+      if (this.$condition > 0) {
+        return "game"
+      }
+      else {
+        return "trial"
+      }
+    }
   },
   methods: {
     validateC1: function() {
@@ -337,6 +379,14 @@ export default {
         this.showC7 = true;
       }
     },
+    validateC7: function() {
+      if ((this.c7clicks == 2) & (this.c7 == 0)) {
+        window.location.replace(this.completion_url);
+      } else if (this.c7 == 1) {
+        this.showC7 = false;
+        this.showC8 = true;
+      }
+    },
     saveAttempts: function() {
       let data = {
         c1attempts: this.c1clicks,
@@ -345,12 +395,14 @@ export default {
         c4attempts: this.c4clicks,
         c5attempts: this.c5clicks,
         c6attempts: this.c6clicks,
+        c7attempts: this.c7clicks,
         c1: this.c1,
         c2: this.c2,
         c3: this.c3,
         c4: this.c4,
         c5: this.c5,
         c6: this.c6,
+        c7: this.c7,
       };
       // console.log("comp checks")
       writeResponseData(this.$uuid, "comprehension", data);
