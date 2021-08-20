@@ -62,7 +62,7 @@
 import bs11 from "@/assets/p2b_s11.json";
 import bs02 from "@/assets/p2b_s02.json";
 import as31 from "@/assets/p2a_s31.json";
-import r2 from "@/assets/r2.json";
+import r2 from "@/assets/r11.json";
 
 import Cards from "@/components/Cards.vue";
 import Report from "@/components/Report.vue";
@@ -170,6 +170,8 @@ export default {
     },
     saveAll: function() {
       let responses = {
+        nRed: this.trials.map(({ n_red }) => n_red),
+        outcome: this.trials.map(({ outcome }) => outcome),
         randomPick: this.randomPick.slice(0, this.trials.length),
         randomPickColour: this.randomPickColour.slice(0, this.trials.length),
         reportColour: this.reportColour,
