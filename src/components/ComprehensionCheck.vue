@@ -237,7 +237,7 @@
     </div>
     <div id="c7" v-show="showC7">
       <v-form v-model="isvalid7">
-        Each {{trialOrGame}}, you will see another participant's report from a previous study.
+        <b>Each {{trialOrGame}}</b>, you will see another participant's report from a previous study.
         <br />
         <v-radio-group
           :rules="[(v) => !!v || 'Please answer this question.']"
@@ -326,7 +326,7 @@ export default {
         return "game"
       }
       else {
-        return "trial"
+        return "trial within a game"
       }
     }
   },
