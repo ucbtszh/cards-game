@@ -161,13 +161,6 @@ export default {
       this.showCards = true;
       this.showReport = false;
     },
-    endText: function() {
-      if (this.$condition > 0) {
-        return "The next game is the last one, again with another participant from a previous study.";
-      } else {
-        return "Please click 'Continue' below to start the third and last game.";
-      }
-    },
     saveAll: function() {
       let responses = {
         nRed: this.trials.map(({ n_red }) => n_red),
