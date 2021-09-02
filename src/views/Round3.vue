@@ -182,11 +182,11 @@ export default {
   },
   created() {
     this.trials =
-      (this.$condition === 22) | (this.$condition === 32)
+      (this.$condition == 22) | (this.$condition == 32)
         ? bs11
-        : (this.$condition === 12) | (this.$condition === 31)
+        : (this.$condition == 12) | (this.$condition == 31)
         ? as31
-        : (this.$condition === 11) | (this.$condition === 21)
+        : (this.$condition == 11) | (this.$condition == 21)
         ? bs02
         : r2;
   },
