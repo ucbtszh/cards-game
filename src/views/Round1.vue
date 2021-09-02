@@ -66,7 +66,7 @@ import r0 from "@/assets/r9.json";
 import Cards from "@/components/Cards.vue";
 import Report from "@/components/Report.vue";
 
-// import { writeResponseData } from "../firebaseConfig";
+import { writeResponseData } from "../firebaseConfig";
 
 export default {
   components: {
@@ -183,8 +183,8 @@ export default {
         bonusAmountGBP: this.bonus,
         finishTime: performance.now()
       };
-      console.log(responses)
-      // writeResponseData(this.$uuid, "game_block1", responses);
+      // console.log(responses)
+      writeResponseData(this.$uuid, "game_block1", responses);
     },
   },
   created() {
