@@ -237,7 +237,7 @@
     </div>
     <div id="c7" v-show="showC7">
       <v-form v-model="isvalid7">
-        <b>Each {{trialOrGame}}</b>, you will see another participant's report from a previous study.
+        <b>Each trial</b>, you will see another participant's report from a previous study.
         <br />
         <v-radio-group
           :rules="[(v) => !!v || 'Please answer this question.']"
@@ -319,16 +319,6 @@ export default {
       warning:
         "This answer is incorrect. You have one attempt left. Please review the instructions before your next attempt. When you use the blue arrows on the side to go back through the instructions and come back here, you will be directed to this question again.",
     };
-  },
-  computed: {
-    trialOrGame: function() {
-      if (this.$condition > 0) {
-        return "game"
-      }
-      else {
-        return "trial within a game"
-      }
-    }
   },
   methods: {
     validateC1: function() {

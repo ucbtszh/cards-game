@@ -42,8 +42,7 @@
     </div>
     <div v-show="this.trialIndex === trials.length" style="text-align:left;">
       <b>You finished the second game!</b><br /><br />
-      {{ endText() }}
-      <br /><br />
+      Please click 'Continue' below to start the third and last game.<br /><br />
       <v-btn
         color="primary"
         elevation="3"
@@ -160,13 +159,6 @@ export default {
       this.showCards = true;
       this.showReport = false;
     },
-    endText: function() {
-      if (this.$condition > 0) {
-        return "The next game is the last one, again with another participant from a previous study.";
-      } else {
-        return "Please click 'Continue' below to start the third and last game.";
-      }
-    },
     saveAll: function() {
       let responses = {
         nRed: this.trials.map(({ n_red }) => n_red),
@@ -181,7 +173,7 @@ export default {
         RTcatch: this.RTcatch,
         results: this.results,
         bonusAmountGBP: this.bonus,
-        finishTime: performance.now()
+        finishTime: performance.now(),
       };
       writeResponseData(this.$uuid, "game_block2", responses);
     },

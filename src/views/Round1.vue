@@ -42,7 +42,7 @@
     </div>
     <div v-show="this.trialIndex === trials.length" style="text-align:left;">
       <b>You finished the first game.</b> <br /><br />
-      {{ endText() }}
+      Please click 'Continue' below to start the next game.
       <br /><br />
       <v-btn
         color="primary"
@@ -159,13 +159,6 @@ export default {
       this.trialIndex++;
       this.showCards = true;
       this.showReport = false;
-    },
-    endText: function() {
-      if (this.$condition > 0) {
-        return "The next game will be with another participant from a previous study.";
-      } else {
-        return "Please click 'Continue' below to start the next game.";
-      }
     },
     saveAll: function() {
       let responses = {
