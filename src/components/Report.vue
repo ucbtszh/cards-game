@@ -72,23 +72,16 @@
             <v-flex column>
               <v-radio key="3" value="3"> </v-radio>
               <p>
-                Potentially honest or <br />
-                dishonest
-              </p>
-            </v-flex>
-            <v-flex column>
-              <v-radio key="4" value="4"> </v-radio>
-              <p>
                 Somewhat <br />
                 honest
               </p>
             </v-flex>
             <v-flex column>
-              <v-radio key="5" value="5"> </v-radio>
+              <v-radio key="4" value="4"> </v-radio>
               <p>Honest</p>
             </v-flex>
             <v-flex column>
-              <v-radio key="6" value="6"> </v-radio>
+              <v-radio key="5" value="5"> </v-radio>
               <p>
                 Completely <br />
                 honest
@@ -137,23 +130,16 @@
             <v-flex column>
               <v-radio key="3" value="3"> </v-radio>
               <p>
-                Potentially honest or <br />
-                dishonest
-              </p>
-            </v-flex>
-            <v-flex column>
-              <v-radio key="4" value="4"> </v-radio>
-              <p>
                 Somewhat <br />
                 honest
               </p>
             </v-flex>
             <v-flex column>
-              <v-radio key="5" value="5"> </v-radio>
+              <v-radio key="4" value="4"> </v-radio>
               <p>Honest</p>
             </v-flex>
             <v-flex column>
-              <v-radio key="6" value="6"> </v-radio>
+              <v-radio key="5" value="5"> </v-radio>
               <p>
                 Completely <br />
                 honest
