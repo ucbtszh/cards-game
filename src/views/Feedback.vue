@@ -1,7 +1,7 @@
 <template>
   <div id="feedback">
     <v-form v-model="isValid">
-      To what extent did you feel you understood the task?<br />
+      To what extent did you feel you understood the instructions?<br />
       <v-card-text>
         <v-slider
           v-model="understoodTaskResponse"
