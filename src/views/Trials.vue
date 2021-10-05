@@ -32,11 +32,9 @@
     </div>
     <div v-show="this.trialIndex === trials.length" style="text-align:left;">
       These were the test trials. <br /><br />
-      Click "Start" below to start the first actual game.<br /><br />
-      <b
-        >From now on, any points you obtain will count toward your bonus
-        payment.</b
-      ><br /><br /><br />
+      Click "Start" below to start the first actual game.<br />
+      From now on, any points you obtain will count toward your bonus
+        payment.<br /><br /><br />
       <v-btn
         color="primary"
         elevation="3"
