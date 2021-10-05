@@ -32,7 +32,7 @@
         "
       ></v-radio>
       <v-radio
-        label="Somewhat disagree"
+        label="Neither agree nor disagree"
         value="3"
         aria-required="true"
         required
@@ -46,7 +46,7 @@
         "
       ></v-radio>
       <v-radio
-        label="Neither agree nor disagree"
+        label="Agree"
         value="4"
         aria-required="true"
         required
@@ -60,7 +60,7 @@
         "
       ></v-radio>
       <v-radio
-        label="Somewhat agree"
+        label="Strongly agree"
         value="5"
         aria-required="true"
         required
@@ -70,34 +70,6 @@
             name,
             Date.now(),
             5
-          ])
-        "
-      ></v-radio>
-      <v-radio
-        label="Agree"
-        value="6"
-        aria-required="true"
-        required
-        :name="name"
-        @click="
-          $emit('response_clicked', [
-            name,
-            Date.now(),
-            6
-          ])
-        "
-      ></v-radio>
-      <v-radio
-        label="Strongly agree"
-        value="7"
-        aria-required="true"
-        required
-        :name="name"
-        @click="
-          $emit('response_clicked', [
-            name,
-            Date.now(),
-            7
           ])
         "
       ></v-radio>
