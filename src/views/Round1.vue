@@ -58,10 +58,23 @@
 </template>
 
 <script>
-import bs11 from "@/assets/p2b_s11.json";
-import bs02 from "@/assets/p2b_s02.json";
-import as31 from "@/assets/p2a_s31.json";
-import r0 from "@/assets/r9.json";
+import t1_1 from "@/assets/trials_diff0_1.json";
+import t2_1 from "@/assets/trials_diff1_1.json";
+import t3_1 from "@/assets/trials_diff2_1.json";
+import t4_1 from "@/assets/trials_diff3_1.json";
+import t5_1 from "@/assets/trials_diff4_1.json";
+import t6_1 from "@/assets/trials_diff5_1.json";
+import t7_1 from "@/assets/trials_diff6_1.json";
+import t8_1 from "@/assets/trials_diff7_1.json";
+import t9_1 from "@/assets/trials_same0_1.json";
+import t10_1 from "@/assets/trials_same1_1.json";
+import t11_1 from "@/assets/trials_same2_1.json";
+import t12_1 from "@/assets/trials_same3_1.json";
+import t13_1 from "@/assets/trials_same4_1.json";
+import t14_1 from "@/assets/trials_same5_1.json";
+import t15_1 from "@/assets/trials_same6_1.json";
+import t16_1 from "@/assets/trials_same7_1.json";
+import t17_1 from "@/assets/trials_same8_1.json";
 
 import Cards from "@/components/Cards.vue";
 import Report from "@/components/Report.vue";
@@ -175,7 +188,7 @@ export default {
         RTcatch: this.RTcatch,
         results: this.results,
         bonusAmountGBP: this.bonus,
-        finishTime: performance.now()
+        finishTime: performance.now(),
       };
       // console.log(responses)
       writeResponseData(this.$uuid, "game_block1", responses);
@@ -183,13 +196,47 @@ export default {
   },
   created() {
     this.trials =
-      (this.$condition == 11) | (this.$condition == 12)
-        ? bs11
-        : (this.$condition == 21) | (this.$condition == 22)
-        ? as31
-        : (this.$condition == 31) | (this.$condition == 32)
-        ? bs02
-        : r0;
+      this.$condition == "t1"
+        ? t1_1
+        : this.$condition == "t2"
+        ? t2_1
+        : this.$condition == "t3"
+        ? t3_1
+        : this.$condition == "t4"
+        ? t4_1
+        : this.$condition == "t5"
+        ? t5_1
+        : this.$condition == "t6"
+        ? t6_1
+        : this.$condition == "t7"
+        ? t7_1
+        : this.$condition == "t8"
+        ? t8_1
+        : this.$condition == "t9"
+        ? t9_1
+        : this.$condition == "t10"
+        ? t10_1
+        : this.$condition == "t11"
+        ? t11_1
+        : this.$condition == "t12"
+        ? t12_1
+        : this.$condition == "t13"
+        ? t13_1
+        : this.$condition == "t14"
+        ? t14_1
+        : this.$condition == "t15"
+        ? t15_1
+        : this.$condition == "t16"
+        ? t16_1
+        : this.$condition == "t17"
+        ? t17_1
+        // : this.$condition == "t18"
+        // ? t18
+        // : this.$condition == "t19"
+        // ? t19
+        // : this.$condition == "t20"
+        // ? t20
+        : t1_1;
   },
 };
 </script>

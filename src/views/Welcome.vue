@@ -416,7 +416,7 @@ export default {
         let cond = urlParams.get("cond");
         Vue.prototype.$condition = cond;
       } else {
-        Vue.prototype.$condition = "diff1";
+        Vue.prototype.$condition = "t1";
       }
     },
     logId() {

@@ -57,10 +57,23 @@
 </template>
 
 <script>
-import bs11 from "@/assets/p2b_s11.json";
-import bs02 from "@/assets/p2b_s02.json";
-import as31 from "@/assets/p2a_s31.json";
-import r1 from "@/assets/r10.json";
+import t1_2 from "@/assets/trials_diff0_2.json";
+import t2_2 from "@/assets/trials_diff1_2.json";
+import t3_2 from "@/assets/trials_diff2_2.json";
+import t4_2 from "@/assets/trials_diff3_2.json";
+import t5_2 from "@/assets/trials_diff4_2.json";
+import t6_2 from "@/assets/trials_diff5_2.json";
+import t7_2 from "@/assets/trials_diff6_2.json";
+import t8_2 from "@/assets/trials_diff7_2.json";
+import t9_2 from "@/assets/trials_same0_2.json";
+import t10_2 from "@/assets/trials_same1_2.json";
+import t11_2 from "@/assets/trials_same2_2.json";
+import t12_2 from "@/assets/trials_same3_2.json";
+import t13_2 from "@/assets/trials_same4_2.json";
+import t14_2 from "@/assets/trials_same5_2.json";
+import t15_2 from "@/assets/trials_same6_2.json";
+import t16_2 from "@/assets/trials_same7_2.json";
+import t17_2 from "@/assets/trials_same8_2.json";
 
 import Cards from "@/components/Cards.vue";
 import Report from "@/components/Report.vue";
@@ -179,15 +192,49 @@ export default {
       writeResponseData(this.$uuid, "game_block2", responses);
     },
   },
-  created() {
+   created() {
     this.trials =
-      (this.$condition == 21) | (this.$condition == 31)
-        ? bs11
-        : (this.$condition == 11) | (this.$condition == 32)
-        ? as31
-        : (this.$condition == 12) | (this.$condition == 22)
-        ? bs02
-        : r1;
+      this.$condition == "t1"
+        ? t1_2
+        : this.$condition == "t2"
+        ? t2_2
+        : this.$condition == "t3"
+        ? t3_2
+        : this.$condition == "t4"
+        ? t4_2
+        : this.$condition == "t5"
+        ? t5_2
+        : this.$condition == "t6"
+        ? t6_2
+        : this.$condition == "t7"
+        ? t7_2
+        : this.$condition == "t8"
+        ? t8_2
+        : this.$condition == "t9"
+        ? t9_2
+        : this.$condition == "t10"
+        ? t10_2
+        : this.$condition == "t11"
+        ? t11_2
+        : this.$condition == "t12"
+        ? t12_2
+        : this.$condition == "t13"
+        ? t13_2
+        : this.$condition == "t14"
+        ? t14_2
+        : this.$condition == "t15"
+        ? t15_2
+        : this.$condition == "t16"
+        ? t16_2
+        : this.$condition == "t17"
+        ? t17_2
+        // : this.$condition == "t18"
+        // ? t18
+        // : this.$condition == "t19"
+        // ? t19
+        // : this.$condition == "t20"
+        // ? t20
+        : t1_2;
   },
 };
 </script>

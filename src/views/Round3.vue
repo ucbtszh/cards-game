@@ -59,10 +59,23 @@
 </template>
 
 <script>
-import bs11 from "@/assets/p2b_s11.json";
-import bs02 from "@/assets/p2b_s02.json";
-import as31 from "@/assets/p2a_s31.json";
-import r2 from "@/assets/r11.json";
+import t1_3 from "@/assets/trials_diff0_3.json";
+import t2_3 from "@/assets/trials_diff1_3.json";
+import t3_3 from "@/assets/trials_diff2_3.json";
+import t4_3 from "@/assets/trials_diff3_3.json";
+import t5_3 from "@/assets/trials_diff4_3.json";
+import t6_3 from "@/assets/trials_diff5_3.json";
+import t7_3 from "@/assets/trials_diff6_3.json";
+import t8_3 from "@/assets/trials_diff7_3.json";
+import t9_3 from "@/assets/trials_same0_3.json";
+import t10_3 from "@/assets/trials_same1_3.json";
+import t11_3 from "@/assets/trials_same2_3.json";
+import t12_3 from "@/assets/trials_same3_3.json";
+import t13_3 from "@/assets/trials_same4_3.json";
+import t14_3 from "@/assets/trials_same5_3.json";
+import t15_3 from "@/assets/trials_same6_3.json";
+import t16_3 from "@/assets/trials_same7_3.json";
+import t17_3 from "@/assets/trials_same8_3.json";
 
 import Cards from "@/components/Cards.vue";
 import Report from "@/components/Report.vue";
@@ -182,14 +195,48 @@ export default {
     },
   },
   created() {
-    this.trials =
-      (this.$condition == 22) | (this.$condition == 32)
-        ? bs11
-        : (this.$condition == 12) | (this.$condition == 31)
-        ? as31
-        : (this.$condition == 11) | (this.$condition == 21)
-        ? bs02
-        : r2;
+      this.trials =
+      this.$condition == "t1"
+        ? t1_3
+        : this.$condition == "t2"
+        ? t2_3
+        : this.$condition == "t3"
+        ? t3_3
+        : this.$condition == "t4"
+        ? t4_3
+        : this.$condition == "t5"
+        ? t5_3
+        : this.$condition == "t6"
+        ? t6_3
+        : this.$condition == "t7"
+        ? t7_3
+        : this.$condition == "t8"
+        ? t8_3
+        : this.$condition == "t9"
+        ? t9_3
+        : this.$condition == "t10"
+        ? t10_3
+        : this.$condition == "t11"
+        ? t11_3
+        : this.$condition == "t12"
+        ? t12_3
+        : this.$condition == "t13"
+        ? t13_3
+        : this.$condition == "t14"
+        ? t14_3
+        : this.$condition == "t15"
+        ? t15_3
+        : this.$condition == "t16"
+        ? t16_3
+        : this.$condition == "t17"
+        ? t17_3
+        // : this.$condition == "t18"
+        // ? t18
+        // : this.$condition == "t19"
+        // ? t19
+        // : this.$condition == "t20"
+        // ? t20
+        : t1_3;
   },
 };
 </script>
