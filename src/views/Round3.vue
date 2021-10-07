@@ -50,7 +50,7 @@
         elevation="3"
         @click="
           saveAll();
-          $router.push('survey');
+          $router.push('equo');
         "
         ><b>Continue</b></v-btn
       >
