@@ -1,85 +1,36 @@
 <template>
   <div class="likert">
-    <v-radio-group :rules="[(v) => !!v || 'This field is required']">
-      <div class="statement">{{ name }}</div>
-      <br />
-      <v-radio
-        label="Not at all"
-        value="1"
-        aria-required="true"
-        required
-        :name="name"
-        @click="
-          $emit('response_clicked', [
-            name,
-            Date.now(),
-            1
-          ])
-        "
-      ></v-radio>
-      <v-radio
-        label=""
-        value="2"
-        aria-required="true"
-        required
-        :name="name"
-        @click="
-          $emit('response_clicked', [
-            name,
-            Date.now(),
-            2
-          ])
-        "
-      ></v-radio>
-      <v-radio
-        label=""
-        value="3"
-        aria-required="true"
-        required
-        :name="name"
-        @click="
-          $emit('response_clicked', [
-            name,
-            Date.now(),
-            3
-          ])
-        "
-      ></v-radio>
-      <v-radio
-        label=""
-        value="4"
-        aria-required="true"
-        required
-        :name="name"
-        @click="
-          $emit('response_clicked', [
-            name,
-            Date.now(),
-            4
-          ])
-        "
-      ></v-radio>
-      <v-radio
-        label="Totally"
-        value="5"
-        aria-required="true"
-        required
-        :name="name"
-        @click="
-          $emit('response_clicked', [
-            name,
-            Date.now(),
-            5
-          ])
-        "
-      ></v-radio>
-    </v-radio-group>
+    <div class="statement">{{ name }}</div>
+    <v-card-text>
+      <v-slider
+        v-model="response"
+        :min="1"
+        :max="5"
+        @click="$emit('response_clicked', [name, Date.now(), response])"
+        :rules="[!!response || 'Please answer this question']"
+        step="1"
+        ticks="always"
+        tick-size="10"
+        ><template v-slot:prepend>
+          <h4>Not at all</h4>
+        </template>
+        <template v-slot:append>
+          <h4>Totally</h4>
+        </template>
+      </v-slider>
+    </v-card-text>
   </div>
 </template>
 
 <script>
 export default {
   props: ["name"],
+  data() {
+    return {
+      response: 0,
+      reponded: false,
+    };
+  },
 };
 </script>
 
@@ -87,6 +38,7 @@ export default {
 .statement {
   font-weight: bold;
   font-size: 26px;
-  margin-bottom: 10px;
+  margin-top: 75px;
+  margin-bottom: 25px;
 }
 </style>
