@@ -1,19 +1,20 @@
 <template>
-  <div id="SD3">
+  <div id="AQ">
     
-    Please indicate how much you agree with each of the following statements.<br />
+    Please indicate how much you agree with each of the below statements.<br />
+
     <v-form v-model="isValid">
-      <FivePointScale
+      <Scale
         v-for="(q, index) in items"
         :key="index"
         :name="q.item"
         @response_clicked="trackResponse"
-      />
+      /><br /><br />
       <v-btn
         color="primary"
         elevation="3"
         :disabled="!isValid"
-        @click="$emit('SD3_done'); saveResponses()"
+        @click="saveResponses(); $router.push('demos')"
       >
         NEXT
       </v-btn>
@@ -22,30 +23,29 @@
 </template>
 
 <script>
-import items from "@/assets/SD3.json";
+import items from "@/assets/AQ.json";
 
-import FivePointScale from "./FivePointScale.vue";
+import Scale from "@/components/FourPointScale.vue";
 
 import { writeResponseData } from "../firebaseConfig";
 
 export default {
   components: {
-    FivePointScale
+    Scale
   },
   data() {
     return {
       items: items,
       isValid: true,
-      SDresponse: {},
+      AQResponse: {},
     };
   },
   methods: {
     trackResponse: function(response) {
-      this.SDresponse[response[0]] = response[2]
+      this.AQResponse[response[0]] = response[2]
     },
     saveResponses: function() {
-        // console.log("EQ WRITE DATA TO DB", this.EQResponse)
-      writeResponseData(this.$uuid, 'SD3', this.SDResponse)
+      writeResponseData(this.$uuid, 'AQ', this.AQResponse)
     }
   },
   mounted() {
@@ -55,7 +55,7 @@ export default {
 </script>
 
 <style scoped>
-#SD3 {
+#AQ {
   margin-top: 5%;
 }
 </style>

@@ -1,19 +1,24 @@
 <template>
-  <div id="EQ">
-    
-    Please indicate how much you agree with each of the below statements.<br />
+  <div id="RGPTS">
+    Please read each of the below statements <b>carefully.</b><br />
+    They refer to thoughts and feelings you may have had about others over the
+    <b>last month. </b><br /><br />
+
     <v-form v-model="isValid">
-      <Likert
+      <GPTSScale
         v-for="(q, index) in items"
         :key="index"
         :name="q.item"
         @response_clicked="trackResponse"
-      />
+      /><br /><br />
       <v-btn
         color="primary"
         elevation="3"
         :disabled="!isValid"
-        @click="$emit('EQ_done'); saveResponses()"
+        @click="
+        $router.push('sd')
+          saveResponses();
+        "
       >
         NEXT
       </v-btn>
@@ -22,31 +27,32 @@
 </template>
 
 <script>
-import items from "@/assets/EQ.json";
+import items from "@/assets/RGPTS.json";
 
-import Likert from "./Likert.vue";
+import GPTSScale from "@/components/GPTSScale.vue";
 
 import { writeResponseData } from "../firebaseConfig";
 
 export default {
   components: {
-    Likert
+    GPTSScale,
   },
   data() {
     return {
       items: items,
       isValid: true,
-      EQResponse: {},
+      RGPTSResponse: {},
     };
   },
   methods: {
     trackResponse: function(response) {
-      this.EQResponse[response[0]] = response[2]
+      this.RGPTSResponse[response[0]] = response[2];
+      // console.log(this.RGPTSResponse)
     },
     saveResponses: function() {
-        // console.log("EQ WRITE DATA TO DB", this.EQResponse)
-      writeResponseData(this.$uuid, 'EQ', this.EQResponse)
-    }
+      // console.log("RGPTS WRITE DATA TO DB", this.EQResponse)
+      writeResponseData(this.$uuid, "RGPTS", this.RGPTSResponse);
+    },
   },
   mounted() {
     window.scrollTo(0, 0);
@@ -55,7 +61,7 @@ export default {
 </script>
 
 <style scoped>
-#EQ {
+#RGPTS {
   margin-top: 5%;
 }
 </style>

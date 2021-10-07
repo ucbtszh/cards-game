@@ -1,11 +1,9 @@
 <template>
-  <div id="RGPTS">
-    Please read each of the below statements <b>carefully.</b><br />
-    They refer to thoughts and feelings you may have had about others over the
-    <b>last month. </b><br /><br />
-
+  <div id="SD3">
+    
+    Please indicate how much you agree with each of the following statements.<br />
     <v-form v-model="isValid">
-      <GPTSScale
+      <FivePointScale
         v-for="(q, index) in items"
         :key="index"
         :name="q.item"
@@ -16,9 +14,8 @@
         elevation="3"
         :disabled="!isValid"
         @click="
-          $emit('RGPTS_done');
-          saveResponses();
-        "
+        $router.push('aq');
+         saveResponses()"
       >
         NEXT
       </v-btn>
@@ -27,31 +24,31 @@
 </template>
 
 <script>
-import items from "@/assets/RGPTS.json";
+import items from "@/assets/SD3.json";
 
-import GPTSScale from "./GPTSScale.vue";
+import FivePointScale from "@/components/FivePointScale";
 
 import { writeResponseData } from "../firebaseConfig";
 
 export default {
   components: {
-    GPTSScale,
+    FivePointScale
   },
   data() {
     return {
       items: items,
       isValid: true,
-      RGPTSResponse: {},
+      SDresponse: {},
     };
   },
   methods: {
     trackResponse: function(response) {
-      this.RGPTSResponse[response[0]] = response[2];
+      this.SDresponse[response[0]] = response[2]
     },
     saveResponses: function() {
-      // console.log("RGPTS WRITE DATA TO DB", this.EQResponse)
-      writeResponseData(this.$uuid, "RGPTS", this.RGPTSResponse);
-    },
+        // console.log("EQ WRITE DATA TO DB", this.EQResponse)
+      writeResponseData(this.$uuid, 'SD3', this.SDResponse)
+    }
   },
   mounted() {
     window.scrollTo(0, 0);
@@ -60,7 +57,7 @@ export default {
 </script>
 
 <style scoped>
-#RGPTS {
+#SD3 {
   margin-top: 5%;
 }
 </style>

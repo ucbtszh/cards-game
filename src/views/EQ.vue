@@ -1,10 +1,8 @@
 <template>
-  <div id="AQ">
-    
+  <div id="EQ">
     Please indicate how much you agree with each of the below statements.<br />
-
     <v-form v-model="isValid">
-      <Scale
+      <Likert
         v-for="(q, index) in items"
         :key="index"
         :name="q.item"
@@ -14,7 +12,10 @@
         color="primary"
         elevation="3"
         :disabled="!isValid"
-        @click="$emit('AQ_done'); saveResponses()"
+        @click="
+          $router.push('crt');
+          saveResponses();
+        "
       >
         NEXT
       </v-btn>
@@ -23,30 +24,31 @@
 </template>
 
 <script>
-import items from "@/assets/AQ.json";
+import items from "@/assets/EQ.json";
 
-import Scale from "./FourPointScale.vue";
+import Likert from "@/components/Likert.vue";
 
 import { writeResponseData } from "../firebaseConfig";
 
 export default {
   components: {
-    Scale
+    Likert,
   },
   data() {
     return {
       items: items,
       isValid: true,
-      AUTResponse: {},
+      EQResponse: {},
     };
   },
   methods: {
     trackResponse: function(response) {
-      this.AUTResponse[response[0]] = response[2]
+      this.EQResponse[response[0]] = response[2];
     },
     saveResponses: function() {
-      writeResponseData(this.$uuid, 'AQ', this.AUTResponse)
-    }
+      // console.log("EQ WRITE DATA TO DB", this.EQResponse)
+      writeResponseData(this.$uuid, "EQ", this.EQResponse);
+    },
   },
   mounted() {
     window.scrollTo(0, 0);
@@ -55,7 +57,7 @@ export default {
 </script>
 
 <style scoped>
-#AQ {
+#EQ {
   margin-top: 5%;
 }
 </style>
