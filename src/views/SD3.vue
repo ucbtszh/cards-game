@@ -2,13 +2,14 @@
   <div id="SD3">
     
     Please indicate how much you agree with each of the following statements.<br />
+
     <v-form v-model="isValid">
       <FivePointScale
         v-for="(q, index) in items"
         :key="index"
         :name="q.item"
         @response_clicked="trackResponse"
-      />
+      /><br /><br />
       <v-btn
         color="primary"
         elevation="3"
@@ -47,7 +48,7 @@ export default {
     },
     saveResponses: function() {
         // console.log("EQ WRITE DATA TO DB", this.EQResponse)
-      writeResponseData(this.$uuid, 'SD3', this.SDResponse)
+      writeResponseData(this.$uuid, 'SD3', this.SDresponse)
     }
   },
   mounted() {

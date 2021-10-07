@@ -43,7 +43,7 @@
     <div v-show="this.trialIndex === trials.length" style="text-align:left;">
       <b>You finished the last game.</b> <br /><br />
 
-      Next is the last part of this study, where you will be asked questions about yourself.<br />
+      Next is the last part of this study, in which you will be asked questions about yourself.<br />
       Please click "Continue" below to proceed.<br /><br />
       <v-btn
         color="primary"
