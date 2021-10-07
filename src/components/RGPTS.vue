@@ -1,7 +1,9 @@
 <template>
   <div id="RGPTS">
-    
-    Please indicate how much you agree with each of the below statements.<br />
+    Please read each of the below statements <b>carefully.</b><br />
+    They refer to thoughts and feelings you may have had about others over the
+    <b>last month. </b><br /><br />
+
     <v-form v-model="isValid">
       <GPTSScale
         v-for="(q, index) in items"
@@ -13,7 +15,10 @@
         color="primary"
         elevation="3"
         :disabled="!isValid"
-        @click="$emit('RGPTS_done'); saveResponses()"
+        @click="
+          $emit('RGPTS_done');
+          saveResponses();
+        "
       >
         NEXT
       </v-btn>
@@ -30,7 +35,7 @@ import { writeResponseData } from "../firebaseConfig";
 
 export default {
   components: {
-    GPTSScale
+    GPTSScale,
   },
   data() {
     return {
@@ -41,12 +46,12 @@ export default {
   },
   methods: {
     trackResponse: function(response) {
-      this.RGPTSResponse[response[0]] = response[2]
+      this.RGPTSResponse[response[0]] = response[2];
     },
     saveResponses: function() {
-        // console.log("RGPTS WRITE DATA TO DB", this.EQResponse)
-      writeResponseData(this.$uuid, 'RGPTS', this.RGPTSResponse)
-    }
+      // console.log("RGPTS WRITE DATA TO DB", this.EQResponse)
+      writeResponseData(this.$uuid, "RGPTS", this.RGPTSResponse);
+    },
   },
   mounted() {
     window.scrollTo(0, 0);
