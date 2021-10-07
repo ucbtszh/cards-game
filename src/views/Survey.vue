@@ -1,7 +1,23 @@
 <template>
   <div>
     <div id="EQ" v-show="EQshow">
-      <EQ @EQ_done="showDemos" />
+      <EQ @EQ_done="showRGPTS" />
+    </div>
+
+    <div id="RGPTS" v-show="RGPTSshow">
+      <RGPTS @RGPTS_done="showCRT" />
+    </div>
+
+    <div id="CRT" v-show="CRTshow">
+      <CRT @CRT_done="showSD3" />
+    </div>
+
+    <div id="SD3" v-show="SD3show">
+      <SD3 @SD3_done="showDemos" />
+    </div>
+
+    <div id="AQ" v-show="AQshow">
+      <AQ @AQ_done="showDemos" />
     </div>
 
     <div id="demographics" v-show="demosShow">
@@ -85,12 +101,20 @@
 
 <script>
 import EQ from "../components/EQ";
+import RGPTS from "../components/RGPTS";
+import CRT from "../components/CRT";
+import SD3 from "../components/SD3";
+import AQ from "../components/Autism";
 
 import { writeResponseData } from "../firebaseConfig";
 
 export default {
   components: {
     EQ,
+    RGPTS,
+    CRT,
+    SD3,
+    AQ
   },
   data() {
     return {
@@ -189,14 +213,38 @@ export default {
         },
       ],
       EQshow: true,
+      RGPTSshow: false,
+      CRTshow: false,
+      SD3show: false,
+      AQshow: false,
       demosShow: false,
     };
   },
   methods: {
-    showDemos: function() {
+    showRGPTS: function() {
       this.EQshow = false;
+      this.RGPTSShow = true;
+      window.scrollTo(0, 0);
+    },
+    showCRT: function() {
+      this.RGPTSshow = false;
+      this.CRTShow = true;
+      window.scrollTo(0, 0);
+    },
+    showSD3: function() {
+      this.CRTshow = false;
+      this.SD3Show = true;
+      window.scrollTo(0, 0);
+    },
+    showAQ: function() {
+      this.SD3show = false;
+      this.AQShow = true;
+      window.scrollTo(0, 0);
+    },
+    showDemos: function() {
+      this.AQshow = false;
       this.demosShow = true;
-      window.scrollTo(0, 0)
+      window.scrollTo(0, 0);
     },
     submit: function() {
       let response = {
