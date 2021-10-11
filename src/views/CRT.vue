@@ -59,13 +59,13 @@
       <v-row cols="2">
         <v-col>
           <v-text-field
-            v-model="crt3"
+            v-model="crt4"
             :rules="[(v) => v.length >= 1 || 'Please answer this question.']"
             required
           ></v-text-field>
         </v-col>
         <v-col>
-          cents
+          place
         </v-col>
       </v-row>
       <br /><br />

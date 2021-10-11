@@ -177,7 +177,7 @@ export default {
       let responses = {
         nRed: this.trials.map(({ n_red }) => n_red),
         outcome: this.trials.map(({ outcome }) => outcome),
-        lied: this.trials.map(({ lied }) => lied),
+        ppLied: this.trials.map(({ lied }) => lied),
         randomPick: this.randomPick.slice(0, this.trials.length),
         randomPickColour: this.randomPickColour.slice(0, this.trials.length),
         reportColour: this.reportColour,
