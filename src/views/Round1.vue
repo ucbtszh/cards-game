@@ -58,23 +58,26 @@
 </template>
 
 <script>
-import t1_1 from "@/assets/trials_diff0_1.json";
-import t2_1 from "@/assets/trials_diff1_1.json";
-import t3_1 from "@/assets/trials_diff2_1.json";
-import t4_1 from "@/assets/trials_diff3_1.json";
-import t5_1 from "@/assets/trials_diff4_1.json";
-import t6_1 from "@/assets/trials_diff5_1.json";
-import t7_1 from "@/assets/trials_diff6_1.json";
-import t8_1 from "@/assets/trials_diff7_1.json";
-import t9_1 from "@/assets/trials_same0_1.json";
-import t10_1 from "@/assets/trials_same1_1.json";
-import t11_1 from "@/assets/trials_same2_1.json";
-import t12_1 from "@/assets/trials_same3_1.json";
-import t13_1 from "@/assets/trials_same4_1.json";
-import t14_1 from "@/assets/trials_same5_1.json";
-import t15_1 from "@/assets/trials_same6_1.json";
-import t16_1 from "@/assets/trials_same7_1.json";
-import t17_1 from "@/assets/trials_same8_1.json";
+import t1_1 from "@/assets/trials_batch2_0_1.json";
+import t2_1 from "@/assets/trials_batch2_1_1.json";
+import t3_1 from "@/assets/trials_batch2_2_1.json";
+import t4_1 from "@/assets/trials_batch2_3_1.json";
+import t5_1 from "@/assets/trials_batch2_4_1.json";
+import t6_1 from "@/assets/trials_batch2_5_1.json";
+import t7_1 from "@/assets/trials_batch2_6_1.json";
+import t8_1 from "@/assets/trials_batch2_7_1.json";
+import t9_1 from "@/assets/trials_batch2_8_1.json";
+import t10_1 from "@/assets/trials_batch2_9_1.json";
+import t11_1 from "@/assets/trials_batch2_10_1.json";
+import t12_1 from "@/assets/trials_batch2_11_1.json";
+import t13_1 from "@/assets/trials_batch2_12_1.json";
+import t14_1 from "@/assets/trials_batch2_13_1.json";
+import t15_1 from "@/assets/trials_batch2_14_1.json";
+import t16_1 from "@/assets/trials_batch2_15_1.json";
+import t17_1 from "@/assets/trials_batch2_16_1.json";
+import t18_1 from "@/assets/trials_batch2_17_1.json";
+import t19_1 from "@/assets/trials_batch2_18_1.json";
+import t20_1 from "@/assets/trials_batch2_19_1.json";
 
 import Cards from "@/components/Cards.vue";
 import Report from "@/components/Report.vue";
@@ -230,12 +233,12 @@ export default {
         ? t16_1
         : this.$condition == "t17"
         ? t17_1
-        // : this.$condition == "t18"
-        // ? t18
-        // : this.$condition == "t19"
-        // ? t19
-        // : this.$condition == "t20"
-        // ? t20
+        : this.$condition == "t18"
+        ? t18_1
+        : this.$condition == "t19"
+        ? t19_1
+        : this.$condition == "t20"
+        ? t20_1
         : t1_1;
   },
 };
