@@ -9,7 +9,7 @@ import Test from '../views/Trials.vue'
 import Feedback from '../views/Feedback.vue'
 import EQ from '../views/EQ.vue'
 import CRT from '../views/CRT.vue'
-import SD from '../views/SD3.vue'
+// import SD from '../views/SD3.vue'
 import AQ from '../views/Autism.vue'
 import RGPTS from '../views/RGPTS.vue'
 import Demos from '../views/Demos.vue'
@@ -58,11 +58,11 @@ const routes = [
     name: 'demos',
     component: Demos
   },
-  {
-    path: '/sd',
-    name: 'sd',
-    component: SD
-  },
+  // {
+  //   path: '/sd',
+  //   name: 'sd',
+  //   component: SD
+  // },
   {
     path: '/aq',
     name: 'aq',

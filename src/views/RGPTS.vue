@@ -16,7 +16,7 @@
         elevation="3"
         :disabled="!isValid"
         @click="
-        $router.push('sd')
+        $router.push('aq')
           saveResponses();
         "
       >
