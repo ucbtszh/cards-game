@@ -210,14 +210,14 @@ export default {
     reportRed: function() {
       this.reportedCard = -1;
       this.$emit("report", this.reportedCard);
-      let rt = performance.now() - this.start - this.index * 3300; // cumulative over trials, because this.start is on Task mount (only once)
+      let rt = performance.now() // - this.start - this.index * 3300; // cumulative over trials, because this.start is on Task mount (only once)
       this.$emit("rt_report", rt);
       this.start = performance.now();
     },
     reportBlue: function() {
       this.reportedCard = 1;
       this.$emit("report", this.reportedCard);
-      let rt = performance.now() - this.start - this.index * 3300; // cumulative over trials, because this.start is on Task mount (only once)
+      let rt = performance.now() // - this.start - this.index * 3300; // cumulative over trials, because this.start is on Task mount (only once)
       // console.log("report RT:", rt);
       this.$emit("rt_report", rt);
       this.start = performance.now();
@@ -257,7 +257,7 @@ export default {
     },
     submit: function() {
       this.$emit("result", this.result);
-      let rt = performance.now() - this.start - this.timeTilOutcome * 3; // durationx = 3
+      let rt = performance.now() // - this.start - this.timeTilOutcome * 3; // durationx = 3
       this.$emit("rt_honesty", rt);
       this.$emit("honesty_rating", this.honestyResponse);
       if (this.index && this.index % 9 === 0) {
@@ -270,7 +270,7 @@ export default {
       this.rated = false;
     },
     submitCatch: function() {
-      let rt = performance.now() - this.start; // after start time has been reset in submit()
+      let rt = performance.now() // - this.start; // after start time has been reset in submit()
       this.$emit("rt_catch", rt);
       this.$emit("catch_rating", this.catchResponse);
       this.$emit("ratingdone");

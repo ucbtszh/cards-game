@@ -144,6 +144,7 @@ export default {
         honestyRating: this.honestyRating,
         RThonesty: this.RThonesty,
         results: this.results,
+        finishTime: performance.now(),
       };
       writeResponseData(this.$uuid, "trial_responses", responses);
     }

@@ -17,14 +17,11 @@ import { writeResponseData } from "../firebaseConfig"
 export default {
     methods: {
         saveEndTime: function() {
-            writeResponseData(this.$uuid, 'end_time', {end: Date.now()})
+            writeResponseData(this.$uuid, 'end_time', {finishTime: performance.now()})
         }
     },
     mounted() {
         window.scrollTo(0, 0)
-        },
-    beforeDestroy() {
-        this.finishTime = Date.now()
-    }
+        }
 }
 </script>

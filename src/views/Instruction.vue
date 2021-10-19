@@ -148,7 +148,7 @@ export default {
   },
   mounted() {
     window.scrollTo(0, 0);
-    this.startTime = Date.now();
+    this.startTime = performance.now();
   },
 };
 </script>
