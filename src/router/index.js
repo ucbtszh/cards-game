@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Welcome from '../views/Welcome.vue'
 import Instruction from '../views/Instruction.vue'
+import Failed from '../views/FailedCC.vue'
 import Round1 from '../views/Round1.vue'
 import Round2 from '../views/Round2.vue'
 import Round3 from '../views/Round3.vue'
@@ -27,6 +28,11 @@ const routes = [
     path: '/instruction',
     name: 'Instructions',
     component: Instruction
+  },
+  {
+    path: '/returnsub',
+    name: 'Return',
+    component: Failed
   },
   {
     path: '/round1',

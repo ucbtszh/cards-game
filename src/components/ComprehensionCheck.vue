@@ -315,7 +315,6 @@ export default {
       isvalid5: false,
       isvalid6: false,
       isvalid7: false,
-      completion_url: 'https://app.prolific.co/submissions/complete?cc=7BF55447',
       warning:
         "This answer is incorrect. You have one attempt left. Please review the instructions before your next attempt. When you use the blue arrows on the side to go back through the instructions and come back here, you will be directed to this question again.",
     };
@@ -323,7 +322,7 @@ export default {
   methods: {
     validateC1: function() {
       if ((this.c1clicks == 2) & (this.c1 == 0)) {
-        window.location.replace(this.completion_url);
+        this.$router.push('returnsub')
       } else if (this.c1 == 1) {
         this.showC1 = false;
         this.showC2 = true;
@@ -331,7 +330,7 @@ export default {
     },
     validateC2: function() {
       if ((this.c2clicks == 2) & (this.c2 !== "c")) {
-        window.location.replace(this.completion_url);
+        this.$router.push('returnsub')
       } else if (this.c2 === "c") {
         this.showC2 = false;
         this.showC3 = true;
@@ -339,7 +338,7 @@ export default {
     },
     validateC3: function() {
       if ((this.c3clicks == 2) & (this.c3 !== "c")) {
-        window.location.replace(this.completion_url);
+        this.$router.push('returnsub')
       } else if (this.c3 === "c") {
         this.showC3 = false;
         this.showC4 = true;
@@ -347,7 +346,7 @@ export default {
     },
     validateC4: function() {
       if ((this.c4clicks == 2) & (this.c4 !== "b")) {
-        window.location.replace(this.completion_url);
+        this.$router.push('returnsub')
       } else if (this.c4 === "b") {
         this.showC4 = false;
         this.showC5 = true;
@@ -355,7 +354,7 @@ export default {
     },
     validateC5: function() {
       if ((this.c5clicks == 2) & (this.c5 !== "d")) {
-        window.location.replace(this.completion_url);
+        this.$router.push('returnsub')
       } else if (this.c5 === "d") {
         this.showC5 = false;
         this.showC6 = true;
@@ -363,7 +362,7 @@ export default {
     },
     validateC6: function() {
       if ((this.c6clicks == 2) & (this.c6 !== "b")) {
-        window.location.replace(this.completion_url);
+        this.$router.push('returnsub')
       } else if (this.c6 === "b") {
         this.showC6 = false;
         this.showC7 = true;
@@ -371,7 +370,7 @@ export default {
     },
     validateC7: function() {
       if ((this.c7clicks == 2) & (this.c7 == 0)) {
-        window.location.replace(this.completion_url);
+        this.$router.push('returnsub')
       } else if (this.c7 == 1) {
         this.showC7 = false;
         this.showC8 = true;
