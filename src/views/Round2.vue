@@ -57,26 +57,26 @@
 </template>
 
 <script>
-import t1_2 from "@/assets/trials_batch3_0_2.json";
-import t2_2 from "@/assets/trials_batch3_1_2.json";
-import t3_2 from "@/assets/trials_batch3_2_2.json";
-import t4_2 from "@/assets/trials_batch3_3_2.json";
-import t5_2 from "@/assets/trials_batch3_4_2.json";
-import t6_2 from "@/assets/trials_batch3_5_2.json";
-import t7_2 from "@/assets/trials_batch3_6_2.json";
-import t8_2 from "@/assets/trials_batch3_7_2.json";
-import t9_2 from "@/assets/trials_batch3_8_2.json";
-import t10_2 from "@/assets/trials_batch3_9_2.json";
-import t11_2 from "@/assets/trials_batch3_10_2.json";
-import t12_2 from "@/assets/trials_batch3_11_2.json";
-import t13_2 from "@/assets/trials_batch3_12_2.json";
-import t14_2 from "@/assets/trials_batch3_13_2.json";
-import t15_2 from "@/assets/trials_batch3_14_2.json";
-import t16_2 from "@/assets/trials_batch3_15_2.json";
-import t17_2 from "@/assets/trials_batch3_16_2.json";
-import t18_2 from "@/assets/trials_batch3_17_2.json";
-import t19_2 from "@/assets/trials_batch3_18_2.json";
-import t20_2 from "@/assets/trials_batch3_19_2.json";
+import t1_2 from "@/assets/trials_batch4_0_2.json";
+import t2_2 from "@/assets/trials_batch4_1_2.json";
+import t3_2 from "@/assets/trials_batch4_2_2.json";
+import t4_2 from "@/assets/trials_batch4_3_2.json";
+import t5_2 from "@/assets/trials_batch4_4_2.json";
+import t6_2 from "@/assets/trials_batch4_5_2.json";
+import t7_2 from "@/assets/trials_batch4_6_2.json";
+import t8_2 from "@/assets/trials_batch4_7_2.json";
+import t9_2 from "@/assets/trials_batch4_8_2.json";
+import t10_2 from "@/assets/trials_batch4_9_2.json";
+import t11_2 from "@/assets/trials_batch4_10_2.json";
+import t12_2 from "@/assets/trials_batch4_11_2.json";
+import t13_2 from "@/assets/trials_batch4_12_2.json";
+import t14_2 from "@/assets/trials_batch4_13_2.json";
+import t15_2 from "@/assets/trials_batch4_14_2.json";
+import t16_2 from "@/assets/trials_batch4_15_2.json";
+import t17_2 from "@/assets/trials_batch4_16_2.json";
+import t18_2 from "@/assets/trials_batch4_17_2.json";
+import t19_2 from "@/assets/trials_batch4_18_2.json";
+import t20_2 from "@/assets/trials_batch4_19_2.json";
 
 import Cards from "@/components/Cards.vue";
 import Report from "@/components/Report.vue";
