@@ -8,11 +8,11 @@ import Round2 from '../views/Round2.vue'
 import Round3 from '../views/Round3.vue'
 import Test from '../views/Trials.vue'
 import Feedback from '../views/Feedback.vue'
-import EQ from '../views/EQ.vue'
 import CRT from '../views/CRT.vue'
+// import EQ from '../views/EQ.vue'
 // import SD from '../views/SD3.vue'
-import AQ from '../views/Autism.vue'
-import RGPTS from '../views/RGPTS.vue'
+// import AQ from '../views/Autism.vue'
+// import RGPTS from '../views/RGPTS.vue'
 import Demos from '../views/Demos.vue'
 import End from '../views/End.vue'
 
@@ -69,26 +69,26 @@ const routes = [
   //   name: 'sd',
   //   component: SD
   // },
+  // {
+  //   path: '/aq',
+  //   name: 'aq',
+  //   component: AQ
+  // },
+  // {
+  //   path: '/rgpts',
+  //   name: 'rgpts',
+  //   component: RGPTS
+  // },
   {
-    path: '/aq',
-    name: 'aq',
-    component: AQ
-  },
-  {
-    path: '/rgpts',
-    name: 'rgpts',
-    component: RGPTS
-  },
-  {
-    path: '/crt',
+    path: '/survey',
     name: 'crt',
     component: CRT
   },
-  {
-    path: '/equo',
-    name: 'eq',
-    component: EQ
-  },
+  // {
+  //   path: '/equo',
+  //   name: 'eq',
+  //   component: EQ
+  // },
   {
     path: '/end',
     name: 'End',
