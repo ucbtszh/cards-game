@@ -76,7 +76,7 @@
         :disabled="!isValid"
         @click="
           saveResponses();
-          $router.push('end');
+          $router.push('demos');
         "
       >
         NEXT
