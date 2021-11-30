@@ -76,7 +76,7 @@
         :disabled="!isValid"
         @click="
           saveResponses();
-          $router.push('rgpts');
+          $router.push('end');
         "
       >
         NEXT
