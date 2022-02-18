@@ -1,0 +1,18 @@
+[
+    {
+        "item": "There are five options to choose from.",
+        "value": ""
+    },
+    {
+        "item": "If you are not sure which option to choose, you should go with your gut instinct.",
+        "value": ""
+    },
+    {
+        "item": "Both options are equally likely to win points.",
+        "value": ""
+    },
+    {
+        "item": "Even if both options have high probabilities to win points, one option is always more likely to win than the other.",
+        "value": ""
+    }
+]

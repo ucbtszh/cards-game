@@ -3,107 +3,74 @@
     <swiper class="swiper" :options="swiperOption">
       <swiper-slide>
         <div class="instruction">
-          In this study, you will play a card game for two players.<br />
-          A large number of participants played this game before. We collected
-          all their game responses. <br />
-          On <b>each trial</b> you will play with a <b>different</b> participant
-          from a previous study.<br /><br />
-
-          On each trial you will be presented with a set of seven cards. <br />
-          This is the <b>same</b> set of seven cards that the past participant
-          has seen.<br />
-          Each card is either red or blue. For example: <br /><br />
-          <div
-            class="red-card-mini"
-            v-for="index in 5"
-            :key="'r1' + index"
-          ></div>
-          <div
-            class="blue-card-mini"
-            v-for="index in 2"
-            :key="'b1' + index"
-          ></div>
+          Next, you will be presented with 2 options to choose from. <br />
+          Each option can either win you a point or not get you any points.
           <br />
-          The computer then randomly picks a card for you. <b>Only you</b> can
-          see this card.<br /><br />
-          <div
-            class="red-card-mini"
-            v-for="index in 4"
-            :key="'r2' + index"
-          ></div>
-          <div
-            class="red-card-mini"
-            style="border:5px solid gold;width:25px;height:43px"
-          ></div>
-          <div
-            class="blue-card-mini"
-            v-for="index in 2"
-            :key="'b2' + index"
-          ></div>
+          <b
+            >Each option has its own probability of winning: both could be high
+            or could be low.</b
+          >
           <br />
-          Your task is to report the card that was picked for you by clicking on
-          it.
+          Yet, one option is more likely to win than the other.<br /><br />
+
+          The goal of the game is to collect as many points as possible. <br />
+          The more points you collect, the more bonus you receive at the end of
+          the game. <br />
+          <b
+            >If you are not sure what to choose, just go with your gut
+            instinct!</b
+          ><br /><br />
+
+          Press the arrow on the right to answer a few short questions and
+          practice the game.<br />
+          Points gained in the practice session will not be considered for your
+          final bonus.
         </div>
       </swiper-slide>
       <swiper-slide>
         <div class="instruction">
-          The computer also randomly picked a card for the other player.
-          <br />
-          This card <b>could have been the same or different</b> than yours.<br /><br />
+          <div id="comprehension" v-if="!success">
+            Please answer the following questions to make sure you understood
+            the instructions:<br /><br />
+            <b>What is true about the task?</b>
 
-          You <b>cannot see</b> what card was picked for the other player.<br /><br />
+            <v-form v-model="isvalid">
+              <v-row v-for="(q, index) in qs" :key="index">
+                <v-col cols="8"> {{ q.item }}</v-col>
+                <v-col>
+                  <v-radio-group
+                    :rules="[(v) => !!v || 'Please answer this question.']"
+                    v-model="qs[index].value"
+                    row
+                  >
+                    <v-radio value="1" label="True"></v-radio>
+                    <v-radio value="0" label="False"></v-radio>
+                  </v-radio-group>
+                </v-col> </v-row
+              ><br />
+              <v-btn
+                color="success"
+                elevation="3"
+                :disabled="!isvalid"
+                @click="
+                  submits++;
+                  validate();
+                "
+              >
+                Submit
+              </v-btn>
+              <div v-show="submits == 1" style="color:red">
+                {{ warning }}
+              </div>
+            </v-form>
+          </div>
+          <div v-show="success">
+            Well done!
 
-          The other player also reported the card colour that was picked for
-          them.<br /><br />
-
-          When you and the other player report different card colours, blue
-          <b>wins</b> 1 point and red <b>loses</b> 1 point.<br />
-          When you and the other player report the same colour,
-          <b>no one wins or loses a point</b>.<br /><br />
-        </div>
-      </swiper-slide>
-      <swiper-slide>
-        <div class="instruction">
-          For example, when you report a blue card and the other player reported
-          red:<br /><br />
-          <img src="sswin.png" height="150px" /><br /><br />
-          This means you <b>win</b> 1 point and the other player <b>loses</b> 1
-          point.<br /><br />
-
-          Vice versa, when you report a red card and the other player reported
-          blue:<br /><br />
-          <img src="sslose.png" height="150px" /><br /><br />
-          This means you <b>lose</b> 1 point and the other player <b>wins</b> 1
-          point.
-        </div>
-      </swiper-slide>
-      <swiper-slide>
-        <div class="instruction">
-          When you and the other player both report red:<br /><br />
-          <img src="sstie.png" height="150px" /><br /><br />
-          This means <b>neither</b> you or the other player wins or loses
-          points.<br /><br />
-
-          When you and the other player both report blue:<br /><br />
-          <img src="sstieb.png" height="150px" /><br /><br />
-          Again, <b>neither</b> you or the other player wins or loses points.
-        </div>
-      </swiper-slide>
-      <swiper-slide>
-        <div class="instruction">
-          For each point you win, you gain £ 0.05.<br />
-          For each point you lose, you lose £ 0.05.<br /><br />
-          Your total bonus payment will <b>not</b> be lower than £ 0.<br /><br />
-
-          After each trial, you will be asked to rate how honest you think the
-          other player was.<br /><br />
-          Next, you are asked to answer a few questions to make sure that you
-          understand the game.
-        </div>
-      </swiper-slide>
-      <swiper-slide>
-        <div class="instruction">
-          <ComprehensionCheck />
+            <v-btn color="primary" @click="$router.push('task')"
+              >START FIRST GAME</v-btn
+            >
+          </div>
         </div>
       </swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
@@ -115,7 +82,7 @@
 
 <script>
 import { Swiper, SwiperSlide } from "vue-awesome-swiper";
-import ComprehensionCheck from "@/components/ComprehensionCheck.vue";
+import questions from "../assets/comprehension.json";
 
 import "swiper/css/swiper.css";
 
@@ -126,11 +93,14 @@ export default {
   components: {
     Swiper,
     SwiperSlide,
-    ComprehensionCheck,
   },
   mixins: [meta],
   data() {
     return {
+      qs: questions,
+      submits: 0,
+      isvalid: false,
+      success: false,
       swiperOption: {
         slidesPerView: 1,
         spaceBetween: 0,
@@ -144,11 +114,29 @@ export default {
           prevEl: ".swiper-button-prev",
         },
       },
+      warning:
+        "Not all answers are correct. You have one attempt left. Please review the instructions before your next attempt. Use the blue arrows on the sides to go back to the instructions and come back here.",
     };
   },
   mounted() {
     window.scrollTo(0, 0);
     this.startTime = performance.now();
+  },
+  methods: {
+    validate() {
+      if (
+        (this.qs[0].value == 0) &
+        (this.qs[1].value == 1) &
+        (this.qs[2].value == 0) &
+        (this.qs[3].value == 1)
+      ) {
+        this.success = true;
+        // TODO: store responses y/n?
+      }
+      if (this.submits == 2) {
+        this.$router.push("returnsub");
+      } else return;
+    },
   },
 };
 </script>
@@ -157,7 +145,6 @@ export default {
 #instruct {
   overflow: hidden;
 }
-
 .swiper {
   margin-top: 5%;
   overflow: hidden;

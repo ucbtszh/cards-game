@@ -356,13 +356,13 @@
           :disabled="!valid"
           elevation="3"
           @click="
-            logCondition();
             logId();
             saveConsentResponse();
             $router.push('instruction')
           "
           >Agree and continue</v-btn
         >
+        <!-- logCondition(); -->
       </v-form>
     </div>
   </div>
@@ -408,17 +408,17 @@ export default {
       this.showConsent = true;
       window.scrollTo(0, 0);
     },
-    logCondition() {
-      let queryString = window.location.search;
-      let urlParams = new URLSearchParams(queryString);
+    // logCondition() {
+    //   let queryString = window.location.search;
+    //   let urlParams = new URLSearchParams(queryString);
       
-      if (urlParams.has("cond")) {
-        let cond = urlParams.get("cond");
-        Vue.prototype.$condition = cond;
-      } else {
-        Vue.prototype.$condition = "t1";
-      }
-    },
+    //   if (urlParams.has("cond")) {
+    //     let cond = urlParams.get("cond");
+    //     Vue.prototype.$condition = cond;
+    //   } else {
+    //     Vue.prototype.$condition = "t1";
+    //   }
+    // },
     logId() {
       let queryString = window.location.search;
       let urlParams = new URLSearchParams(queryString);
