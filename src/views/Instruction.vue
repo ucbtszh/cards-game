@@ -59,13 +59,13 @@
               >
                 Submit
               </v-btn>
-              <div v-show="submits == 1" style="color:red">
+              <div v-show="failed" style="color:red">
                 {{ warning }}
               </div>
             </v-form>
           </div>
           <div v-show="success">
-            Well done!
+            Well done!<br /><br />
 
             <v-btn color="primary" @click="$router.push('task')"
               >START FIRST GAME</v-btn
@@ -98,6 +98,7 @@ export default {
   data() {
     return {
       qs: questions,
+      failed: false,
       submits: 0,
       isvalid: false,
       success: false,
@@ -124,18 +125,25 @@ export default {
   },
   methods: {
     validate() {
-      if (
-        (this.qs[0].value == 0) &
-        (this.qs[1].value == 1) &
-        (this.qs[2].value == 0) &
-        (this.qs[3].value == 1)
-      ) {
-        this.success = true;
-        // TODO: store responses y/n?
-      }
-      if (this.submits == 2) {
+      if (this.submits < 3) {
+        if (
+          (this.qs[0].value == 0) &
+          (this.qs[1].value == 1) &
+          (this.qs[2].value == 0) &
+          (this.qs[3].value == 1)
+        ) {
+          this.success = true;
+          // TODO: store responses y/n?
+        } else {
+          if (this.submits == 2) {
+            this.$router.push("returnsub");
+          } else {
+            this.failed = true;
+          }
+        }
+      } else {
         this.$router.push("returnsub");
-      } else return;
+      }
     },
   },
 };
