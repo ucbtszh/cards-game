@@ -37,7 +37,6 @@
 
 <script>
 import { writeResponseData } from "../firebaseConfig";
-import Vue from "vue";
 
 export default {
   props: ["charm", "term", "index"],
@@ -53,7 +52,7 @@ export default {
       let resp_name = this.charm + this.index + "_" + this.term;
       data[resp_name] = this.rating;
       // console.log(data);
-      writeResponseData(Vue.prototype.$user, "charm_rating", data);
+      writeResponseData(this.$uuid, "charm_rating", data);
       this.valid = false;
     },
   },
