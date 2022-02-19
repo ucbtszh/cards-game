@@ -1,6 +1,6 @@
 <template>
     <div id="end">
-        In this study, you were playing with actual responses from participants from previous studies.<br /><br />
+        <!-- In this study, you were playing with actual responses from participants from previous studies.<br /><br /> -->
 
         <b>Thank you very much for your participation.</b> <br />
         We greatly appreciate your time and effort in doing so, as it allows us to continue academic research during these challenging times.<br><br>

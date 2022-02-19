@@ -16,8 +16,8 @@
           >Investigators Name, Address and Contact Details of Investigators:</u
         ></b
       ><br />
-      Sarah ZHENG (Experimental Psychology, 26 Bedford Way, email:
-      sarah.zheng.16@ucl.ac.uk)<br />
+      Liron ROZENKRANTZ (Experimental Psychology, 26 Bedford Way, email:
+      liron.rozenkrantz@gmail.com)<br />
       Tali SHAROT (Experimental Psychology, 26 Bedford Way),
       telephone: 020 76797511, email: t.sharot@ucl.ac.uk)<br /><br />
 
@@ -358,7 +358,7 @@
           @click="
             logId();
             saveConsentResponse();
-            $router.push('instruction')
+            $router.push('select')
           "
           >Agree and continue</v-btn
         >

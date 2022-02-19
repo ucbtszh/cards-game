@@ -114,6 +114,7 @@ export default {
   width: 150px;
   max-width: 150px;
   text-align: center;
+  margin-left: 80px;
 }
 
 .blur_stim {
@@ -124,6 +125,7 @@ export default {
   text-align: center;
   -webkit-filter: blur(5px); /* Safari 6.0 - 9.0 */
   filter: blur(5px);
+  margin-left: 80px;
 }
 
 .outcome {
