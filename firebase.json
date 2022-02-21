@@ -4,7 +4,7 @@
     "indexes": "firestore.indexes.json"
   },
   "hosting": {
-    "site": "cards-dd-game",
+    "site": "ss-task",
     "public": "dist",
     "ignore": [
       "firebase.json",
