@@ -3,7 +3,8 @@
     <swiper class="swiper" :options="swiperOption">
       <swiper-slide>
         <div class="instruction">
-          Next, you will be presented with 2 options to choose from. <br />
+          In this study you will play a game where you will be presented with 2
+          options to choose from. <br />
           Each option can either win you a point or not get you any points.
           <br />
           <b
@@ -67,8 +68,8 @@
           <div v-show="success">
             Well done!<br /><br />
 
-            <v-btn color="primary" @click="$router.push('task')"
-              >START FIRST GAME</v-btn
+            <v-btn color="primary" @click="$router.push('practice')"
+              >GO TO PRACTICE TRIALS</v-btn
             >
           </div>
         </div>
@@ -121,7 +122,12 @@ export default {
   },
   mounted() {
     window.scrollTo(0, 0);
-    this.startTime = performance.now();
+
+    // prevent back navigation
+    history.pushState(null, null, location.href);
+    window.onpopstate = function() {
+      history.go(1);
+    };
   },
   methods: {
     validate() {
