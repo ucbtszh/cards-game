@@ -7,7 +7,7 @@
       ><br />
       We would like to invite you to participate in this research project which
       is about decision making. The experiment lasts approximately 30 minutes.
-      You will be asked to play a cards game and answer some questions about
+      You will be asked to play a game and answer some questions about
       yourself.<br />
       This study has been approved by the UCL Research Ethics Committee as
       Project ID Number: 3990/003 <br />
@@ -144,8 +144,8 @@
 
       <b>Title of Study:</b> Decision Making<br />
       <b>Department:</b> Experimental Psychology <br />
-      <b>Name and Contact Details of the Researcher(s)</b> Sarah Zheng,
-      sarah.zheng.16@ucl.ac.uk<br />
+      <b>Name and Contact Details of the Researcher(s)</b> Liron Rozenkrantz,
+      liron.rozenkrantz@gmail.com<br />
       <b>Name and Contact Details of the Principal Researcher:</b> Professor
       Tali Sharot<br />
       <b
