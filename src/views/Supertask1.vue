@@ -11,6 +11,7 @@
     <div id="taskloop" v-for="(trial, index) in nTrials" :key="index">
       <div v-show="index === trialIndex">
         <Trial
+          :nTrials="nTrials"
           :trial="index"
           :practice="false"
           :charm="$charm1"
@@ -81,11 +82,11 @@ export default {
   },
   methods: {
     save_choice: function(v) {
-      console.log("choice", v);
+      // console.log("choice", v);
       this.choices.push(v);
     },
     save_outcome: function(v) {
-      console.log("outcome", v);
+      // console.log("outcome", v);
       this.results.push(v);
     },
     saveAll: function() {
@@ -93,9 +94,16 @@ export default {
         choice_pos: this.choices,
         outcome: this.results,
       };
-      //   console.log(responses);
+      // console.log(responses);
       writeResponseData(this.$uuid, "block1", responses);
     },
+  },
+  mounted() {
+    // prevent back navigation
+    history.pushState(null, null, location.href);
+    window.onpopstate = function() {
+      history.go(1);
+    };
   },
 };
 </script>

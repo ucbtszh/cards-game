@@ -26,14 +26,15 @@
     </div>
     <div v-show="trialIndex === nTrials" style="text-align:left;">
       <b>You finished the last block!</b> <br /><br />
-      For the last part of this study, you will be asked a few questions about yourself.
+      For the last part of this study, you will be asked a few questions about
+      yourself.
       <br /><br />
       <v-btn
         color="primary"
         elevation="3"
         @click="
           saveAll();
-          $router.push('survey');
+          $router.push('end');
         "
         ><b>Continue</b></v-btn
       >
@@ -81,11 +82,11 @@ export default {
   },
   methods: {
     save_choice: function(v) {
-      console.log("choice", v);
+      // console.log("choice", v);
       this.choices.push(v);
     },
     save_outcome: function(v) {
-      console.log("outcome", v);
+      // console.log("outcome", v);
       this.results.push(v);
     },
     saveAll: function() {
@@ -96,6 +97,13 @@ export default {
       //   console.log(responses);
       writeResponseData(this.$uuid, "block4", responses);
     },
+  },
+  mounted() {
+    // prevent back navigation
+    history.pushState(null, null, location.href);
+    window.onpopstate = function() {
+      history.go(1);
+    };
   },
 };
 </script>

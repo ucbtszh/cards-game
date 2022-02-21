@@ -81,11 +81,11 @@ export default {
   },
   methods: {
     save_choice: function(v) {
-      console.log("choice", v);
+      // console.log("choice", v);
       this.choices.push(v);
     },
     save_outcome: function(v) {
-      console.log("outcome", v);
+      // console.log("outcome", v);
       this.results.push(v);
     },
     saveAll: function() {
@@ -96,6 +96,13 @@ export default {
       //   console.log(responses);
       writeResponseData(this.$uuid, "block3", responses);
     },
+  },
+  mounted() {
+    // prevent back navigation
+    history.pushState(null, null, location.href);
+    window.onpopstate = function() {
+      history.go(1);
+    };
   },
 };
 </script>
