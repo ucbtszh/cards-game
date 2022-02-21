@@ -3,6 +3,7 @@
     <v-row id="choiceStims">
       <v-col>
         <v-img
+          id="stim1"
           :src="symbol1"
           aspect-ratio="1"
           :class="blurstim"
@@ -14,6 +15,7 @@
       </v-col>
       <v-col>
         <v-img
+          id="stim2"
           :src="symbol2"
           aspect-ratio="1"
           :class="blurstim"
@@ -30,24 +32,13 @@
 
 <script>
 export default {
-  props: ["trial", "practice", "charm", "blur"],
+  props: ["nTrials", "trial", "practice", "charm", "blur"],
   data() {
     return {
       blurstim: this.blur ? "blur_stim" : "choice_stim",
-      rewardProb: [
-        true,
-        false,
-        true,
-        false,
-        true,
-        true,
-        true,
-        true,
-        false,
-        false,
-      ], // 60% reward
-      rewardProbRev: [0, 0, 0, 0, 0, 0, 0, 1, 0, 1], // 20% reward
-      charmSide: [
+      rewardProb70: [1, 1, 0, 0, 1, 0, 1, 1, 1, 1], // 70% reward
+      rewardProb30: [0, 0, 0, 1, 0, 0, 0, 1, 1, 0], // 30% reward
+      luckySide: [
         5,
         6,
         7,
@@ -76,16 +67,16 @@ export default {
       // if former: remove chosen charms from array & randomly select 'other symbol' to display from this array
       let otherCharm = "coin.png";
       return this.practice
-        ? "x.png"
-        : this.charmSide.includes(this.trial)
-        ? this.charm // display lucky charm on left (symbol1) when trial index is in charmSide array
+        ? "practice1.jpg"
+        : this.luckySide.includes(this.trial)
+        ? this.charm // display lucky charm on left (symbol1) when trial index is in luckySide array
         : otherCharm;
     },
     symbol2: function() {
       let otherCharm = "coin.png"; // TODO
       return this.practice
-        ? "x.png"
-        : this.charmSide.includes(this.trial)
+        ? "practice2.jpg"
+        : this.luckySide.includes(this.trial)
         ? otherCharm
         : this.charm;
     },
@@ -93,15 +84,62 @@ export default {
   methods: {
     get_outcome(pos) {
       this.$emit("choice", pos); // store which stimulus was clicked (left or right)
-      let reward = Math.floor(Math.random() * this.rewardProb.length); // reward probability
-      let outcome = this.rewardProb[reward];
-      this.$emit("outcome", outcome);
-      outcome ? (this.outcomeImg = "coin.png") : (this.outcomeImg = "x.png"); // change outcome image according to reward
+
+      if (pos === "l") {
+        if (this.luckySide.includes(this.trial)) {
+          let reward =
+            this.trial < this.nTrials / 2 // assume we switch reward probabilities from second half of trial
+              ? this.rewardProb70[
+                  Math.floor(Math.random() * this.rewardProb70.length)
+                ]
+              : this.rewardProb30[
+                  Math.floor(Math.random() * this.rewardProb30.length)
+                ];
+          this.$emit("outcome", reward);
+          reward ? (this.outcomeImg = "coin.png") : (this.outcomeImg = "x.png"); // change outcome image according to reward
+        } else {
+          // in all other cases, we know that the left side has the neutral (non lucky) stimulus
+          let reward =
+            this.trial < this.nTrials / 2 // assume we switch reward probabilities from second half of trial
+              ? this.rewardProb30[
+                  Math.floor(Math.random() * this.rewardProb30.length)
+                ]
+              : this.rewardProb70[
+                  Math.floor(Math.random() * this.rewardProb70.length)
+                ];
+          this.$emit("outcome", reward);
+          reward ? (this.outcomeImg = "coin.png") : (this.outcomeImg = "x.png"); // change outcome image according to reward
+        }
+      } else { // when the subject clicked on the right side choice stimulus
+        if (this.luckySide.includes(this.trial)) { // if so, the lucky stim was not on the right, but on the left
+          let reward =
+            this.trial < this.nTrials / 2 // assume we switch reward probabilities from second half of trial
+              ? this.rewardProb30[
+                  Math.floor(Math.random() * this.rewardProb30.length)
+                ]
+              : this.rewardProb70[
+                  Math.floor(Math.random() * this.rewardProb70.length)
+                ];
+          this.$emit("outcome", reward);
+          reward ? (this.outcomeImg = "coin.png") : (this.outcomeImg = "x.png"); // change outcome image according to reward
+        } else { // if the lucky charm was not displayed on the left, it means it was displayed on the right, thus higher reward
+          let reward =
+            this.trial < this.nTrials / 2 // assume we switch reward probabilities from second half of trial
+              ? this.rewardProb70[
+                  Math.floor(Math.random() * this.rewardProb70.length)
+                ]
+              : this.rewardProb30[
+                  Math.floor(Math.random() * this.rewardProb30.length)
+                ];
+          this.$emit("outcome", reward);
+          reward ? (this.outcomeImg = "coin.png") : (this.outcomeImg = "x.png"); // change outcome image according to reward
+        }
+      }
     },
     next() {
       setTimeout(() => {
         this.$emit("next");
-      }, 1000);
+      }, 750);
     },
   },
 };
