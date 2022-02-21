@@ -38,6 +38,50 @@
       :charm="$charm2"
       :term="'visually appealing'"
       :index="2"
+      @done="
+        showrate4 = false;
+        showrate5 = true;
+      "
+    />
+
+    <Rate
+      v-show="showrate5"
+      :charm="$pref1"
+      :term="'lucky'"
+      :index="1"
+      @done="
+        showrate5 = false;
+        showrate6 = true;
+      "
+    />
+
+    <Rate
+      v-show="showrate6"
+      :charm="$pref1"
+      :term="'visually appealing'"
+      :index="1"
+      @done="
+        showrate6 = false;
+        showrate7 = true;
+      "
+    />
+
+    <Rate
+      v-show="showrate7"
+      :charm="$pref2"
+      :term="'lucky'"
+      :index="2"
+      @done="
+        showrate7 = false;
+        showrate8 = true;
+      "
+    />
+
+    <Rate
+      v-show="showrate8"
+      :charm="$pref2"
+      :term="'visually appealing'"
+      :index="2"
       @done="$router.push('instruction')"
     />
   </div>
@@ -54,6 +98,10 @@ export default {
       showrate2: false,
       showrate3: false,
       showrate4: false,
+      showrate5: false,
+      showrate6: false,
+      showrate7: false,
+      showrate8: false
     };
   },
 };

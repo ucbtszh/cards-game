@@ -5,7 +5,8 @@
       Choose one that you find especially lucky: <br />
       <br />
       <Symbols
-        @select_charm="set_charm1"
+        :stimType="'lucky'"
+        @selected="set_charm1"
         @done="
           showcharm1 = false;
           showcharm2 = true;
@@ -16,10 +17,9 @@
       Your choice has been recorded.<br /><br />
       Now choose the <b>second</b> charm that you find especially lucky:<br /><br />
       <Symbols
-        @select_charm="set_charm2"
-        @done="
-          $router.push('rate')
-        "
+        :stimType="'lucky'"
+        @selected="set_charm2"
+        @done="$router.push('selectp')"
       />
     </div>
   </div>

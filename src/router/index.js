@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Welcome from '../views/Welcome.vue'
 import SelectCharm from '../views/SelectCharm.vue'
+import SelectPref from '../views/SelectPref.vue'
 import RateCharm from '../views/RateCharms.vue'
 import Instruction from '../views/Instruction.vue'
 import Failed from '../views/FailedCC.vue'
@@ -35,6 +36,11 @@ const routes = [
     path: '/select',
     name: 'SelectCharm',
     component: SelectCharm
+  },
+  {
+    path: '/selectp',
+    name: 'SelectPref',
+    component: SelectPref
   },
   {
     path: '/rate',
