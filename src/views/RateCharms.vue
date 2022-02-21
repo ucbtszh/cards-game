@@ -101,8 +101,8 @@ export default {
       showrate5: false,
       showrate6: false,
       showrate7: false,
-      showrate8: false
+      showrate8: false,
     };
-  },
+  }
 };
 </script>

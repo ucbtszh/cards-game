@@ -22,14 +22,7 @@
             </template>
           </v-slider> </v-card-text
         ><br />
-        <v-btn
-          :disabled="!valid"
-          @click="
-            save_rating();
-            $emit('done');
-          "
-          >SUBMIT</v-btn
-        >
+        <v-btn :disabled="!valid" @click="save_rating()">SUBMIT</v-btn>
       </v-card>
     </v-form>
   </div>
@@ -49,11 +42,14 @@ export default {
   methods: {
     save_rating() {
       let data = {};
-      let resp_name = this.charm + this.index + "_" + this.term;
-      data[resp_name] = this.rating;
-      // console.log(data);
-      writeResponseData(this.$uuid, "charm_rating", data);
-      this.valid = false;
+      data["symbolChoice"] = this.charm + this.index;
+      data["rating"] = this.rating;
+
+      let docname = "rating_" + this.term + this.index;
+      writeResponseData(this.$uuid, docname, data);
+
+      this.$emit("done", data);
+      this.valid = false; // reset form validation
     },
   },
 };
