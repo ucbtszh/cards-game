@@ -85,55 +85,31 @@ export default {
     get_outcome(pos) {
       this.$emit("choice", pos); // store which stimulus was clicked (left or right)
 
-      if (pos === "l") {
-        if (this.luckySide.includes(this.trial)) {
-          let reward =
-            this.trial < this.nTrials / 2 // assume we switch reward probabilities from second half of trial
-              ? this.rewardProb70[
-                  Math.floor(Math.random() * this.rewardProb70.length)
-                ]
-              : this.rewardProb30[
-                  Math.floor(Math.random() * this.rewardProb30.length)
-                ];
-          this.$emit("outcome", reward);
-          reward ? (this.outcomeImg = "coin.png") : (this.outcomeImg = "x.png"); // change outcome image according to reward
-        } else {
-          // in all other cases, we know that the left side has the neutral (non lucky) stimulus
-          let reward =
-            this.trial < this.nTrials / 2 // assume we switch reward probabilities from second half of trial
-              ? this.rewardProb30[
-                  Math.floor(Math.random() * this.rewardProb30.length)
-                ]
-              : this.rewardProb70[
-                  Math.floor(Math.random() * this.rewardProb70.length)
-                ];
-          this.$emit("outcome", reward);
-          reward ? (this.outcomeImg = "coin.png") : (this.outcomeImg = "x.png"); // change outcome image according to reward
-        }
-      } else { // when the subject clicked on the right side choice stimulus
-        if (this.luckySide.includes(this.trial)) { // if so, the lucky stim was not on the right, but on the left
-          let reward =
-            this.trial < this.nTrials / 2 // assume we switch reward probabilities from second half of trial
-              ? this.rewardProb30[
-                  Math.floor(Math.random() * this.rewardProb30.length)
-                ]
-              : this.rewardProb70[
-                  Math.floor(Math.random() * this.rewardProb70.length)
-                ];
-          this.$emit("outcome", reward);
-          reward ? (this.outcomeImg = "coin.png") : (this.outcomeImg = "x.png"); // change outcome image according to reward
-        } else { // if the lucky charm was not displayed on the left, it means it was displayed on the right, thus higher reward
-          let reward =
-            this.trial < this.nTrials / 2 // assume we switch reward probabilities from second half of trial
-              ? this.rewardProb70[
-                  Math.floor(Math.random() * this.rewardProb70.length)
-                ]
-              : this.rewardProb30[
-                  Math.floor(Math.random() * this.rewardProb30.length)
-                ];
-          this.$emit("outcome", reward);
-          reward ? (this.outcomeImg = "coin.png") : (this.outcomeImg = "x.png"); // change outcome image according to reward
-        }
+      if (
+        ((pos === "l") & this.luckySide.includes(this.trial)) |
+        ((pos === "r") & ~this.luckySide.includes(this.trial))
+      ) {
+        let reward =
+          this.trial < this.nTrials / 2 // assume we switch reward probabilities from second half of trial
+            ? this.rewardProb70[
+                Math.floor(Math.random() * this.rewardProb70.length)
+              ]
+            : this.rewardProb30[
+                Math.floor(Math.random() * this.rewardProb30.length)
+              ];
+        this.$emit("outcome", reward);
+        reward ? (this.outcomeImg = "coin.png") : (this.outcomeImg = "x.png"); // change outcome image according to reward
+      } else {
+        let reward =
+          this.trial < this.nTrials / 2 // assume we switch reward probabilities from second half of trial
+            ? this.rewardProb30[
+                Math.floor(Math.random() * this.rewardProb30.length)
+              ]
+            : this.rewardProb70[
+                Math.floor(Math.random() * this.rewardProb70.length)
+              ];
+        this.$emit("outcome", reward);
+        reward ? (this.outcomeImg = "coin.png") : (this.outcomeImg = "x.png"); // change outcome image according to reward
       }
     },
     next() {
