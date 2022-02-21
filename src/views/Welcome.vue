@@ -155,15 +155,15 @@
       3990/003 <br />
       Thank you for considering taking part in this research. If you have any
       questions arising from the Information Sheet or explanation already given
-      to you, please email the researcher before you decide whether to join in
-      (email: sarah.zheng.16@ucl.ac.uk). You can keep this consent form and
+      to you, please email the researcher before you decide whether to join in. 
+      You can keep this consent form and
       refer to at any time.<br /><br />
 
       <v-form v-model="valid">
         *I confirm that I have read and understood the Information Sheet for the
         above study. I have had an opportunity to consider the information and
         what will be expected of me. I have also had the opportunity to ask
-        questions (email: sarah.zheng.16@ucl.ac.uk), which have been answered to
+        questions (email: liron.rozenkrantz@gmail.com), which have been answered to
         my satisfaction.
         <v-radio-group
           :rules="[(v) => !!v || 'Please answer this question.']"
