@@ -5,9 +5,9 @@
         <div class="instruction">
           In this study, you will play a card game for two players.<br />
           A large number of participants played this game before. We collected
-          all their game responses. <br />
-          On <b>each trial</b> you will play with a <b>different</b> participant
-          from a previous study.<br /><br />
+          all their game responses. <br /><br />
+          <!-- On <b>each trial</b> you will play with a <b>different</b> participant
+          from a previous study.<br /><br /> -->
 
           On each trial you will be presented with a set of seven cards. <br />
           This is the <b>same</b> set of seven cards that the past participant

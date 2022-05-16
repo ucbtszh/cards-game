@@ -235,7 +235,7 @@
         </div>
       </v-form>
     </div>
-    <div id="c7" v-show="showC7">
+    <!-- <div id="c7" v-show="showC7">
       <v-form v-model="isvalid7">
         <b>Each trial</b>, you will see another participant's report from a previous study.
         <br />
@@ -261,7 +261,7 @@
           {{ warning }}
         </div>
       </v-form>
-    </div>
+    </div> -->
 
     <div id="c8" v-show="showC8">
       Well done!<br /><br />
@@ -365,7 +365,7 @@ export default {
         this.$router.push('returnsub')
       } else if (this.c6 === "b") {
         this.showC6 = false;
-        this.showC7 = true;
+        this.showC8 = true;
       }
     },
     validateC7: function() {

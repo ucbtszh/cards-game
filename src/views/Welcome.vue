@@ -357,6 +357,7 @@
           elevation="3"
           @click="
             logCondition();
+            logCounterBalance();
             logId();
             saveConsentResponse();
             $router.push('instruction')
@@ -418,6 +419,12 @@ export default {
       } else {
         Vue.prototype.$condition = "t1";
       }
+    },
+    logCounterBalance() {
+      let orders = ["selfFirst", "otherFirst"]
+      let index = Math.floor(Math.random() * orders.length)
+      Vue.prototype.$order = orders[index]
+      // console.log(orders, index, Vue.prototype.$order)
     },
     logId() {
       let queryString = window.location.search;

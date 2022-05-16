@@ -39,7 +39,8 @@ export default {
             browser: UA,
             min_to_utc: n,
             language: lang,
-            condition: this.$condition
+            condition: this.$condition,
+            counterbalance: this.$order,
         }
         writeMetaUser(this.$uuid, metaInfo)
     }
