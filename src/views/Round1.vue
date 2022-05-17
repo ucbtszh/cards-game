@@ -203,7 +203,6 @@ export default {
               : 1,
         });
       }
-      console.log("block 1 responses", data);
       Vue.prototype.$block1 = data;
     },
   },

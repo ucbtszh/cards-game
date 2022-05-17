@@ -184,7 +184,6 @@ export default {
         bonusAmountGBP: this.bonus,
         finishTime: performance.now(),
       };
-      console.log("responses in round 3", responses)
       writeResponseData(this.$uuid, "game_block3", responses);
     },
   },
