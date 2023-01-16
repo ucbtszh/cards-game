@@ -57,9 +57,9 @@
           them.<br /><br />
 
           When you and the other player report different card colours, blue
-          <b>wins</b> 1 point and red <b>loses</b> 1 point.<br />
+          <b>wins</b> £0.10 and red <b>loses</b> £0.10.<br />
           When you and the other player report the same colour,
-          <b>no one wins or loses a point</b>.<br /><br />
+          <b>no one wins or loses</b>.<br /><br />
         </div>
       </swiper-slide>
       <swiper-slide>
@@ -67,34 +67,30 @@
           For example, when you report a blue card and the other player reported
           red:<br /><br />
           <img src="sswin.png" height="150px" /><br /><br />
-          This means you <b>win</b> 1 point and the other player <b>loses</b> 1
-          point.<br /><br />
+          This means you <b>win</b> £0.10 and the other player <b>loses</b> £0.10.<br /><br />
 
           Vice versa, when you report a red card and the other player reported
           blue:<br /><br />
           <img src="sslose.png" height="150px" /><br /><br />
-          This means you <b>lose</b> 1 point and the other player <b>wins</b> 1
-          point.
+          This means you <b>lose</b> £0.10 and the other player <b>wins</b> £0.10.
         </div>
       </swiper-slide>
       <swiper-slide>
         <div class="instruction">
           When you and the other player both report red:<br /><br />
           <img src="sstie.png" height="150px" /><br /><br />
-          This means <b>neither</b> you or the other player wins or loses
-          points.<br /><br />
+          This means <b>neither</b> you or the other player wins or loses money.<br /><br />
 
           When you and the other player both report blue:<br /><br />
           <img src="sstieb.png" height="150px" /><br /><br />
-          Again, <b>neither</b> you or the other player wins or loses points.
+          Again, <b>neither</b> you or the other player wins or loses money.
         </div>
       </swiper-slide>
       <swiper-slide>
         <div class="instruction">
-          For each point you win, you gain £ 0.05.<br />
-          For each point you lose, you lose £ 0.05.<br /><br />
-          Your total bonus payment will <b>not</b> be lower than £ 0.<br /><br />
-
+          <!-- For each <b>win</b>, you gain £ 0.10.<br />
+          For each <b>loss</b>, you lose £ 0.10.<br /><br /> -->
+          <!-- Your total bonus payment will <b>not</b> be lower than £ 0.<br /><br /> -->
           After each trial, you will be asked to rate how honest you think the
           other player was.<br /><br />
           Next, you are asked to answer a few questions to make sure that you

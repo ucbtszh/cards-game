@@ -43,7 +43,8 @@
     <div v-show="this.trialIndex === trials.length" style="text-align:left;">
       <b>You finished the last game.</b> <br /><br />
 
-      Please click "Continue" below to proceed to the last part of this study.<br /><br />
+      Please click "Continue" below to proceed to the last part of this
+      study.<br /><br />
       <v-btn
         color="primary"
         elevation="3"
@@ -58,126 +59,16 @@
 </template>
 
 <script>
-import t1_1 from "@/assets/trials_rbatch1_0_3.json";
-import t2_1 from "@/assets/trials_rbatch1_1_3.json";
-import t3_1 from "@/assets/trials_rbatch1_2_3.json";
-import t4_1 from "@/assets/trials_rbatch1_3_3.json";
-import t5_1 from "@/assets/trials_rbatch1_4_3.json";
-import t6_1 from "@/assets/trials_rbatch1_5_3.json";
-import t7_1 from "@/assets/trials_rbatch1_6_3.json";
-import t8_1 from "@/assets/trials_rbatch1_7_3.json";
-import t9_1 from "@/assets/trials_rbatch1_8_3.json";
-import t10_1 from "@/assets/trials_rbatch1_9_3.json";
-
-import t11_1 from "@/assets/trials_rbatch1_10_3.json";
-import t12_1 from "@/assets/trials_rbatch1_11_3.json";
-import t13_1 from "@/assets/trials_rbatch1_12_3.json";
-import t14_1 from "@/assets/trials_rbatch1_13_3.json";
-import t15_1 from "@/assets/trials_rbatch1_14_3.json";
-import t16_1 from "@/assets/trials_rbatch1_15_3.json";
-import t17_1 from "@/assets/trials_rbatch1_16_3.json";
-import t18_1 from "@/assets/trials_rbatch1_17_3.json";
-import t19_1 from "@/assets/trials_rbatch1_18_3.json";
-import t20_1 from "@/assets/trials_rbatch1_19_3.json";
-
-import t21_1 from "@/assets/trials_rbatch1_20_3.json";
-import t22_1 from "@/assets/trials_rbatch1_21_3.json";
-import t23_1 from "@/assets/trials_rbatch1_22_3.json";
-import t24_1 from "@/assets/trials_rbatch1_23_3.json";
-import t25_1 from "@/assets/trials_rbatch1_24_3.json";
-import t26_1 from "@/assets/trials_rbatch1_25_3.json";
-import t27_1 from "@/assets/trials_rbatch1_26_3.json";
-import t28_1 from "@/assets/trials_rbatch1_27_3.json";
-import t29_1 from "@/assets/trials_rbatch1_28_3.json";
-import t30_1 from "@/assets/trials_rbatch1_29_3.json";
-
-import t31_1 from "@/assets/trials_rbatch1_30_3.json";
-import t32_1 from "@/assets/trials_rbatch1_31_3.json";
-import t33_1 from "@/assets/trials_rbatch1_32_3.json";
-import t34_1 from "@/assets/trials_rbatch1_33_3.json";
-import t35_1 from "@/assets/trials_rbatch1_34_3.json";
-import t36_1 from "@/assets/trials_rbatch1_35_3.json";
-import t37_1 from "@/assets/trials_rbatch1_36_3.json";
-import t38_1 from "@/assets/trials_rbatch1_37_3.json";
-import t39_1 from "@/assets/trials_rbatch1_38_3.json";
-import t40_1 from "@/assets/trials_rbatch1_39_3.json";
-
-import t41_1 from "@/assets/trials_rbatch1_40_3.json";
-import t42_1 from "@/assets/trials_rbatch1_41_3.json";
-import t43_1 from "@/assets/trials_rbatch1_42_3.json";
-import t44_1 from "@/assets/trials_rbatch1_43_3.json";
-import t45_1 from "@/assets/trials_rbatch1_44_3.json";
-import t46_1 from "@/assets/trials_rbatch1_45_3.json";
-import t47_1 from "@/assets/trials_rbatch1_46_3.json";
-import t48_1 from "@/assets/trials_rbatch1_47_3.json";
-import t49_1 from "@/assets/trials_rbatch1_48_3.json";
-import t50_1 from "@/assets/trials_rbatch1_49_3.json";
-
-import t51_1 from "@/assets/trials_rbatch1_50_3.json";
-import t52_1 from "@/assets/trials_rbatch1_51_3.json";
-import t53_1 from "@/assets/trials_rbatch1_52_3.json";
-import t54_1 from "@/assets/trials_rbatch1_53_3.json";
-import t55_1 from "@/assets/trials_rbatch1_54_3.json";
-import t56_1 from "@/assets/trials_rbatch1_55_3.json";
-import t57_1 from "@/assets/trials_rbatch1_56_3.json";
-import t58_1 from "@/assets/trials_rbatch1_57_3.json";
-import t59_1 from "@/assets/trials_rbatch1_58_3.json";
-import t60_1 from "@/assets/trials_rbatch1_59_3.json";
-
-import t61_1 from "@/assets/trials_rbatch1_60_3.json";
-import t62_1 from "@/assets/trials_rbatch1_61_3.json";
-import t63_1 from "@/assets/trials_rbatch1_62_3.json";
-import t64_1 from "@/assets/trials_rbatch1_63_3.json";
-import t65_1 from "@/assets/trials_rbatch1_64_3.json";
-import t66_1 from "@/assets/trials_rbatch1_65_3.json";
-import t67_1 from "@/assets/trials_rbatch1_66_3.json";
-import t68_1 from "@/assets/trials_rbatch1_67_3.json";
-import t69_1 from "@/assets/trials_rbatch1_68_3.json";
-import t70_1 from "@/assets/trials_rbatch1_69_3.json";
-
-import t71_1 from "@/assets/trials_rbatch1_70_3.json";
-import t72_1 from "@/assets/trials_rbatch1_71_3.json";
-import t73_1 from "@/assets/trials_rbatch1_72_3.json";
-import t74_1 from "@/assets/trials_rbatch1_73_3.json";
-import t75_1 from "@/assets/trials_rbatch1_74_3.json";
-import t76_1 from "@/assets/trials_rbatch1_75_3.json";
-import t77_1 from "@/assets/trials_rbatch1_76_3.json";
-import t78_1 from "@/assets/trials_rbatch1_77_3.json";
-import t79_1 from "@/assets/trials_rbatch1_78_3.json";
-import t80_1 from "@/assets/trials_rbatch1_79_3.json";
-
-import t81_1 from "@/assets/trials_rbatch1_80_3.json";
-import t82_1 from "@/assets/trials_rbatch1_81_3.json";
-import t83_1 from "@/assets/trials_rbatch1_82_3.json";
-import t84_1 from "@/assets/trials_rbatch1_83_3.json";
-import t85_1 from "@/assets/trials_rbatch1_84_3.json";
-import t86_1 from "@/assets/trials_rbatch1_85_3.json";
-import t87_1 from "@/assets/trials_rbatch1_86_3.json";
-import t88_1 from "@/assets/trials_rbatch1_87_3.json";
-import t89_1 from "@/assets/trials_rbatch1_88_3.json";
-import t90_1 from "@/assets/trials_rbatch1_89_3.json";
-
-import t91_1 from "@/assets/trials_rbatch1_90_3.json";
-import t92_1 from "@/assets/trials_rbatch1_91_3.json";
-import t93_1 from "@/assets/trials_rbatch1_92_3.json";
-import t94_1 from "@/assets/trials_rbatch1_93_3.json";
-import t95_1 from "@/assets/trials_rbatch1_94_3.json";
-import t96_1 from "@/assets/trials_rbatch1_95_3.json";
-import t97_1 from "@/assets/trials_rbatch1_96_3.json";
-import t98_1 from "@/assets/trials_rbatch1_97_3.json";
-import t99_1 from "@/assets/trials_rbatch1_98_3.json";
-import t100_1 from "@/assets/trials_rbatch1_99_3.json";
-
-import t101_1 from "@/assets/trials_rbatch1_100_3.json";
-import t102_1 from "@/assets/trials_rbatch1_101_3.json";
-import t103_1 from "@/assets/trials_rbatch1_102_3.json";
-import t104_1 from "@/assets/trials_rbatch1_103_3.json";
-import t105_1 from "@/assets/trials_rbatch1_104_3.json";
-import t106_1 from "@/assets/trials_rbatch1_105_3.json";
-import t107_1 from "@/assets/trials_rbatch1_106_3.json";
-import t108_1 from "@/assets/trials_rbatch1_107_3.json";
-import t109_1 from "@/assets/trials_rbatch1_108_3.json";
-import t110_1 from "@/assets/trials_rbatch1_109_3.json";
+import t1_3 from "@/assets/trials_batch2_0_3.json";
+import t2_3 from "@/assets/trials_batch2_1_3.json";
+import t3_3 from "@/assets/trials_batch2_2_3.json";
+import t4_3 from "@/assets/trials_batch2_3_3.json";
+import t5_3 from "@/assets/trials_batch2_4_3.json";
+import t6_3 from "@/assets/trials_batch2_5_3.json";
+import t7_3 from "@/assets/trials_batch2_6_3.json";
+import t8_3 from "@/assets/trials_batch2_7_3.json";
+import t9_3 from "@/assets/trials_batch2_8_3.json";
+import t10_3 from "@/assets/trials_batch2_9_3.json";
 
 import Cards from "@/components/Cards.vue";
 import Report from "@/components/Report.vue";
@@ -291,235 +182,35 @@ export default {
         RTcatch: this.RTcatch,
         results: this.results,
         bonusAmountGBP: this.bonus,
-        finishTime: performance.now()
+        finishTime: performance.now(),
       };
       writeResponseData(this.$uuid, "game_block3", responses);
     },
   },
   created() {
-   this.trials =
+    this.trials =
       this.$condition == "t1"
-        ? t1_1
+        ? t1_3
         : this.$condition == "t2"
-        ? t2_1
+        ? t2_3
         : this.$condition == "t3"
-        ? t3_1
+        ? t3_3
         : this.$condition == "t4"
-        ? t4_1
+        ? t4_3
         : this.$condition == "t5"
-        ? t5_1
+        ? t5_3
         : this.$condition == "t6"
-        ? t6_1
+        ? t6_3
         : this.$condition == "t7"
-        ? t7_1
+        ? t7_3
         : this.$condition == "t8"
-        ? t8_1
+        ? t8_3
         : this.$condition == "t9"
-        ? t9_1
+        ? t9_3
         : this.$condition == "t10"
-        ? t10_1
-        : this.$condition == "t11"
-        ? t11_1
-        : this.$condition == "t12"
-        ? t12_1
-        : this.$condition == "t13"
-        ? t13_1
-        : this.$condition == "t14"
-        ? t14_1
-        : this.$condition == "t15"
-        ? t15_1
-        : this.$condition == "t16"
-        ? t16_1
-        : this.$condition == "t17"
-        ? t17_1
-        : this.$condition == "t18"
-        ? t18_1
-        : this.$condition == "t19"
-        ? t19_1
-        : this.$condition == "t20"
-        ? t20_1
-        : this.$condition == "t21"
-        ? t21_1
-        : this.$condition == "t22"
-        ? t22_1
-        : this.$condition == "t23"
-        ? t23_1
-        : this.$condition == "t24"
-        ? t24_1
-        : this.$condition == "t25"
-        ? t25_1
-        : this.$condition == "t26"
-        ? t26_1
-        : this.$condition == "t27"
-        ? t27_1
-        : this.$condition == "t28"
-        ? t28_1
-        : this.$condition == "t29"
-        ? t29_1
-        : this.$condition == "t30"
-        ? t30_1
-        : this.$condition == "t31"
-        ? t31_1
-        : this.$condition == "t32"
-        ? t32_1
-        : this.$condition == "t33"
-        ? t33_1
-        : this.$condition == "t34"
-        ? t34_1
-        : this.$condition == "t35"
-        ? t35_1
-        : this.$condition == "t36"
-        ? t36_1
-        : this.$condition == "t37"
-        ? t37_1
-        : this.$condition == "t38"
-        ? t38_1
-        : this.$condition == "t39"
-        ? t39_1
-        : this.$condition == "t40"
-        ? t40_1
-        : this.$condition == "t41"
-        ? t41_1
-        : this.$condition == "t42"
-        ? t42_1
-        : this.$condition == "t43"
-        ? t43_1
-        : this.$condition == "t44"
-        ? t44_1
-        : this.$condition == "t45"
-        ? t45_1
-        : this.$condition == "t46"
-        ? t46_1
-        : this.$condition == "t47"
-        ? t47_1
-        : this.$condition == "t48"
-        ? t48_1
-        : this.$condition == "t49"
-        ? t49_1
-        : this.$condition == "t50"
-        ? t50_1
-        : this.$condition == "t51"
-        ? t51_1
-        : this.$condition == "t52"
-        ? t52_1
-        : this.$condition == "t53"
-        ? t53_1
-        : this.$condition == "t54"
-        ? t54_1
-        : this.$condition == "t55"
-        ? t55_1
-        : this.$condition == "t56"
-        ? t56_1
-        : this.$condition == "t57"
-        ? t57_1
-        : this.$condition == "t58"
-        ? t58_1
-        : this.$condition == "t59"
-        ? t59_1
-        : this.$condition == "t60"
-        ? t60_1
-        : this.$condition == "t61"
-        ? t61_1
-        : this.$condition == "t62"
-        ? t62_1
-        : this.$condition == "t63"
-        ? t63_1
-        : this.$condition == "t64"
-        ? t64_1
-        : this.$condition == "t65"
-        ? t65_1
-        : this.$condition == "t66"
-        ? t66_1
-        : this.$condition == "t67"
-        ? t67_1
-        : this.$condition == "t68"
-        ? t68_1
-        : this.$condition == "t69"
-        ? t69_1
-        : this.$condition == "t70"
-        ? t70_1
-        : this.$condition == "t71"
-        ? t71_1
-        : this.$condition == "t72"
-        ? t72_1
-        : this.$condition == "t73"
-        ? t73_1
-        : this.$condition == "t74"
-        ? t74_1
-        : this.$condition == "t75"
-        ? t75_1
-        : this.$condition == "t76"
-        ? t76_1
-        : this.$condition == "t77"
-        ? t77_1
-        : this.$condition == "t78"
-        ? t78_1
-        : this.$condition == "t79"
-        ? t79_1
-        : this.$condition == "t80"
-        ? t80_1
-        : this.$condition == "t81"
-        ? t81_1
-        : this.$condition == "t82"
-        ? t82_1
-        : this.$condition == "t83"
-        ? t83_1
-        : this.$condition == "t84"
-        ? t84_1
-        : this.$condition == "t85"
-        ? t85_1
-        : this.$condition == "t86"
-        ? t86_1
-        : this.$condition == "t87"
-        ? t87_1
-        : this.$condition == "t88"
-        ? t88_1
-        : this.$condition == "t89"
-        ? t89_1
-        : this.$condition == "t90"
-        ? t90_1
-        : this.$condition == "t91"
-        ? t91_1
-        : this.$condition == "t92"
-        ? t92_1
-        : this.$condition == "t93"
-        ? t93_1
-        : this.$condition == "t94"
-        ? t94_1
-        : this.$condition == "t95"
-        ? t95_1
-        : this.$condition == "t96"
-        ? t96_1
-        : this.$condition == "t97"
-        ? t97_1
-        : this.$condition == "t98"
-        ? t98_1
-        : this.$condition == "t99"
-        ? t99_1
-        : this.$condition == "t100"
-        ? t100_1
-        : this.$condition == "t101"
-        ? t101_1
-        : this.$condition == "t102"
-        ? t102_1
-        : this.$condition == "t103"
-        ? t103_1
-        : this.$condition == "t104"
-        ? t104_1
-        : this.$condition == "t105"
-        ? t105_1
-        : this.$condition == "t106"
-        ? t106_1
-        : this.$condition == "t107"
-        ? t107_1
-        : this.$condition == "t108"
-        ? t108_1
-        : this.$condition == "t109"
-        ? t109_1
-        : this.$condition == "t110"
-        ? t110_1
-        : t1_1;
-  }
+        ? t10_3
+        : t1_3;
+  },
 };
 </script>
 

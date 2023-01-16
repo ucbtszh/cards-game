@@ -2,15 +2,6 @@
   <div>
     <div id="demographics">
       <v-form v-model="isValid">
-        <v-text-field
-          label="What is your age?"
-          outlined
-          v-model="age"
-          style="width:200px;"
-          :rules="[
-            (v) => (v >= 10 && v < 100) || 'You entered an invalid age.',
-          ]"
-        ></v-text-field>
         What gender do you identify with?
         <v-radio-group
           v-model="genderResponse"
@@ -51,6 +42,16 @@
             :value="e.value"
           ></v-radio>
         </v-radio-group>
+        <br />
+        <v-text-field
+          label="What is your age?"
+          outlined
+          v-model="age"
+          style="width:200px;"
+          :rules="[
+            (v) => (v >= 10 && v < 100) || 'You entered an invalid age.',
+          ]"
+        ></v-text-field>
         <br />
         <v-btn
           color="primary"
@@ -143,7 +144,7 @@ export default {
           label: "Other",
           value: 9,
         },
-      ]
+      ],
     };
   },
   methods: {
@@ -152,7 +153,7 @@ export default {
         age: this.age,
         gender: this.genderResponse,
         edlev: this.edLevResponse,
-        twin: this.twinResponse
+        twin: this.twinResponse,
       };
       writeResponseData(this.$uuid, "demographics", response);
     },
