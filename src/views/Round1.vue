@@ -210,8 +210,6 @@ export default {
         : this.$condition == "t10"
         ? t10_1
         : t1_1;
-
-    console.log(this.trials);
   },
 };
 </script>
