@@ -42,8 +42,13 @@
     </div>
     <div v-show="this.trialIndex === trials.length" style="text-align:left;">
       <b>You finished the first game.</b> <br /><br />
-      Please click 'Continue' below to start the next game.
-      <br /><br />
+
+      In the next game, <b>you will gain £0.01 instead of £5</b> for each trial
+      you <b>win</b> and <b>lose £0.01 instead of £5</b> for each trial you
+      <b>lose</b>.<br /><br />
+
+      Click 'Continue' below to start the next game.
+      <br /><br /><br />
       <v-btn
         color="primary"
         elevation="3"
@@ -58,16 +63,18 @@
 </template>
 
 <script>
+import Vue from "vue";
+
 import t1_1 from "@/assets/trials_batch2_0_1.json";
-import t2_1 from "@/assets/trials_batch2_1_1.json";
+// import t2_1 from "@/assets/trials_batch2_1_1.json";
 import t3_1 from "@/assets/trials_batch2_2_1.json";
-import t4_1 from "@/assets/trials_batch2_3_1.json";
-import t5_1 from "@/assets/trials_batch2_4_1.json";
+// import t4_1 from "@/assets/trials_batch2_3_1.json";
+// import t5_1 from "@/assets/trials_batch2_4_1.json";
 import t6_1 from "@/assets/trials_batch2_5_1.json";
-import t7_1 from "@/assets/trials_batch2_6_1.json";
-import t8_1 from "@/assets/trials_batch2_7_1.json";
+// import t7_1 from "@/assets/trials_batch2_6_1.json";
+// import t8_1 from "@/assets/trials_batch2_7_1.json";
 import t9_1 from "@/assets/trials_batch2_8_1.json";
-import t10_1 from "@/assets/trials_batch2_9_1.json";
+// import t10_1 from "@/assets/trials_batch2_9_1.json";
 
 import Cards from "@/components/Cards.vue";
 import Report from "@/components/Report.vue";
@@ -112,10 +119,12 @@ export default {
       return this.wins - this.losses;
     },
     bonus: function() {
-      if (this.points <= 0) {
-        return 0;
-      }
-      return (0.05 * this.points).toFixed(2);
+      // current config in meta = condition 1high, 2low -> so round1 reward £5
+
+      // if (this.points <= 0) {
+      //   return 0;
+      // }
+      return (5 * this.points).toFixed(2);
     },
   },
   methods: {
@@ -192,24 +201,27 @@ export default {
       this.$condition == "t1"
         ? t1_1
         : this.$condition == "t2"
-        ? t2_1
-        : this.$condition == "t3"
         ? t3_1
-        : this.$condition == "t4"
-        ? t4_1
-        : this.$condition == "t5"
-        ? t5_1
-        : this.$condition == "t6"
+        : this.$condition == "t3"
         ? t6_1
-        : this.$condition == "t7"
-        ? t7_1
-        : this.$condition == "t8"
-        ? t8_1
-        : this.$condition == "t9"
+        : this.$condition == "t4"
         ? t9_1
-        : this.$condition == "t10"
-        ? t10_1
-        : t1_1;
+        : // : this.$condition == "t5"
+          // ? t5_1
+          // : this.$condition == "t6"
+          // ? t6_1
+          // : this.$condition == "t7"
+          // ? t7_1
+          // : this.$condition == "t8"
+          // ? t8_1
+          // : this.$condition == "t9"
+          // ? t9_1
+          // : this.$condition == "t10"
+          // ? t10_1
+          t1_1;
+  },
+  beforeDestroy() {
+    Vue.prototype.$bonus_r1 = this.bonus;
   },
 };
 </script>

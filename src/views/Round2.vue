@@ -41,14 +41,16 @@
       </div>
     </div>
     <div v-show="this.trialIndex === trials.length" style="text-align:left;">
-      <b>You finished the second game!</b><br /><br />
-      Please click 'Continue' below to start the third and last game.<br /><br />
+      <b>You finished the second game.</b> <br /><br /><br />
+
+      <!-- Please click "Continue" below to proceed to the last part of this
+      study.<br /><br /> -->
       <v-btn
         color="primary"
         elevation="3"
         @click="
           saveAll();
-          $router.push('round3');
+          route();
         "
         ><b>Continue</b></v-btn
       >
@@ -57,16 +59,18 @@
 </template>
 
 <script>
+import Vue from "vue";
+
 import t1_2 from "@/assets/trials_batch2_0_2.json";
 import t2_2 from "@/assets/trials_batch2_1_2.json";
-import t3_2 from "@/assets/trials_batch2_2_2.json";
-import t4_2 from "@/assets/trials_batch2_3_2.json";
-import t5_2 from "@/assets/trials_batch2_4_2.json";
+// import t3_2 from "@/assets/trials_batch2_2_2.json";
+// import t4_2 from "@/assets/trials_batch2_3_2.json";
+// import t5_2 from "@/assets/trials_batch2_4_2.json";
 import t6_2 from "@/assets/trials_batch2_5_2.json";
-import t7_2 from "@/assets/trials_batch2_6_2.json";
+// import t7_2 from "@/assets/trials_batch2_6_2.json";
 import t8_2 from "@/assets/trials_batch2_7_2.json";
-import t9_2 from "@/assets/trials_batch2_8_2.json";
-import t10_2 from "@/assets/trials_batch2_9_2.json";
+// import t9_2 from "@/assets/trials_batch2_8_2.json";
+// import t10_2 from "@/assets/trials_batch2_9_2.json";
 
 import Cards from "@/components/Cards.vue";
 import Report from "@/components/Report.vue";
@@ -111,10 +115,12 @@ export default {
       return this.wins - this.losses;
     },
     bonus: function() {
-      if (this.points <= 0) {
-        return 0;
-      }
-      return (0.05 * this.points).toFixed(2);
+      // current config in meta = condition 1high, 2low -> so round2 reward £0.01
+
+      // if (this.points <= 0) {
+      //   return 0;
+      // }
+      return (0.01 * this.points).toFixed(2);
     },
   },
   methods: {
@@ -165,6 +171,15 @@ export default {
       this.showCards = true;
       this.showReport = false;
     },
+    route: function() {
+      Vue.prototype.$bonus = parseFloat(this.$bonus_r1) + parseFloat(this.bonus);
+
+      if (this.$bonus > 0) {
+        this.$router.push("bonus");
+      } else {
+        this.$router.push("survey");
+      }
+    },
     saveAll: function() {
       let responses = {
         nRed: this.trials.map(({ n_red }) => n_red),
@@ -192,22 +207,22 @@ export default {
         : this.$condition == "t2"
         ? t2_2
         : this.$condition == "t3"
-        ? t3_2
-        : this.$condition == "t4"
-        ? t4_2
-        : this.$condition == "t5"
-        ? t5_2
-        : this.$condition == "t6"
         ? t6_2
-        : this.$condition == "t7"
-        ? t7_2
-        : this.$condition == "t8"
+        : this.$condition == "t4"
         ? t8_2
-        : this.$condition == "t9"
-        ? t9_2
-        : this.$condition == "t10"
-        ? t10_2
-        : t1_2;
+        : // : this.$condition == "t5"
+          // ? t5_2
+          // : this.$condition == "t6"
+          // ? t6_2
+          // : this.$condition == "t7"
+          // ? t7_2
+          // : this.$condition == "t8"
+          // ? t8_2
+          // : this.$condition == "t9"
+          // ? t9_2
+          // : this.$condition == "t10"
+          // ? t10_2
+          t1_2;
   },
 };
 </script>
