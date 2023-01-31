@@ -43,9 +43,9 @@
     <div v-show="this.trialIndex === trials.length" style="text-align:left;">
       <b>You finished the first game.</b> <br /><br />
 
-      In the next game, <b>you will gain £0.01 instead of £5</b> for each trial
+      <h4>In the next game, you will <b>gain £0.01 instead of £5</b> for each trial
       you <b>win</b> and <b>lose £0.01 instead of £5</b> for each trial you
-      <b>lose</b>.<br /><br />
+      <b>lose</b>.</h4><br />
 
       Click 'Continue' below to start the next game.
       <br /><br /><br />

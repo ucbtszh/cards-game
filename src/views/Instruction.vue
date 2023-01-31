@@ -41,8 +41,8 @@
             :key="'b2' + index"
           ></div>
           <br />
-          <b>Your task is to report the card that was picked for you by clicking on
-          it.</b>
+          Your task is to <b>report the card that was picked for you</b> by clicking on
+          it.
         </div>
       </swiper-slide>
       <swiper-slide>
