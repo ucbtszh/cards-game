@@ -33,9 +33,7 @@ export default {
   data() {
     return {
       displayText:
-        "Click the winning button to receive £" +
-        this.$bonus +
-        " or your bonus will be £0:",
+        "Click the winning button to receive an additional bonus of £20!",
       displayReport: true,
       showOutcome: false,
     };

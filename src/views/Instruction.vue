@@ -41,8 +41,8 @@
             :key="'b2' + index"
           ></div>
           <br />
-          <b>Your task is to report the card that was picked for you by clicking on
-          it.</b>
+          Your task is to <b>report the card that was picked for you</b> by
+          clicking on it.
         </div>
       </swiper-slide>
       <swiper-slide>
@@ -57,9 +57,10 @@
           them.<br /><br />
 
           When you and the other player report different card colours, blue
-          <b>wins</b> £5 and red <b>loses</b> £5.<br />
+          <b>wins</b> 1 point and red <b>loses</b> 1 point.<br />
           When you and the other player report the same colour,
-          <b>no one wins or loses</b>.<br /><br />
+          <b>no one wins or loses</b>.<br />
+          One point is equal to £0.05.<br />
         </div>
       </swiper-slide>
       <swiper-slide>
@@ -67,19 +68,22 @@
           For example, when you report a blue card and the other player reported
           red:<br /><br />
           <img src="sswin.png" height="150px" /><br /><br />
-          This means you <b>win</b> £5 and the other player <b>loses</b> £5.<br /><br />
+          This means you <b>win</b> £0.05 and the other player
+          <b>loses</b> £0.05.<br /><br />
 
           Vice versa, when you report a red card and the other player reported
           blue:<br /><br />
           <img src="sslose.png" height="150px" /><br /><br />
-          This means you <b>lose</b> £5 and the other player <b>wins</b> £5.
+          This means you <b>lose</b> £0.05 and the other player
+          <b>wins</b> £0.05.
         </div>
       </swiper-slide>
       <swiper-slide>
         <div class="instruction">
           When you and the other player both report red:<br /><br />
           <img src="sstie.png" height="150px" /><br /><br />
-          This means <b>neither</b> you or the other player wins or loses money.<br /><br />
+          This means <b>neither</b> you or the other player wins or loses
+          money.<br /><br />
 
           When you and the other player both report blue:<br /><br />
           <img src="sstieb.png" height="150px" /><br /><br />
@@ -90,6 +94,10 @@
         <div class="instruction">
           After each trial, you will be asked to rate how honest you think the
           other player was.<br /><br />
+
+          <b>If you win on 70% or more of the trials, you get the chance to win £20
+          of additional bonus.</b><br /><br />
+
           Next, you are asked to answer a few questions to make sure that you
           understand the game.
         </div>

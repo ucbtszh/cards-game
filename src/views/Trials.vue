@@ -41,7 +41,7 @@
         @click="
           saveAll();
           findPlayer = true;
-          $router.push('round1');
+          $router.push('round2');
         "
         ><b>Start</b></v-btn
       >

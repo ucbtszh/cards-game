@@ -41,10 +41,14 @@
       </div>
     </div>
     <div v-show="this.trialIndex === trials.length" style="text-align:left;">
-      <b>You finished the second game.</b> <br /><br /><br />
-
-      <!-- Please click "Continue" below to proceed to the last part of this
-      study.<br /><br /> -->
+      <b>You finished the game with {{ this.points }} points.</b><br />
+      <p v-show="this.points < 0.7 * this.trials.length">
+        This means that you do not get the chance to win a bonus of £20.
+      </p>
+      <p v-show="this.points >= 0.7 * this.trials.length">
+        This means that you get the chance to win a bonus of £20!
+      </p>
+      <br /><br />
       <v-btn
         color="primary"
         elevation="3"
@@ -59,8 +63,6 @@
 </template>
 
 <script>
-import Vue from "vue";
-
 import t1_2 from "@/assets/trials_batch2_0_2.json";
 import t2_2 from "@/assets/trials_batch2_1_2.json";
 // import t3_2 from "@/assets/trials_batch2_2_2.json";
@@ -115,12 +117,10 @@ export default {
       return this.wins - this.losses;
     },
     bonus: function() {
-      // current config in meta = condition 1high, 2low -> so round2 reward £0.01
-
       // if (this.points <= 0) {
       //   return 0;
       // }
-      return (0.01 * this.points).toFixed(2);
+      return (0.05 * this.points).toFixed(2);
     },
   },
   methods: {
@@ -172,9 +172,9 @@ export default {
       this.showReport = false;
     },
     route: function() {
-      Vue.prototype.$bonus = parseFloat(this.$bonus_r1) + parseFloat(this.bonus);
+      let prop_win = this.points / this.trials.length;
 
-      if (this.$bonus > 0) {
+      if (prop_win >= 0.7) {
         this.$router.push("bonus");
       } else {
         this.$router.push("survey");
@@ -195,6 +195,7 @@ export default {
         RTcatch: this.RTcatch,
         results: this.results,
         bonusAmountGBP: this.bonus,
+        winProportion: this.points / this.trials.length,
         finishTime: performance.now(),
       };
       writeResponseData(this.$uuid, "game_block2", responses);
