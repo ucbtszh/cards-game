@@ -40,7 +40,7 @@ export default {
             min_to_utc: n,
             language: lang,
             condition: this.$condition,
-            counterbalance: '1high_2low'
+            counterbalance: '1low_2high'
         }
         writeMetaUser(this.$uuid, metaInfo)
     }

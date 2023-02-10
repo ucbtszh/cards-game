@@ -115,12 +115,7 @@ export default {
       return this.wins - this.losses;
     },
     bonus: function() {
-      // current config in meta = condition 1high, 2low -> so round2 reward £0.01
-
-      // if (this.points <= 0) {
-      //   return 0;
-      // }
-      return (0.01 * this.points).toFixed(2);
+      return (5 * this.points).toFixed(2);
     },
   },
   methods: {

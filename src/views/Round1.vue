@@ -43,9 +43,8 @@
     <div v-show="this.trialIndex === trials.length" style="text-align:left;">
       <b>You finished the first game.</b> <br /><br />
 
-      <h4>In the next game, you will <b>gain £0.01 instead of £5</b> for each trial
-      you <b>win</b> and <b>lose £0.01 instead of £5</b> for each trial you
-      <b>lose</b>.</h4><br />
+      <h4>In the next game, you will <b>gain £5 instead of £0.01</b> for each trial
+      <b>you win</b> and <b>lose £5 instead of £0.01</b> for each trial <b>you lose</b>.</h4><br />
 
       Click 'Continue' below to start the next game.
       <br /><br /><br />
@@ -119,12 +118,7 @@ export default {
       return this.wins - this.losses;
     },
     bonus: function() {
-      // current config in meta = condition 1high, 2low -> so round1 reward £5
-
-      // if (this.points <= 0) {
-      //   return 0;
-      // }
-      return (5 * this.points).toFixed(2);
+      return (0.01 * this.points).toFixed(2);
     },
   },
   methods: {

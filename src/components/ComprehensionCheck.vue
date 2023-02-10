@@ -77,22 +77,22 @@
         >
           <v-radio
             value="a"
-            label="You win £5. The other player wins nothing."
+            label="You win £0.01. The other player wins nothing."
           >
           </v-radio>
           <v-radio
             value="b"
-            label="The other player wins £5. You win nothing."
+            label="The other player wins. You win nothing."
           >
           </v-radio>
           <v-radio
             value="c"
-            label="You win £5. The other player loses £5."
+            label="You win £0.01. The other player loses."
           >
           </v-radio>
           <v-radio
             value="d"
-            label="The other player wins £5.  You lose £5."
+            label="The other player wins. You lose £0.01."
           >
           </v-radio>
         </v-radio-group>
@@ -121,17 +121,17 @@
         >
           <v-radio
             value="a"
-            label="Each person loses £5."
+            label="Each person loses."
           >
           </v-radio>
           <v-radio
             value="b"
-            label="Neither one wins or loses any money."
+            label="Neither one wins or loses."
           >
           </v-radio>
           <v-radio
             value="c"
-            label="Each person wins £5."
+            label="Each person wins."
           >
           </v-radio>
         </v-radio-group>
@@ -161,22 +161,22 @@
         >
           <v-radio
             value="a"
-            label="You win £5. The other player wins nothing."
+            label="You win £0.01. The other player wins nothing."
           >
           </v-radio>
           <v-radio
             value="b"
-            label="The other player wins £5. You win nothing."
+            label="The other player wins. You win nothing."
           >
           </v-radio>
           <v-radio
             value="c"
-            label="You win £5. The other player loses £5."
+            label="You win £0.01. The other player loses."
           >
           </v-radio>
           <v-radio
             value="d"
-            label="The other player wins £5.  You lose £5."
+            label="The other player wins. You lose £0.01."
           >
           </v-radio>
         </v-radio-group>
@@ -205,7 +205,7 @@
         >
           <v-radio
             value="a"
-            label="Each person loses £5."
+            label="Each person loses."
           >
           </v-radio>
           <v-radio
@@ -215,7 +215,7 @@
           </v-radio>
           <v-radio
             value="c"
-            label="Each person wins £5."
+            label="Each person wins."
           >
           </v-radio>
         </v-radio-group>
